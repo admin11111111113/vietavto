@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ru">
+<html lang="{{lang}}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Аренда авто в Нячанге — VietAvto</title>
-<meta name="description" content="Прокат автомобилей без водителя в Нячанге: VinFast, Toyota, Mitsubishi, Mazda и другие. Цены за сутки, понятный депозит, заявка онлайн.">
+<title>{{title}}</title>
+<meta name="description" content="{{meta_desc}}">
 <link rel="alternate" hreflang="ru" href="https://vietavto.pro/">
 <link rel="alternate" hreflang="en" href="https://vietavto.pro/en/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -263,16 +263,16 @@ footer .logo svg{width:24px;height:24px;}
 
 <header class="site-header">
   <div class="wrap">
-    <a class="logo" href="/"><svg viewBox="0 0 32 32" fill="none" stroke="#E8622C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-4l3-6.5A2 2 0 0 1 8.8 9.4h14.4a2 2 0 0 1 1.8 1.1L28 17v4a1 1 0 0 1-1 1h-2M7 22H5a1 1 0 0 1-1-1M4 17h24M11 22h10"/><circle cx="9" cy="22" r="2.2"/><circle cx="23" cy="22" r="2.2"/></svg><span>Viet<b>Avto</b></span></a>
+    <a class="logo" href="{{home}}">{{logo_svg}}<span>Viet<b>Avto</b></span></a>
     <nav class="nav">
-      <a href="#fleet">Автопарк</a>
-      <a href="#terms">Условия</a>
-      <a href="#faq">Вопросы</a>
-      <a href="#contact">Контакты</a>
+      <a href="#fleet">{{nav_fleet}}</a>
+      <a href="#terms">{{nav_terms}}</a>
+      <a href="#faq">{{nav_faq}}</a>
+      <a href="#contact">{{nav_contact}}</a>
     </nav>
     <div class="head-right">
-      <div class="lang"><span>RU</span><a href="/en/" hreflang="en">EN</a></div>
-      <a class="btn btn-outline-accent head-cta" href="#book">Забронировать</a>
+      <div class="lang">{{lang_switch}}</div>
+      <a class="btn btn-outline-accent head-cta" href="#book">{{nav_book}}</a>
     </div>
   </div>
 </header>
@@ -280,26 +280,26 @@ footer .logo svg{width:24px;height:24px;}
 <main>
 <section class="hero">
   <div class="wrap">
-    <div class="pill">Свой автопарк в Нячанге</div>
-    <h1>Аренда авто в Нячанге</h1>
-    <p class="lede">Реальные машины из нашего парка — от городского электромобиля VinFast до 7-местного минивэна. Без посредников, с понятным депозитом и возвратом «бак в бак».</p>
+    <div class="pill">{{pill}}</div>
+    <h1>{{h1}}</h1>
+    <p class="lede">{{lede}}</p>
     <div class="perks">
-      <div class="perk"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M5 17h14M6 17l1.5-5h9L18 17M8 12l1-3h6l1 3"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg></span>10+ машин<br>в наличии</div>
-      <div class="perk"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>Без<br>посредников</div>
-      <div class="perk"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-5A8 8 0 1 1 21 12z"/></svg></span>Ответ в WhatsApp<br>или Telegram</div>
+      <div class="perk"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M5 17h14M6 17l1.5-5h9L18 17M8 12l1-3h6l1 3"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg></span>{{perk1}}</div>
+      <div class="perk"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>{{perk2}}</div>
+      <div class="perk"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-5A8 8 0 1 1 21 12z"/></svg></span>{{perk3}}</div>
     </div>
 
     <div class="book" id="book">
       <div class="book-row main">
-        <div class="fld"><label for="book-car">Машина</label><select id="book-car"><option value="">Любая — подберите мне</option></select></div>
-        <div class="fld"><label for="book-from">Дата получения</label><input type="date" id="book-from"></div>
-        <div class="fld"><label for="book-to">Дата возврата</label><input type="date" id="book-to"></div>
-        <button type="button" class="btn btn-accent" id="book-send"><svg class="ico" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg><span>Оставить заявку</span></button>
+        <div class="fld"><label for="book-car">{{f_car}}</label><select id="book-car"><option value="">{{f_car_any}}</option></select></div>
+        <div class="fld"><label for="book-from">{{f_from}}</label><input type="date" id="book-from"></div>
+        <div class="fld"><label for="book-to">{{f_to}}</label><input type="date" id="book-to"></div>
+        <button type="button" class="btn btn-accent" id="book-send"><svg class="ico" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg><span>{{b_send}}</span></button>
       </div>
       <div class="book-row more">
-        <div class="fld"><label for="book-phone">Ваш WhatsApp или Telegram</label><input type="text" id="book-phone" placeholder="+84 912 345 678 или @username" autocomplete="tel"></div>
-        <div class="fld"><label for="book-name">Ваше имя</label><input type="text" id="book-name" placeholder="Как к вам обращаться" autocomplete="name"></div>
-        <div class="fld"><label for="book-place">Где забрать (необязательно)</label><input type="text" id="book-place" placeholder="Отель, адрес или аэропорт Камрань">
+        <div class="fld"><label for="book-phone">{{f_contact}}</label><input type="text" id="book-phone" placeholder="{{f_contact_ph}}" autocomplete="tel"></div>
+        <div class="fld"><label for="book-name">{{f_name}}</label><input type="text" id="book-name" placeholder="{{f_name_ph}}" autocomplete="name"></div>
+        <div class="fld"><label for="book-place">{{f_place}}</label><input type="text" id="book-place" placeholder="{{f_place_ph}}">
           <input type="text" id="book-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"></div>
       </div>
       <div class="book-err" id="book-err" hidden></div>
@@ -307,11 +307,11 @@ footer .logo svg{width:24px;height:24px;}
       <div class="book-foot">
         <span class="book-sum" id="book-sum"></span>
         <span class="spacer"></span>
-        <span class="book-hint" style="margin:0">или напишите нам:</span>
+        <span class="book-hint" style="margin:0">{{or_chat}}</span>
         <button type="button" class="btn" id="book-wa">WhatsApp</button>
         <button type="button" class="btn" id="book-tg">Telegram</button>
       </div>
-      <div class="book-hint" id="book-hint">«Оставить заявку» — мы сами напишем вам. WhatsApp и Telegram открывают чат с нами, текст заявки подставится сам.</div>
+      <div class="book-hint" id="book-hint">{{book_hint}}</div>
     </div>
   </div>
 </section>
@@ -319,12 +319,12 @@ footer .logo svg{width:24px;height:24px;}
 <section class="block" id="fleet">
   <div class="wrap">
     <div class="sec-head">
-      <div><h2>Автопарк</h2><p>Цены — за сутки аренды без водителя. На месяц и дольше — отдельная ставка, уточняйте при бронировании.</p></div>
+      <div><h2>{{fleet_h}}</h2><p>{{fleet_p}}</p></div>
     </div>
     <div class="grid" id="fleet-grid"></div>
     <div class="more-seats">
-      <div>Нужно больше мест? Есть <b>Kia Carnival</b> (7–11 мест) — для больших семей и групп.</div>
-      <div class="price"><b>2 100 000 ₫</b> / сутки</div>
+      <div>{{carnival}}</div>
+      <div class="price"><b>2 100 000 ₫</b> {{per_day}}</div>
     </div>
   </div>
 </section>
@@ -332,38 +332,38 @@ footer .logo svg{width:24px;height:24px;}
 <section class="block">
   <div class="wrap">
     <div class="features">
-      <div class="feature"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M5 17h14M6 17l1.5-5h9L18 17M8 12l1-3h6l1 3"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg></span><div><h3>Реальные машины</h3><p>На фото — автомобили из нашего парка, а не картинки из интернета.</p></div></div>
-      <div class="feature"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><div><h3>Прозрачные условия</h3><p>Депозит, пробег и топливо — всё расписано ниже, без мелкого шрифта.</p></div></div>
-      <div class="feature"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><h3>Передача в Нячанге</h3><p>Договоримся об удобном месте — отель, адрес или аэропорт.</p></div></div>
-      <div class="feature"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-5A8 8 0 1 1 21 12z"/></svg></span><div><h3>Связь напрямую</h3><p>Пишете владельцу в WhatsApp или Telegram — без колл-центров.</p></div></div>
+      <div class="feature"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M5 17h14M6 17l1.5-5h9L18 17M8 12l1-3h6l1 3"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg></span><div><h3>{{ft1_h}}</h3><p>{{ft1_p}}</p></div></div>
+      <div class="feature"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><div><h3>{{ft2_h}}</h3><p>{{ft2_p}}</p></div></div>
+      <div class="feature"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><h3>{{ft3_h}}</h3><p>{{ft3_p}}</p></div></div>
+      <div class="feature"><span class="box"><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-5A8 8 0 1 1 21 12z"/></svg></span><div><h3>{{ft4_h}}</h3><p>{{ft4_p}}</p></div></div>
     </div>
   </div>
 </section>
 
 <section class="block" id="terms">
   <div class="wrap">
-    <div class="sec-head"><div><h2>Условия аренды</h2></div></div>
+    <div class="sec-head"><div><h2>{{terms_h}}</h2></div></div>
     <div class="cards-2">
-      <div class="term"><div class="k">Пробег</div><div class="v">250 км в сутки<small>Планируете дальний маршрут — предупредите заранее, посчитаем доплату.</small></div></div>
-      <div class="term"><div class="k">Депозит по Кхань Хоа</div><div class="v">$200<small>Нячанг и окрестности. Возвращается при сдаче машины.</small></div></div>
-      <div class="term"><div class="k">Депозит по Вьетнаму</div><div class="v">$400<small>$200 возвращаем сразу, остальные $200 — через месяц: штрафы с камер приходят с задержкой.</small></div></div>
-      <div class="term"><div class="k">Топливо</div><div class="v">Бак в бак<small>Возвращаете с тем же уровнем топлива — никаких доплат за литры.</small></div></div>
-      <div class="term"><div class="k">Мойка</div><div class="v">350 000 ₫<small>Машину нужно вернуть чистой — или помоем за вас за эту сумму.</small></div></div>
-      <div class="term"><div class="k">Долгая аренда</div><div class="v">От месяца — своя ставка<small>Напишите даты — посчитаем выгоднее посуточной цены.</small></div></div>
+      <div class="term"><div class="k">{{t1_k}}</div><div class="v">{{t1_v}}</div></div>
+      <div class="term"><div class="k">{{t2_k}}</div><div class="v">{{t2_v}}</div></div>
+      <div class="term"><div class="k">{{t3_k}}</div><div class="v">{{t3_v}}</div></div>
+      <div class="term"><div class="k">{{t4_k}}</div><div class="v">{{t4_v}}</div></div>
+      <div class="term"><div class="k">{{t5_k}}</div><div class="v">{{t5_v}}</div></div>
+      <div class="term"><div class="k">{{t6_k}}</div><div class="v">{{t6_v}}</div></div>
     </div>
   </div>
 </section>
 
 <section class="block" id="faq">
   <div class="wrap">
-    <div class="sec-head"><div><h2>Вопросы и ответы</h2></div></div>
+    <div class="sec-head"><div><h2>{{faq_h}}</h2></div></div>
     <div class="cards-2">
-      <div class="qa"><h3>Нужны ли международные права?</h3><p>Да. Для вождения во Вьетнаме нужно международное водительское удостоверение (по Венской конвенции 1968 года) или вьетнамские права.</p></div>
-      <div class="qa"><h3>Какой депозит?</h3><p>$200 для поездок по провинции Кхань Хоа и $400 — по всему Вьетнаму. Подробности — в условиях выше.</p></div>
-      <div class="qa"><h3>Можно поехать в Далат или дальше?</h3><p>Да, с депозитом $400. Дневной лимит — 250 км: для длинного маршрута предупредите заранее, посчитаем доплату.</p></div>
-      <div class="qa"><h3>Где забрать машину?</h3><p>Место передачи согласуем при бронировании: отель, адрес в Нячанге или аэропорт Камрань.</p></div>
-      <div class="qa"><h3>Как забронировать?</h3><p>Выберите машину и даты в форме вверху и нажмите «Оставить заявку» — мы напишем вам сами. Или сразу напишите нам в WhatsApp или Telegram.</p></div>
-      <div class="qa"><h3>Есть скидка на долгую аренду?</h3><p>Да, при аренде на месяц и дольше действует отдельная ставка — пришлите даты, и мы её назовём.</p></div>
+      <div class="qa"><h3>{{q1}}</h3><p>{{a1}}</p></div>
+      <div class="qa"><h3>{{q2}}</h3><p>{{a2}}</p></div>
+      <div class="qa"><h3>{{q3}}</h3><p>{{a3}}</p></div>
+      <div class="qa"><h3>{{q4}}</h3><p>{{a4}}</p></div>
+      <div class="qa"><h3>{{q5}}</h3><p>{{a5}}</p></div>
+      <div class="qa"><h3>{{q6}}</h3><p>{{a6}}</p></div>
     </div>
   </div>
 </section>
@@ -371,17 +371,17 @@ footer .logo svg{width:24px;height:24px;}
 <div class="wrap">
   <section class="contact" id="contact">
     <div>
-      <h2>Готовы забрать машину?</h2>
-      <p>Напишите модель и даты — подберём авто из наличия и согласуем встречу в Нячанге.</p>
+      <h2>{{cta_h}}</h2>
+      <p>{{cta_p}}</p>
       <div class="contact-list">
         <a href="https://wa.me/79041188897" target="_blank" rel="noopener nofollow">WhatsApp: +7 904 118-88-97</a>
         <a href="https://t.me/workminer" target="_blank" rel="noopener nofollow">Telegram: @workminer</a>
       </div>
     </div>
     <div class="contact-actions">
-      <a class="btn btn-accent" href="#book">Оставить заявку</a>
-      <a class="btn" href="https://wa.me/79041188897" target="_blank" rel="noopener nofollow">Написать в WhatsApp</a>
-      <a class="btn" href="https://t.me/workminer" target="_blank" rel="noopener nofollow">Написать в Telegram</a>
+      <a class="btn btn-accent" href="#book">{{cta_book}}</a>
+      <a class="btn" href="https://wa.me/79041188897" target="_blank" rel="noopener nofollow">{{cta_wa}}</a>
+      <a class="btn" href="https://t.me/workminer" target="_blank" rel="noopener nofollow">{{cta_tg}}</a>
     </div>
   </section>
 </div>
@@ -389,29 +389,29 @@ footer .logo svg{width:24px;height:24px;}
 
 <footer>
   <div class="wrap">
-    <div><a class="logo" href="/"><svg viewBox="0 0 32 32" fill="none" stroke="#E8622C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-4l3-6.5A2 2 0 0 1 8.8 9.4h14.4a2 2 0 0 1 1.8 1.1L28 17v4a1 1 0 0 1-1 1h-2M7 22H5a1 1 0 0 1-1-1M4 17h24M11 22h10"/><circle cx="9" cy="22" r="2.2"/><circle cx="23" cy="22" r="2.2"/></svg><span>Viet<b>Avto</b></span></a><div style="margin-top:6px">Прокат авто без водителя · Нячанг, Вьетнам</div></div>
-    <div style="text-align:right">18+ · Аренда без водителя<br><a href="https://wa.me/79041188897" target="_blank" rel="noopener nofollow">WhatsApp</a> · <a href="https://t.me/workminer" target="_blank" rel="noopener nofollow">Telegram</a></div>
+    <div><a class="logo" href="{{home}}">{{logo_svg}}<span>Viet<b>Avto</b></span></a><div style="margin-top:6px">{{footer_l}}</div></div>
+    <div style="text-align:right">{{footer_r}}<br><a href="https://wa.me/79041188897" target="_blank" rel="noopener nofollow">WhatsApp</a> · <a href="https://t.me/workminer" target="_blank" rel="noopener nofollow">Telegram</a></div>
   </div>
 </footer>
 
-<nav class="mbar" id="mbar" aria-label="Забронировать">
-  <a class="btn btn-accent" href="#book">Забронировать</a>
+<nav class="mbar" id="mbar" aria-label="{{nav_book}}">
+  <a class="btn btn-accent" href="#book">{{nav_book}}</a>
   <a class="btn sq" href="https://wa.me/79041188897" target="_blank" rel="noopener nofollow" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.2z"/></svg></a>
   <a class="btn sq" href="https://t.me/workminer" target="_blank" rel="noopener nofollow" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="#2AABEE"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 6.8-1.6 7.7c-.1.5-.4.7-.9.4l-2.5-1.8-1.2 1.2c-.1.1-.3.2-.5.2l.2-2.5 4.6-4.2c.2-.2 0-.3-.3-.1l-5.7 3.6-2.4-.8c-.5-.2-.5-.5.1-.8l9.5-3.7c.4-.1.8.1.7.8z"/></svg></a>
 </nav>
 
 <div class="lightbox" id="lightbox" hidden>
-  <button class="lb-close" id="lb-close" aria-label="Закрыть">×</button>
-  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Предыдущее фото">‹</button>
+  <button class="lb-close" id="lb-close" aria-label="{{lb_close}}">×</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="{{lb_prev}}">‹</button>
   <img id="lb-img" src="" alt="">
-  <button class="lb-nav lb-next" id="lb-next" aria-label="Следующее фото">›</button>
+  <button class="lb-nav lb-next" id="lb-next" aria-label="{{lb_next}}">›</button>
   <div class="lb-count" id="lb-count"></div>
 </div>
 
-<script type="application/json" id="cars-data">[{"id": "vf3", "order": 1, "hidden": false, "name": "VinFast VF3", "cls": "Мини-электромобиль", "cls_en": "Mini EV", "price": 700000, "desc": "Городской электрокар вьетнамской разработки: около 210 км хода на батарее, длина всего 3,2 м — паркуется там, где не пройдёт седан. Идеален для поездок по самому Нячангу.", "desc_en": "A Vietnamese-built city EV: about 210 km of range and just 3.2 m long — it parks where a sedan won’t fit. Ideal for getting around Nha Trang.", "photos": ["images/vf3.jpg"], "seats": 4, "fuel": "electric", "gearbox": "auto"}, {"id": "vf5", "order": 2, "hidden": false, "name": "VinFast VF5", "cls": "Электрокроссовер", "cls_en": "Electric crossover", "price": 800000, "desc": "Компактный электрический кроссовер, запас хода около 300 км. Салон просторнее VF3, а тяга электромотора ощущается уже с места.", "desc_en": "A compact electric crossover with about 300 km of range. Roomier than the VF3, with instant electric torque off the line.", "photos": ["images/vf5.jpg"], "seats": 5, "fuel": "electric", "gearbox": "auto"}, {"id": "soluto", "order": 3, "hidden": false, "name": "Kia Soluto", "cls": "Седан", "cls_en": "Sedan", "price": 900000, "desc": "Простой и экономичный седан 1.4 л — самый доступный бензиновый вариант в парке. Хорош для двоих без лишнего багажа.", "desc_en": "A simple, economical 1.4 L sedan — the most affordable petrol car in the fleet. Great for two travelling light.", "photos": ["images/soluto.jpg"], "seats": 5, "fuel": "petrol", "gearbox": ""}, {"id": "mazda3", "order": 4, "hidden": false, "name": "Mazda3", "cls": "Седан", "cls_en": "Sedan", "price": 900000, "desc": "Компактный седан с фирменной плотной подвеской Mazda и точным рулём — дорога вдоль побережья становится удовольствием.", "desc_en": "A compact sedan with Mazda’s firm suspension and precise steering — the coastal road becomes the fun part.", "photos": ["images/mazda3.jpg"], "seats": 5, "fuel": "petrol", "gearbox": "auto"}, {"id": "rush", "order": 5, "hidden": false, "name": "Toyota Rush", "cls": "7-местный SUV", "cls_en": "7-seat SUV", "price": 1000000, "desc": "Компактный 7-местный внедорожник с приподнятой посадкой — увереннее держится на разбитых дорогах, хватает места на компанию и вещи.", "desc_en": "A compact 7-seat SUV with high ground clearance — more confident on rough roads, with room for a group and luggage.", "photos": ["images/rush.jpg"], "seats": 7, "fuel": "petrol", "gearbox": "auto"}, {"id": "xpander", "order": 6, "hidden": false, "name": "Mitsubishi Xpander", "cls": "7-местный минивэн", "cls_en": "7-seat minivan", "price": 1100000, "desc": "Самый популярный семейный минивэн во Вьетнаме — третий ряд вмещает взрослых, багажник не превращается в тетрис.", "desc_en": "Vietnam’s most popular family minivan — the third row fits adults and the boot swallows suitcases with ease.", "photos": ["images/xpander.jpg"], "seats": 7, "fuel": "petrol", "gearbox": ""}, {"id": "veloz", "order": 7, "hidden": false, "name": "Toyota Veloz", "cls": "7-местный минивэн", "cls_en": "7-seat minivan", "price": 1100000, "desc": "Родственник Xpander по классу и цене — расчёт на большую компанию и полный багажник, с надёжностью Toyota.", "desc_en": "Same class and price as the Xpander — built for a big group and a full boot, with Toyota reliability.", "photos": ["images/veloz.jpg"], "seats": 7, "fuel": "petrol", "gearbox": "auto"}, {"id": "creta", "order": 8, "hidden": false, "name": "Hyundai Creta", "cls": "Кроссовер", "cls_en": "Crossover", "price": 1150000, "desc": "Компактный кроссовер с современными ассистентами и высокой посадкой — удобная база для выездов в Далат.", "desc_en": "A compact crossover with modern driver aids and a high seating position — a comfortable base for trips to Da Lat.", "photos": ["images/creta.jpg"], "seats": 5, "fuel": "petrol", "gearbox": "auto"}, {"id": "xforce", "order": 9, "hidden": false, "name": "Mitsubishi Xforce", "cls": "Кроссовер, 2024", "cls_en": "Crossover, 2024", "price": 1150000, "desc": "Один из самых новых кроссоверов в парке — острая светотехника, свежая платформа, практичность класса Creta.", "desc_en": "One of the newest crossovers in the fleet — sharp lighting, a fresh platform and Creta-class practicality.", "photos": ["images/xforce.jpg"], "seats": 5, "fuel": "petrol", "gearbox": "auto"}, {"id": "luxa", "order": 10, "hidden": false, "name": "VinFast Lux A2.0", "cls": "Бизнес-седан", "cls_en": "Executive sedan", "price": 1200000, "desc": "Флагманский седан VinFast на платформе BMW 5-й серии — 2.0 турбо, салон бизнес-класса. Лучший вариант для трансфера из Кам Ранг.", "desc_en": "VinFast’s flagship sedan on the BMW 5 Series platform — 2.0 turbo, executive-class cabin. The best pick for a Cam Ranh airport transfer.", "photos": ["images/luxa.jpg"], "seats": 5, "fuel": "petrol", "gearbox": "auto"}]</script>
+<script type="application/json" id="cars-data">{{cars_json}}</script>
 <script>
 (function(){
-  var T = {"seats": "мест", "gb_auto": "Автомат", "gb_manual": "Механика", "fu_petrol": "Бензин", "fu_electric": "Электро", "fu_diesel": "Дизель", "fu_hybrid": "Гибрид", "per_day": "/ сутки", "per_day_short": "/сут", "book": "Забронировать", "approx": "примерно", "err_from": "Укажите дату получения.", "err_to": "Укажите дату возврата.", "err_order": "Дата возврата должна быть позже даты получения.", "err_contact": "Укажите ваш WhatsApp (номер) или Telegram (@username), чтобы мы могли ответить.", "err_send": "Не удалось отправить заявку. Напишите нам в WhatsApp или Telegram — кнопки ниже.", "send": "Оставить заявку", "sending": "Отправляем…", "ok_prefix": "Заявка отправлена! Мы напишем вам в ближайшее время: ", "tg_copied": "Если текст не подставился в Telegram — он скопирован, просто вставьте и отправьте.", "via_form": "Заявка с сайта", "m_hello": "Здравствуйте! Хочу арендовать авто.", "m_car": "Машина: ", "m_any": "любая, подберите вариант", "m_dates": "Даты: ", "m_price": "По сайту: ", "m_total": "итого ≈ ", "m_place": "Где забрать: ", "m_name": "Имя: ", "m_contact": "Мой контакт: "};
+  var T = {{js_strings}};
   var EN = document.documentElement.lang === 'en';
   var WA_PHONE = '79041188897';
   var TG_USER = 'workminer';
