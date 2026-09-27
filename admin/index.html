@@ -216,6 +216,7 @@ label{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.05
       g.appendChild(field('Цена, ₫ за сутки', c.price, function(v){ c.price = Number(String(v).replace(/\D/g,'')) || 0; }, {type:'text', placeholder:'например 900000'}));
       g.appendChild(field('Класс (RU)', c.cls, function(v){ c.cls = v; }, {placeholder:'Седан'}));
       g.appendChild(field('Класс (EN)', c.cls_en, function(v){ c.cls_en = v; }, {placeholder:'Sedan'}));
+      g.appendChild(field('Класс (VI, вьетнамский)', c.cls_vi, function(v){ c.cls_vi = v; }, {placeholder:'Sedan'}));
       var specs = document.createElement('div'); specs.className = 'full grid3';
       specs.appendChild(field('Мест', c.seats || '', function(v){ c.seats = Number(String(v).replace(/\D/g,'')) || 0; }, {placeholder:'5'}));
       specs.appendChild(choice('Коробка', c.gearbox, [['','— не указывать —'],['auto','Автомат'],['manual','Механика']], function(v){ c.gearbox = v; }));
@@ -223,6 +224,7 @@ label{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.05
       g.appendChild(specs);
       g.appendChild(field('Описание (RU)', c.desc, function(v){ c.desc = v; }, {textarea:true, full:true}));
       g.appendChild(field('Описание (EN, для английской версии)', c.desc_en, function(v){ c.desc_en = v; }, {textarea:true, full:true}));
+      g.appendChild(field('Описание (VI, для вьетнамской версии)', c.desc_vi, function(v){ c.desc_vi = v; }, {textarea:true, full:true}));
 
       var phWrap = document.createElement('div'); phWrap.className = 'full';
       var phLabel = document.createElement('label'); phLabel.textContent = 'Фото (первое — главное)';
@@ -302,7 +304,7 @@ label{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.05
     var base = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'car';
     var id = base, n = 2;
     while(cars.some(function(c){ return c.id === id; })) id = base + '-' + (n++);
-    cars.push({id:id, name:name, cls:'', cls_en:'', price:0, seats:5, gearbox:'auto', fuel:'petrol', desc:'', desc_en:'', photos:[], hidden:false});
+    cars.push({id:id, name:name, cls:'', cls_en:'', cls_vi:'', price:0, seats:5, gearbox:'auto', fuel:'petrol', desc:'', desc_en:'', desc_vi:'', photos:[], hidden:false});
     markDirty(); render();
     window.scrollTo(0, document.body.scrollHeight);
   });

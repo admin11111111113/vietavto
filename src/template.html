@@ -7,6 +7,7 @@
 <meta name="description" content="{{meta_desc}}">
 <link rel="alternate" hreflang="ru" href="https://vietavto.pro/">
 <link rel="alternate" hreflang="en" href="https://vietavto.pro/en/">
+<link rel="alternate" hreflang="vi" href="https://vietavto.pro/vi/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -405,13 +406,14 @@ footer .logo svg{width:24px;height:24px;}
 <script>
 (function(){
   var T = {{js_strings}};
-  var EN = document.documentElement.lang === 'en';
+  var LANG = document.documentElement.lang;
+  var EN = LANG === 'en';
   var WA_PHONE = '79041188897';
   var TG_USER = 'workminer';
   var LEAD_URL = 'https://vietavto-orders.onrender.com/lead';
   var $ = function(id){ return document.getElementById(id); };
 
-  function fmtPrice(v){ try{ return new Intl.NumberFormat(EN ? 'en-US' : 'ru-RU').format(v); }catch(e){ return String(v); } }
+  function fmtPrice(v){ try{ return new Intl.NumberFormat({ru:'ru-RU', en:'en-US', vi:'vi-VN'}[LANG] || 'ru-RU').format(v); }catch(e){ return String(v); } }
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
   // ---------- background: photo dims as you scroll ----------
@@ -445,8 +447,8 @@ footer .logo svg{width:24px;height:24px;}
     return out.join('');
   }
   function cardHTML(c){
-    var cls = EN ? (c.cls_en || c.cls) : c.cls;
-    var desc = EN ? (c.desc_en || c.desc) : c.desc;
+    var cls = LANG === 'ru' ? c.cls : (c['cls_' + LANG] || c.cls_en || c.cls);
+    var desc = LANG === 'ru' ? c.desc : (c['desc_' + LANG] || c.desc_en || c.desc);
     var photos = (c.photos || []).map(photoUrl);
     var media = photos.length
       ? '<img class="gallery-main" src="' + esc(photos[0]) + '" alt="' + esc(c.name) + '" loading="lazy">'
@@ -548,7 +550,7 @@ footer .logo svg{width:24px;height:24px;}
   function isoDate(d){ var m = d.getMonth() + 1, day = d.getDate(); return d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day; }
   function fmtDate(s){ var p = (s || '').split('-'); return p.length === 3 ? (p[2] + '.' + p[1] + '.' + p[0]) : s; }
   function daysBetween(a, b){ if(!a || !b) return 0; return Math.round((new Date(b + 'T00:00:00') - new Date(a + 'T00:00:00')) / 86400000); }
-  function dayWord(n){ return EN ? (n === 1 ? 'day' : 'days') : ((n % 10 === 1 && n % 100 !== 11) ? 'сутки' : 'суток'); }
+  function dayWord(n){ return LANG === 'vi' ? 'ngày' : EN ? (n === 1 ? 'day' : 'days') : ((n % 10 === 1 && n % 100 !== 11) ? 'сутки' : 'суток'); }
   function currentCar(){ return selCar.value ? carById(selCar.value) : null; }
   function updateSummary(){
     var d = daysBetween(inFrom.value, inTo.value), car = currentCar();

@@ -1,5 +1,8 @@
-# Builds / (RU) and /en/ (EN) from src/template.html + cars.json.  Run: python src/build.py
-import io, json, os, re
+# Builds / (RU), /en/ (EN) and /vi/ (VI) from src/template.html + cars.json.  Run: python src/build.py
+import io, json, os, re, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import vi as VI
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 rd = lambda p: io.open(os.path.join(ROOT, p), encoding='utf-8').read()
@@ -126,29 +129,41 @@ TERMS = [
    'A month or more — special rate<small>Send us your dates and we’ll quote below the daily price.</small>')),
 ]
 
+LANGS = ('ru', 'en', 'vi')
+HOME = {'ru': '/', 'en': '/en/', 'vi': '/vi/'}
+
+def pick(table, key, lang, vi_table):
+    if lang == 'vi':
+        return vi_table[key]
+    return table[key][0 if lang == 'ru' else 1]
+
+def lang_switch(lang):
+    return ''.join('<span>%s</span>' % l.upper() if l == lang else '<a href="%s" hreflang="%s">%s</a>' % (HOME[l], l, l.upper()) for l in LANGS)
+
 def build(lang):
     i = 0 if lang == 'ru' else 1
     html = rd('src/template.html')
     cars = json.loads(rd('cars.json'))
-    vals = {k: v[i] for k, v in S.items()}
+    vals = {k: pick(S, k, lang, VI.S) for k in S}
     vals.update({
         'lang': lang,
-        'terms_html': '\n'.join('      <div class="term"><div class="k">%s</div><div class="v">%s</div></div>' % (k[i], v[i]) for k, v in TERMS),
-        'home': '/' if lang == 'ru' else '/en/',
+        'terms_html': '\n'.join('      <div class="term"><div class="k">%s</div><div class="v">%s</div></div>' % kv
+                                 for kv in (VI.TERMS if lang == 'vi' else [(k[i], v[i]) for k, v in TERMS])),
+        'home': HOME[lang],
         'logo_svg': LOGO,
-        'lang_switch': '<span>RU</span><a href="/en/" hreflang="en">EN</a>' if lang == 'ru' else '<a href="/" hreflang="ru">RU</a><span>EN</span>',
+        'lang_switch': lang_switch(lang),
         # </script> can't appear inside the JSON block
         'cars_json': json.dumps(cars, ensure_ascii=False).replace('</', '<\\/'),
-        'js_strings': json.dumps({k: v[i] for k, v in JS.items()}, ensure_ascii=False),
+        'js_strings': json.dumps({k: pick(JS, k, lang, VI.JS) for k in JS}, ensure_ascii=False),
     })
     out = re.sub(r'\{\{(\w+)\}\}', lambda m: vals[m.group(1)], html)
     left = re.findall(r'\{\{\w+\}\}', out)
     assert not left, left
-    path = os.path.join(ROOT, 'index.html' if lang == 'ru' else 'en/index.html')
+    path = os.path.join(ROOT, 'index.html' if lang == 'ru' else lang + '/index.html')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     io.open(path, 'w', encoding='utf-8', newline='\n').write(out)
     return path
 
 if __name__ == '__main__':
-    for l in ('ru', 'en'):
+    for l in LANGS:
         print('built', build(l))
