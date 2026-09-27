@@ -138,5 +138,17 @@
     "photos": [
       "images/luxa.jpg"
     ]
+  },
+  {
+    "id": "test-hidden",
+    "order": 11,
+    "hidden": true,
+    "name": "TEST",
+    "cls": "",
+    "cls_en": "",
+    "price": 1,
+    "desc": "",
+    "desc_en": "",
+    "photos": []
   }
 ]
