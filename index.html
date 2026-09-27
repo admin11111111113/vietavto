@@ -417,14 +417,19 @@ footer{
           <input type="date" id="book-to">
         </div>
       </div>
-      <div class="book-row two">
+      <div class="book-row three">
         <div>
           <label for="book-name">Ваше имя</label>
           <input type="text" id="book-name" placeholder="Как к вам обращаться" autocomplete="name">
         </div>
         <div>
+          <label for="book-phone">Телефон / WhatsApp</label>
+          <input type="tel" id="book-phone" placeholder="+84 … или +7 …" autocomplete="tel" inputmode="tel">
+        </div>
+        <div>
           <label for="book-place">Где забрать (необязательно)</label>
           <input type="text" id="book-place" placeholder="Отель, адрес или аэропорт Камрань">
+          <input type="text" id="book-website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         </div>
       </div>
       <div class="book-sum" id="book-sum"></div>
@@ -861,6 +866,9 @@ footer{
   var sumEl = document.getElementById('book-sum');
   var errEl = document.getElementById('book-err');
   var hintEl = document.getElementById('book-hint');
+  var inPhone = document.getElementById('book-phone');
+  var inTrap = document.getElementById('book-website');
+  var LEAD_URL = 'https://vietavto-orders.onrender.com/lead';
 
   function carInfo(el){
     var h = el.querySelector('h3');
@@ -911,11 +919,12 @@ footer{
     }
   }
   function validate(){
-    inFrom.classList.remove('bad'); inTo.classList.remove('bad');
+    inFrom.classList.remove('bad'); inTo.classList.remove('bad'); inPhone.classList.remove('bad');
     var msg = '';
     if(!inFrom.value){ inFrom.classList.add('bad'); msg = 'Укажите дату получения.'; }
     else if(!inTo.value){ inTo.classList.add('bad'); msg = 'Укажите дату возврата.'; }
     else if(daysBetween(inFrom.value, inTo.value) < 1){ inTo.classList.add('bad'); msg = 'Дата возврата должна быть позже даты получения.'; }
+    else if(inPhone.value.replace(/\D/g,'').length < 7){ inPhone.classList.add('bad'); msg = 'Укажите телефон или WhatsApp, чтобы мы могли связаться.'; }
     errEl.textContent = msg;
     errEl.hidden = !msg;
     return !msg;
@@ -934,6 +943,23 @@ footer{
     return lines.join('\n');
   }
 
+  // Notify the owner in Telegram as soon as the button is pressed, even if the client never sends the chat message.
+  function sendLead(via){
+    var car = currentCar();
+    var d = daysBetween(inFrom.value, inTo.value);
+    var payload = {
+      car: car ? car.name : '', from: fmtDate(inFrom.value), to: fmtDate(inTo.value),
+      days: d + ' ' + dayWord(d), total: (car && car.price) ? fmtPrice(car.price*d) + ' ₫' : '',
+      name: inName.value.trim(), phone: inPhone.value.trim(), place: inPlace.value.trim(),
+      via: via, lang: document.documentElement.lang, website: inTrap.value
+    };
+    try{
+      fetch(LEAD_URL, {method:'POST', headers:{'Content-Type':'text/plain;charset=UTF-8'}, body:JSON.stringify(payload), keepalive:true}).catch(function(){});
+    }catch(e){}
+  }
+  // Wake the free server up early so the lead doesn't wait for a cold start.
+  try{ fetch(LEAD_URL.replace(/\/lead$/, '/health')).catch(function(){}); }catch(e){}
+
   var today = isoDate(new Date());
   inFrom.min = today;
   inTo.min = today;
@@ -950,10 +976,12 @@ footer{
 
   document.getElementById('book-wa').addEventListener('click', function(){
     if(!validate()) return;
+    sendLead('WhatsApp');
     window.open('https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(buildMessage()), '_blank', 'noopener');
   });
   document.getElementById('book-tg').addEventListener('click', function(){
     if(!validate()) return;
+    sendLead('Telegram');
     var msg = buildMessage();
     // Telegram doesn't prefill text in personal chats, so copy the request for pasting.
     try{
