@@ -1027,14 +1027,50 @@ footer{
     window.open('https://t.me/' + TG_USER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
   });
 
-  document.querySelectorAll('.car-cta').forEach(function(a){
-    a.addEventListener('click', function(){
-      var id = a.getAttribute('data-book-car');
-      if(id){ selCar.value = id; updateSummary(); }
-    });
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest && ev.target.closest('.car-cta');
+    var id = a && a.getAttribute('data-book-car');
+    if(id){ selCar.value = id; updateSummary(); }
   });
 
+  // ---------- fleet from /cars.json (edited at /admin) ----------
+  var CARD_HTML = '<figure><img class="gallery-main" src="" alt=""><div class="gallery-count" hidden></div><div class="gallery-thumbs" hidden></div></figure>' +
+    '<div class="car-body"><div class="car-top"><div><h3></h3><div class="car-class"></div></div><div class="price">0 ₫<span>/ сутки</span></div></div>' +
+    '<p class="spec"></p><a class="car-cta" href="#book">Забронировать →</a></div>';
+  function loadFleet(){
+    fetch('/cars.json?v=' + Date.now()).then(function(r){ return r.ok ? r.json() : null; }).then(function(list){
+      if(!Array.isArray(list) || !list.length) return;
+      var grid = document.getElementById('fleet-grid');
+      var en = document.documentElement.lang === 'en';
+      var seen = {};
+      list.filter(function(c){ return c && c.id && !c.hidden; })
+        .sort(function(a,b){ return (a.order||0) - (b.order||0); })
+        .forEach(function(c){
+          var el = grid.querySelector('.car[data-id="' + c.id + '"]');
+          if(!el){
+            el = document.createElement('article');
+            el.className = 'car';
+            el.setAttribute('data-id', c.id);
+            el.innerHTML = CARD_HTML;
+            el.querySelector('.car-cta').setAttribute('data-book-car', c.id);
+          }
+          grid.appendChild(el);
+          seen[c.id] = 1;
+          var photos = (c.photos || []).map(function(p){ return /^(https?:)?\//.test(p) ? p : '/' + p; });
+          applyCar(el, {
+            name: c.name, cls: en ? (c.cls_en || c.cls) : c.cls, price: c.price,
+            desc: en ? (c.desc_en || c.desc) : c.desc, photos: photos
+          });
+          var img = el.querySelector('.gallery-main');
+          if(img) img.alt = c.name || '';
+        });
+      grid.querySelectorAll('.car').forEach(function(el){ if(!seen[el.getAttribute('data-id')]) el.remove(); });
+      fillCarSelect(); updateSummary();
+    }).catch(function(){});
+  }
+
   fillCarSelect();
+  loadFleet();
 
   async function start(){
     if(!window.claude || !window.claude.use) return;

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>VietAvto — админка</title>
+<style>
+:root{
+  --bg:#F6F0E3; --card:#FFFFFF; --line:#E3D9C4; --text:#16261F; --muted:#5B6B60;
+  --deep:#0F3535; --accent:#D95A2B; --accent-2:#B84A22; --ok:#2E7D5B; --danger:#B3261E;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1B16; --card:#132420; --line:#24382F; --text:#EDE7D6; --muted:#9AAA9E;
+    --deep:#0A2626; --accent:#E97347; --accent-2:#F08758; --ok:#5DBB8E; --danger:#F2867E;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1B16; --card:#132420; --line:#24382F; --text:#EDE7D6; --muted:#9AAA9E;
+  --deep:#0A2626; --accent:#E97347; --accent-2:#F08758; --ok:#5DBB8E; --danger:#F2867E;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;}
+[hidden]{display:none!important;}
+header{background:var(--deep);color:#F3EDDD;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:0;z-index:5;}
+header b{font-family:ui-monospace,Consolas,monospace;letter-spacing:.06em;}
+header b span{color:var(--accent);}
+header a{color:#C9D8CE;font-size:13px;}
+main{max-width:920px;margin:0 auto;padding:18px 16px 120px;}
+.btn{font:inherit;font-weight:600;border-radius:4px;padding:10px 16px;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;}
+.btn:hover{border-color:var(--muted);}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#FFF9F0;}
+.btn-primary:hover{background:var(--accent-2);}
+.btn-small{padding:6px 10px;font-size:13px;}
+.btn-danger{color:var(--danger);}
+.btn[disabled]{opacity:.55;cursor:default;}
+input,textarea{font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:9px 11px;width:100%;}
+textarea{min-height:84px;resize:vertical;}
+label{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;margin-bottom:4px;}
+.login{max-width:360px;margin:12vh auto 0;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:14px;}
+.login h1{margin:0;font-size:20px;}
+.err{color:var(--danger);font-size:14px;}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px;}
+.toolbar .hint{color:var(--muted);font-size:13.5px;flex:1;min-width:200px;}
+.car{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px;margin-bottom:14px;}
+.car.is-hidden{opacity:.6;}
+.car-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+.car-head h2{margin:0;font-size:17px;}
+.car-head .tools{display:flex;gap:6px;flex-wrap:wrap;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.grid .full{grid-column:1/-1;}
+.photos{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start;}
+.ph{position:relative;width:110px;height:82px;border-radius:4px;overflow:hidden;border:1px solid var(--line);background:var(--bg);}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;}
+.ph .main-tag{position:absolute;left:4px;top:4px;background:var(--accent);color:#fff;font-size:10.5px;padding:1px 6px;border-radius:10px;}
+.ph .ph-tools{position:absolute;right:3px;bottom:3px;display:flex;gap:3px;}
+.ph .ph-tools button{border:none;background:rgba(0,0,0,.65);color:#fff;border-radius:3px;font-size:12px;padding:2px 6px;cursor:pointer;}
+.add-ph{width:110px;height:82px;border:1px dashed var(--muted);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;cursor:pointer;text-align:center;}
+.add-ph input{display:none;}
+.check{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;}
+.check input{width:auto;}
+.savebar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:12px 16px;display:flex;justify-content:center;gap:12px;align-items:center;z-index:6;flex-wrap:wrap;}
+.status{font-size:14px;color:var(--muted);}
+.status.ok{color:var(--ok);}
+.status.bad{color:var(--danger);}
+@media (max-width:600px){ .grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<header>
+  <b>VIET<span>AVTO</span> · админка</b>
+  <span><a href="/" target="_blank" rel="noopener">Открыть сайт ↗</a> &nbsp; <a href="#" id="logout" hidden>Выйти</a></span>
+</header>
+
+<div class="login" id="login">
+  <h1>Вход</h1>
+  <div>
+    <label for="pw">Пароль</label>
+    <input type="password" id="pw" autocomplete="current-password" autofocus>
+  </div>
+  <button class="btn btn-primary" id="login-btn">Войти</button>
+  <div class="err" id="login-err" hidden></div>
+</div>
+
+<main id="app" hidden>
+  <div class="toolbar">
+    <button class="btn" id="add-car">+ Добавить машину</button>
+    <div class="hint">Меняйте цены, описания и фото, затем нажмите «Сохранить». Сайт обновится примерно через минуту.</div>
+  </div>
+  <div id="cars"></div>
+</main>
+
+<div class="savebar" id="savebar" hidden>
+  <span class="status" id="status">Изменений нет</span>
+  <button class="btn btn-primary" id="save" disabled>Сохранить на сайт</button>
+</div>
+
+<script>
+(function(){
+  var API = 'https://vietavto-orders.onrender.com';
+  var TOKEN_KEY = 'vietavto_admin_token';
+  var token = null;
+  try{ token = localStorage.getItem(TOKEN_KEY); }catch(e){}
+  var cars = [];
+  var newImages = {};   // path -> base64 JPEG, uploaded on save
+  var previews = {};    // path -> data URL for photos not yet on the site
+  var dirty = false;
+
+  var $ = function(id){ return document.getElementById(id); };
+  var statusEl = $('status'), saveBtn = $('save');
+
+  function setStatus(text, cls){ statusEl.textContent = text; statusEl.className = 'status' + (cls ? ' ' + cls : ''); }
+  function markDirty(){ dirty = true; saveBtn.disabled = false; setStatus('Есть несохранённые изменения'); }
+
+  function api(method, path, body){
+    return fetch(API + path, {
+      method: method,
+      headers: Object.assign({'Content-Type':'application/json'}, token ? {'Authorization':'Bearer ' + token} : {}),
+      body: body ? JSON.stringify(body) : undefined
+    }).then(function(r){
+      return r.json().catch(function(){ return {ok:false, error:'Ошибка сервера ' + r.status}; }).then(function(j){
+        if(r.status === 401 && path !== '/admin/login'){ logout(); }
+        if(!r.ok || !j.ok) throw new Error(j.error || ('Ошибка ' + r.status));
+        return j;
+      });
+    });
+  }
+
+  // ---------- login ----------
+  function showLogin(){ $('login').hidden = false; $('app').hidden = true; $('savebar').hidden = true; $('logout').hidden = true; }
+  function showApp(){ $('login').hidden = true; $('app').hidden = false; $('savebar').hidden = false; $('logout').hidden = false; }
+  function logout(){ token = null; try{ localStorage.removeItem(TOKEN_KEY); }catch(e){} showLogin(); }
+  $('logout').addEventListener('click', function(e){ e.preventDefault(); logout(); });
+
+  function doLogin(){
+    var btn = $('login-btn'), err = $('login-err');
+    btn.disabled = true; btn.textContent = 'Входим… (сервер может просыпаться до минуты)'; err.hidden = true;
+    api('POST', '/admin/login', {password: $('pw').value}).then(function(j){
+      token = j.token;
+      try{ localStorage.setItem(TOKEN_KEY, token); }catch(e){}
+      $('pw').value = '';
+      load();
+    }).catch(function(e){
+      err.textContent = e.message; err.hidden = false;
+    }).then(function(){ btn.disabled = false; btn.textContent = 'Войти'; });
+  }
+  $('login-btn').addEventListener('click', doLogin);
+  $('pw').addEventListener('keydown', function(e){ if(e.key === 'Enter') doLogin(); });
+
+  function load(){
+    showApp();
+    $('cars').innerHTML = '<p class="status">Загружаем автопарк… (если сервер спал — до минуты)</p>';
+    api('GET', '/admin/cars').then(function(j){
+      cars = j.cars; newImages = {}; previews = {}; dirty = false;
+      saveBtn.disabled = true; setStatus('Изменений нет');
+      render();
+    }).catch(function(e){
+      $('cars').innerHTML = '';
+      var p = document.createElement('p'); p.className = 'status bad'; p.textContent = 'Не удалось загрузить: ' + e.message;
+      $('cars').appendChild(p);
+    });
+  }
+
+  // ---------- editor ----------
+  function field(labelText, value, onInput, opts){
+    opts = opts || {};
+    var wrap = document.createElement('div');
+    if(opts.full) wrap.className = 'full';
+    var l = document.createElement('label'); l.textContent = labelText;
+    var inp = document.createElement(opts.textarea ? 'textarea' : 'input');
+    if(opts.type) inp.type = opts.type;
+    if(opts.placeholder) inp.placeholder = opts.placeholder;
+    inp.value = value == null ? '' : value;
+    inp.addEventListener('input', function(){ onInput(inp.value); markDirty(); });
+    wrap.appendChild(l); wrap.appendChild(inp);
+    return wrap;
+  }
+  function photoSrc(p){ return previews[p] || ('/' + p + '?v=' + Date.now().toString().slice(0,8)); }
+
+  function render(){
+    var root = $('cars');
+    root.innerHTML = '';
+    cars.forEach(function(c, i){
+      var box = document.createElement('section');
+      box.className = 'car' + (c.hidden ? ' is-hidden' : '');
+
+      var head = document.createElement('div'); head.className = 'car-head';
+      var h = document.createElement('h2'); h.textContent = (i+1) + '. ' + (c.name || 'Новая машина') + (c.hidden ? ' (скрыта)' : '');
+      var tools = document.createElement('div'); tools.className = 'tools';
+      function tool(txt, title, fn, cls){ var b = document.createElement('button'); b.className = 'btn btn-small' + (cls ? ' ' + cls : ''); b.textContent = txt; b.title = title; b.addEventListener('click', fn); tools.appendChild(b); return b; }
+      var up = tool('↑', 'Выше', function(){ cars.splice(i-1, 0, cars.splice(i,1)[0]); markDirty(); render(); });
+      var down = tool('↓', 'Ниже', function(){ cars.splice(i+1, 0, cars.splice(i,1)[0]); markDirty(); render(); });
+      up.disabled = i === 0; down.disabled = i === cars.length - 1;
+      tool('Удалить', 'Удалить машину с сайта', function(){
+        if(confirm('Удалить «' + (c.name || 'машину') + '» с сайта?')){ cars.splice(i,1); markDirty(); render(); }
+      }, 'btn-danger');
+      head.appendChild(h); head.appendChild(tools);
+      box.appendChild(head);
+
+      var g = document.createElement('div'); g.className = 'grid';
+      g.appendChild(field('Название', c.name, function(v){ c.name = v; h.textContent = (i+1) + '. ' + (v || 'Новая машина'); }));
+      g.appendChild(field('Цена, ₫ за сутки', c.price, function(v){ c.price = Number(String(v).replace(/\D/g,'')) || 0; }, {type:'text', placeholder:'например 900000'}));
+      g.appendChild(field('Класс (RU)', c.cls, function(v){ c.cls = v; }, {placeholder:'Седан'}));
+      g.appendChild(field('Класс (EN)', c.cls_en, function(v){ c.cls_en = v; }, {placeholder:'Sedan'}));
+      g.appendChild(field('Описание (RU)', c.desc, function(v){ c.desc = v; }, {textarea:true, full:true}));
+      g.appendChild(field('Описание (EN, для английской версии)', c.desc_en, function(v){ c.desc_en = v; }, {textarea:true, full:true}));
+
+      var phWrap = document.createElement('div'); phWrap.className = 'full';
+      var phLabel = document.createElement('label'); phLabel.textContent = 'Фото (первое — главное)';
+      var photos = document.createElement('div'); photos.className = 'photos';
+      (c.photos || []).forEach(function(p, pi){
+        var ph = document.createElement('div'); ph.className = 'ph';
+        var img = document.createElement('img'); img.src = photoSrc(p); img.alt = '';
+        ph.appendChild(img);
+        if(pi === 0){ var t = document.createElement('span'); t.className = 'main-tag'; t.textContent = 'главное'; ph.appendChild(t); }
+        var pt = document.createElement('div'); pt.className = 'ph-tools';
+        if(pi > 0){
+          var mk = document.createElement('button'); mk.textContent = '★'; mk.title = 'Сделать главным';
+          mk.addEventListener('click', function(){ c.photos.unshift(c.photos.splice(pi,1)[0]); markDirty(); render(); });
+          pt.appendChild(mk);
+        }
+        var del = document.createElement('button'); del.textContent = '✕'; del.title = 'Убрать фото';
+        del.addEventListener('click', function(){ c.photos.splice(pi,1); markDirty(); render(); });
+        pt.appendChild(del);
+        ph.appendChild(pt);
+        photos.appendChild(ph);
+      });
+      var add = document.createElement('label'); add.className = 'add-ph'; add.textContent = '+ фото';
+      var file = document.createElement('input'); file.type = 'file'; file.accept = 'image/*'; file.multiple = true;
+      file.addEventListener('change', function(){
+        var files = Array.prototype.slice.call(file.files || []);
+        if(!files.length) return;
+        setStatus('Обрабатываем фото…');
+        Promise.all(files.map(function(f){ return shrink(f); })).then(function(list){
+          list.forEach(function(dataUrl, k){
+            var path = 'images/' + (c.id || 'car') + '-' + Date.now().toString(36) + k + '.jpg';
+            newImages[path] = dataUrl.split(',')[1];
+            previews[path] = dataUrl;
+            c.photos = c.photos || [];
+            c.photos.push(path);
+          });
+          markDirty(); render();
+        }).catch(function(){ setStatus('Не удалось прочитать фото', 'bad'); });
+      });
+      add.appendChild(file);
+      photos.appendChild(add);
+      phWrap.appendChild(phLabel); phWrap.appendChild(photos);
+      g.appendChild(phWrap);
+
+      var hid = document.createElement('label'); hid.className = 'check full';
+      var cb = document.createElement('input'); cb.type = 'checkbox'; cb.checked = !!c.hidden;
+      cb.addEventListener('change', function(){ c.hidden = cb.checked; markDirty(); render(); });
+      hid.appendChild(cb); hid.appendChild(document.createTextNode('Скрыть с сайта (машина занята / в ремонте)'));
+      g.appendChild(hid);
+
+      box.appendChild(g);
+      root.appendChild(box);
+    });
+  }
+
+  // Resize to max 1600px and re-encode as JPEG so uploads stay small.
+  function shrink(f){
+    return new Promise(function(resolve, reject){
+      var url = URL.createObjectURL(f);
+      var img = new Image();
+      img.onload = function(){
+        var max = 1600, w = img.naturalWidth, h = img.naturalHeight;
+        var k = Math.min(1, max / Math.max(w, h));
+        var cv = document.createElement('canvas');
+        cv.width = Math.round(w * k); cv.height = Math.round(h * k);
+        cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+        URL.revokeObjectURL(url);
+        resolve(cv.toDataURL('image/jpeg', 0.85));
+      };
+      img.onerror = function(){ URL.revokeObjectURL(url); reject(new Error('bad image')); };
+      img.src = url;
+    });
+  }
+
+  $('add-car').addEventListener('click', function(){
+    var name = prompt('Название машины, например «Kia Carnival»');
+    if(!name) return;
+    var base = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'car';
+    var id = base, n = 2;
+    while(cars.some(function(c){ return c.id === id; })) id = base + '-' + (n++);
+    cars.push({id:id, name:name, cls:'', cls_en:'', price:0, desc:'', desc_en:'', photos:[], hidden:false});
+    markDirty(); render();
+    window.scrollTo(0, document.body.scrollHeight);
+  });
+
+  saveBtn.addEventListener('click', function(){
+    var bad = cars.filter(function(c){ return !c.name || !c.price; });
+    if(bad.length && !confirm('У некоторых машин нет названия или цены. Всё равно сохранить?')) return;
+    saveBtn.disabled = true;
+    setStatus('Сохраняем…');
+    var used = {};
+    cars.forEach(function(c){ (c.photos||[]).forEach(function(p){ used[p] = 1; }); });
+    var imgs = {};
+    Object.keys(newImages).forEach(function(p){ if(used[p]) imgs[p] = newImages[p]; });
+    api('POST', '/admin/save', {cars: cars, images: imgs}).then(function(j){
+      cars = j.cars; newImages = {}; dirty = false;
+      setStatus(j.changed ? 'Сохранено ✓ Сайт обновится примерно через минуту' : 'Сохранено, изменений не было', 'ok');
+      render();
+    }).catch(function(e){
+      saveBtn.disabled = false;
+      setStatus('Не сохранилось: ' + e.message, 'bad');
+    });
+  });
+
+  window.addEventListener('beforeunload', function(e){ if(dirty){ e.preventDefault(); e.returnValue = ''; } });
+
+  if(token) load(); else showLogin();
+})();
+</script>
+</body>
+</html>
