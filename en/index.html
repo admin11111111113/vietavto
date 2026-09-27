@@ -187,7 +187,9 @@ h1,h2,h3{font-family:"Fraunces",Georgia,serif;text-wrap:balance;margin:0;}
 .book-sum b{color:var(--papaya);}
 .book-err{color:var(--papaya);font-size:13.5px;}
 .book-actions{display:flex;gap:12px;flex-wrap:wrap;padding-top:2px;}
-.book-actions .btn{flex:1;justify-content:center;min-width:200px;cursor:pointer;}
+.book-actions .btn{flex:1;justify-content:center;min-width:180px;cursor:pointer;}
+.book-actions .btn[disabled]{opacity:.6;cursor:default;transform:none;}
+.book-ok{background:color-mix(in srgb,var(--sea) 18%,transparent);border:1px solid var(--sea);border-radius:4px;padding:12px 14px;font-size:14.5px;line-height:1.5;}
 .btn-outline{background:transparent;border-color:var(--card-line);color:var(--text);}
 .book-hint{font-size:13px;color:var(--muted);}
 .contacts{display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:15px;color:#DCE7DF;}
@@ -423,8 +425,8 @@ footer{
           <input type="text" id="book-name" placeholder="What should we call you" autocomplete="name">
         </div>
         <div>
-          <label for="book-phone">Phone / WhatsApp</label>
-          <input type="tel" id="book-phone" placeholder="+84 … or your number" autocomplete="tel" inputmode="tel">
+          <label for="book-phone">Your WhatsApp or Telegram</label>
+          <input type="text" id="book-phone" placeholder="+84 912 345 678 or @username" autocomplete="tel">
         </div>
         <div>
           <label for="book-place">Pick-up location (optional)</label>
@@ -435,10 +437,12 @@ footer{
       <div class="book-sum" id="book-sum"></div>
       <div class="book-err" id="book-err" hidden></div>
       <div class="book-actions">
-        <button type="button" class="btn btn-primary" id="book-wa">Send via WhatsApp</button>
-        <button type="button" class="btn btn-outline" id="book-tg">Send via Telegram</button>
+        <button type="button" class="btn btn-primary" id="book-send">Send request</button>
+        <button type="button" class="btn btn-outline" id="book-wa">Message on WhatsApp</button>
+        <button type="button" class="btn btn-outline" id="book-tg">Message on Telegram</button>
       </div>
-      <div class="book-hint" id="book-hint">A chat opens with your request filled in — just hit Send.</div>
+      <div class="book-ok" id="book-ok" hidden></div>
+      <div class="book-hint" id="book-hint">“Send request” — we will message you on WhatsApp or Telegram. Or open a chat with us — the request text is filled in for you.</div>
     </div>
   </div>
 </section>
@@ -918,13 +922,17 @@ footer{
       sumEl.textContent = '';
     }
   }
+  function contactOk(v){
+    v = (v||'').trim();
+    return v.replace(/\D/g,'').length >= 7 || /^(@|https?:\/\/t\.me\/|t\.me\/)?[A-Za-z][A-Za-z0-9_]{4,31}$/.test(v);
+  }
   function validate(){
     inFrom.classList.remove('bad'); inTo.classList.remove('bad'); inPhone.classList.remove('bad');
     var msg = '';
     if(!inFrom.value){ inFrom.classList.add('bad'); msg = 'Please choose a pick-up date.'; }
     else if(!inTo.value){ inTo.classList.add('bad'); msg = 'Please choose a return date.'; }
     else if(daysBetween(inFrom.value, inTo.value) < 1){ inTo.classList.add('bad'); msg = 'The return date must be after the pick-up date.'; }
-    else if(inPhone.value.replace(/\D/g,'').length < 7){ inPhone.classList.add('bad'); msg = 'Please enter a phone or WhatsApp number so we can reach you.'; }
+    else if(!contactOk(inPhone.value)){ inPhone.classList.add('bad'); msg = 'Please enter your WhatsApp number or Telegram @username so we can reply.'; }
     errEl.textContent = msg;
     errEl.hidden = !msg;
     return !msg;
@@ -954,8 +962,9 @@ footer{
       via: via, lang: document.documentElement.lang, website: inTrap.value
     };
     try{
-      fetch(LEAD_URL, {method:'POST', headers:{'Content-Type':'text/plain;charset=UTF-8'}, body:JSON.stringify(payload), keepalive:true}).catch(function(){});
-    }catch(e){}
+      return fetch(LEAD_URL, {method:'POST', headers:{'Content-Type':'text/plain;charset=UTF-8'}, body:JSON.stringify(payload), keepalive:true})
+        .then(function(r){ return r.ok; }, function(){ return false; });
+    }catch(e){ return Promise.resolve(false); }
   }
   // Wake the free server up early so the lead doesn't wait for a cold start.
   try{ fetch(LEAD_URL.replace(/\/lead$/, '/health')).catch(function(){}); }catch(e){}
@@ -973,6 +982,26 @@ footer{
   });
   inTo.addEventListener('change', updateSummary);
   selCar.addEventListener('change', updateSummary);
+
+  var btnSend = document.getElementById('book-send');
+  var okEl = document.getElementById('book-ok');
+  btnSend.addEventListener('click', function(){
+    if(!validate()) return;
+    btnSend.disabled = true;
+    btnSend.textContent = 'Sending…';
+    sendLead('Заявка с сайта').then(function(ok){
+      btnSend.disabled = false;
+      btnSend.textContent = 'Send request';
+      if(ok){
+        okEl.textContent = 'Request sent! We will contact you shortly at: ' + inPhone.value.trim() + '.';
+        okEl.hidden = false;
+        errEl.hidden = true;
+      }else{
+        errEl.textContent = 'Could not send the request. Please message us on WhatsApp or Telegram using the buttons.';
+        errEl.hidden = false;
+      }
+    });
+  });
 
   document.getElementById('book-wa').addEventListener('click', function(){
     if(!validate()) return;
