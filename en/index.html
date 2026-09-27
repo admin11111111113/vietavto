@@ -4,6 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Car rental in Nha Trang — VietAvto</title>
+<script>
+// Pick the page language from the browser on first visit; a manual RU/EN/VI choice is remembered and wins.
+(function(){
+  var HOME = {ru:'/', en:'/en/', vi:'/vi/'};
+  var cur = document.documentElement.lang, saved = null;
+  try{ saved = localStorage.getItem('vietavto_lang'); }catch(e){}
+  if(/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent)) return;
+  var want = saved;
+  if(!want){
+    var langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']);
+    for(var i = 0; i < langs.length && !want; i++){
+      var l = String(langs[i]).toLowerCase().slice(0, 2);
+      if(l === 'vi') want = 'vi';
+      else if(l === 'ru' || l === 'uk' || l === 'be' || l === 'kk') want = 'ru';
+      else if(l === 'en') want = 'en';
+    }
+    want = want || 'en';
+  }
+  if(want !== cur && HOME[want]) location.replace(HOME[want] + location.search + location.hash);
+})();
+document.addEventListener('click', function(e){
+  var a = e.target.closest && e.target.closest('.lang a[hreflang]');
+  if(a){ try{ localStorage.setItem('vietavto_lang', a.getAttribute('hreflang')); }catch(err){} }
+});
+</script>
 <meta name="description" content="Self-drive car rental in Nha Trang: VinFast, Toyota, Mitsubishi, Mazda and more. Daily prices, a clear deposit, book online.">
 <link rel="alternate" hreflang="ru" href="https://vietavto.pro/">
 <link rel="alternate" hreflang="en" href="https://vietavto.pro/en/">
