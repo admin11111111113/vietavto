@@ -205,22 +205,5 @@
     "desc_en": "A large family minivan for groups of up to 11: a roomy cabin, sliding doors and space for suitcases. Great for Cam Ranh airport transfers and family trips.",
     "desc_vi": "MPV gia đình cỡ lớn cho nhóm đến 11 người: khoang rộng, cửa trượt và nhiều chỗ để vali. Tiện cho đưa đón sân bay Cam Ranh và du lịch cả gia đình.",
     "photos": []
-  },
-  {
-    "id": "test-tr",
-    "order": 12,
-    "hidden": true,
-    "name": "TEST",
-    "cls": "7-местный кроссовер",
-    "cls_en": "7-seat crossover",
-    "cls_vi": "SUV 7 chỗ",
-    "price": 1,
-    "seats": 0,
-    "gearbox": "",
-    "fuel": "",
-    "desc": "Просторный салон, большой багажник, подходит для семьи.",
-    "desc_en": "Spacious interior, large trunk, suitable for a family.",
-    "desc_vi": "Nội thất rộng rãi, cốp xe rộng, phù hợp cho gia đình.",
-    "photos": []
   }
 ]
