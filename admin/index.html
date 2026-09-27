@@ -51,6 +51,9 @@ label{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.05
 .car-head .tools{display:flex;gap:6px;flex-wrap:wrap;}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .grid .full{grid-column:1/-1;}
+details.tr{border:1px dashed var(--line);border-radius:6px;padding:10px 12px;}
+details.tr summary{cursor:pointer;color:var(--muted);font-size:13.5px;}
+details.tr[open] summary{margin-bottom:10px;}
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
 .photos{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start;}
 .ph{position:relative;width:110px;height:82px;border-radius:4px;overflow:hidden;border:1px solid var(--line);background:var(--bg);}
@@ -214,17 +217,22 @@ label{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.05
       var g = document.createElement('div'); g.className = 'grid';
       g.appendChild(field('Название', c.name, function(v){ c.name = v; h.textContent = (i+1) + '. ' + (v || 'Новая машина'); }));
       g.appendChild(field('Цена, ₫ за сутки', c.price, function(v){ c.price = Number(String(v).replace(/\D/g,'')) || 0; }, {type:'text', placeholder:'например 900000'}));
-      g.appendChild(field('Класс (RU)', c.cls, function(v){ c.cls = v; }, {placeholder:'Седан'}));
-      g.appendChild(field('Класс (EN)', c.cls_en, function(v){ c.cls_en = v; }, {placeholder:'Sedan'}));
-      g.appendChild(field('Класс (VI, вьетнамский)', c.cls_vi, function(v){ c.cls_vi = v; }, {placeholder:'Sedan'}));
+      g.appendChild(field('Класс', c.cls, function(v){ c.cls = v; }, {placeholder:'Седан'}));
       var specs = document.createElement('div'); specs.className = 'full grid3';
       specs.appendChild(field('Мест', c.seats || '', function(v){ c.seats = Number(String(v).replace(/\D/g,'')) || 0; }, {placeholder:'5'}));
       specs.appendChild(choice('Коробка', c.gearbox, [['','— не указывать —'],['auto','Автомат'],['manual','Механика']], function(v){ c.gearbox = v; }));
       specs.appendChild(choice('Топливо', c.fuel, [['','— не указывать —'],['petrol','Бензин'],['electric','Электро'],['diesel','Дизель'],['hybrid','Гибрид']], function(v){ c.fuel = v; }));
       g.appendChild(specs);
-      g.appendChild(field('Описание (RU)', c.desc, function(v){ c.desc = v; }, {textarea:true, full:true}));
-      g.appendChild(field('Описание (EN, для английской версии)', c.desc_en, function(v){ c.desc_en = v; }, {textarea:true, full:true}));
-      g.appendChild(field('Описание (VI, для вьетнамской версии)', c.desc_vi, function(v){ c.desc_vi = v; }, {textarea:true, full:true}));
+      g.appendChild(field('Описание', c.desc, function(v){ c.desc = v; }, {textarea:true, full:true}));
+      var tr = document.createElement('details'); tr.className = 'full tr';
+      var sm = document.createElement('summary'); sm.textContent = 'Переводы EN / VI — заполняются автоматически при сохранении';
+      var tg = document.createElement('div'); tg.className = 'grid';
+      tg.appendChild(field('Класс (EN)', c.cls_en, function(v){ c.cls_en = v; }));
+      tg.appendChild(field('Класс (VI)', c.cls_vi, function(v){ c.cls_vi = v; }));
+      tg.appendChild(field('Описание (EN)', c.desc_en, function(v){ c.desc_en = v; }, {textarea:true, full:true}));
+      tg.appendChild(field('Описание (VI)', c.desc_vi, function(v){ c.desc_vi = v; }, {textarea:true, full:true}));
+      tr.appendChild(sm); tr.appendChild(tg);
+      g.appendChild(tr);
 
       var phWrap = document.createElement('div'); phWrap.className = 'full';
       var phLabel = document.createElement('label'); phLabel.textContent = 'Фото (первое — главное)';
@@ -320,7 +328,8 @@ label{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.05
     Object.keys(newImages).forEach(function(p){ if(used[p]) imgs[p] = newImages[p]; });
     api('POST', '/admin/save', {cars: cars, images: imgs}).then(function(j){
       cars = j.cars; newImages = {}; dirty = false;
-      setStatus(j.changed ? 'Сохранено ✓ Сайт обновится примерно через минуту' : 'Сохранено, изменений не было', 'ok');
+      if(j.trFailed && j.trFailed.length) setStatus('Сохранено, но не перевелось: ' + j.trFailed.join(', ') + '. Нажмите «Сохранить» ещё раз позже или впишите перевод вручную.', 'bad');
+      else setStatus(j.changed ? 'Сохранено ✓ Переводы обновлены, сайт обновится примерно через минуту' : 'Сохранено, изменений не было', 'ok');
       render();
     }).catch(function(e){
       saveBtn.disabled = false;
