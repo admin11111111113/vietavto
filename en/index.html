@@ -983,15 +983,15 @@ footer{
     if(!validate()) return;
     sendLead('Telegram');
     var msg = buildMessage();
-    // Telegram doesn't prefill text in personal chats, so copy the request for pasting.
+    // t.me/<user>?text= prefills the chat; also copy it in case an old client ignores the parameter.
     try{
       if(navigator.clipboard && navigator.clipboard.writeText){
         navigator.clipboard.writeText(msg).then(function(){
-          hintEl.textContent = 'Request copied — paste it into the Telegram chat and send.';
+          hintEl.textContent = 'If the text did not appear in Telegram, it is copied — just paste and send.';
         }, function(){});
       }
     }catch(e){}
-    window.open('https://t.me/' + TG_USER, '_blank', 'noopener');
+    window.open('https://t.me/' + TG_USER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
   });
 
   document.querySelectorAll('.car-cta').forEach(function(a){
