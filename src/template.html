@@ -159,9 +159,9 @@ section.block{padding:56px 0 8px;}
 .spec{color:var(--muted);font-size:14px;margin:0;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
 .car-cta{margin-top:4px;text-decoration:none;text-align:center;padding:11px;border-radius:12px;border:1px solid var(--line);font-weight:600;font-size:14.5px;}
 .car-cta:hover{border-color:var(--accent);color:var(--accent-2);}
-.more-seats{margin-top:20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;background:var(--panel);border:1px dashed #3a3d44;border-radius:var(--radius);padding:18px 22px;color:#c9cbcf;}
-.more-seats b{color:var(--text);}
-.more-seats .price b{font-size:18px;}
+.no-photo{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#6d7077;font-size:14px;font-weight:600;
+  background:repeating-linear-gradient(135deg,var(--panel-2) 0 14px,#202126 14px 28px);}
+.no-photo svg{width:56px;height:56px;stroke:#55585f;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
 
 /* ---------- features strip ---------- */
 .features{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;}
@@ -322,10 +322,6 @@ footer .logo svg{width:24px;height:24px;}
       <div><h2>{{fleet_h}}</h2><p>{{fleet_p}}</p></div>
     </div>
     <div class="grid" id="fleet-grid"></div>
-    <div class="more-seats">
-      <div>{{carnival}}</div>
-      <div class="price"><b>2 100 000 ₫</b> {{per_day}}</div>
-    </div>
   </div>
 </section>
 
@@ -455,7 +451,10 @@ footer .logo svg{width:24px;height:24px;}
     var cls = EN ? (c.cls_en || c.cls) : c.cls;
     var desc = EN ? (c.desc_en || c.desc) : c.desc;
     var photos = (c.photos || []).map(photoUrl);
-    return '<figure class="car-media"><img class="gallery-main" src="' + esc(photos[0] || '') + '" alt="' + esc(c.name) + '" loading="lazy">' +
+    var media = photos.length
+      ? '<img class="gallery-main" src="' + esc(photos[0]) + '" alt="' + esc(c.name) + '" loading="lazy">'
+      : '<div class="no-photo"><svg viewBox="0 0 32 32"><path d="M4 21v-4l3-6.5A2 2 0 0 1 8.8 9.4h14.4a2 2 0 0 1 1.8 1.1L28 17v4a1 1 0 0 1-1 1h-2M7 22H5a1 1 0 0 1-1-1M4 17h24M11 22h10"/><circle cx="9" cy="22" r="2.2"/><circle cx="23" cy="22" r="2.2"/></svg>' + esc(T.no_photo) + '</div>';
+    return '<figure class="car-media">' + media +
       '<span class="car-badge">' + esc(cls || '') + '</span><div class="gallery-count" hidden></div><div class="gallery-thumbs" hidden></div></figure>' +
       '<div class="car-body"><div class="car-top"><h3 title="' + esc(c.name) + '">' + esc(c.name) + '</h3>' +
       '<div class="price"><b>' + fmtPrice(c.price || 0) + ' ₫</b> ' + esc(T.per_day) + '</div></div>' +
@@ -465,6 +464,7 @@ footer .logo svg{width:24px;height:24px;}
   }
   function setupGallery(el, id, photos){
     var main = el.querySelector('.gallery-main');
+    if(!main) return;
     var thumbs = el.querySelector('.gallery-thumbs');
     var count = el.querySelector('.gallery-count');
     var st = galleries[id] = {photos: photos, idx: 0};

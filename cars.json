@@ -168,5 +168,20 @@
     "seats": 5,
     "fuel": "petrol",
     "gearbox": "auto"
+  },
+  {
+    "id": "carnival",
+    "order": 11,
+    "hidden": false,
+    "name": "Kia Carnival",
+    "cls": "Минивэн, 7–11 мест",
+    "cls_en": "Minivan, 7–11 seats",
+    "price": 2100000,
+    "desc": "Большой семейный минивэн для компании до 11 человек: просторный салон, сдвижные двери и место под чемоданы. Удобен для трансфера из аэропорта Камрань и поездок всей семьёй.",
+    "desc_en": "A large family minivan for groups of up to 11: a roomy cabin, sliding doors and space for suitcases. Great for Cam Ranh airport transfers and family trips.",
+    "photos": [],
+    "seats": 0,
+    "fuel": "",
+    "gearbox": "auto"
   }
 ]
