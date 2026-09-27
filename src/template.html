@@ -175,6 +175,7 @@ section.block{padding:56px 0 8px;}
 .term,.qa{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;}
 .term .k{font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
 .term .v{font-weight:600;}
+.term.road{margin-top:14px;border-color:rgba(232,98,44,.45);}
 .term .v small{display:block;font-weight:400;color:var(--muted);font-size:14px;margin-top:4px;}
 .qa h3{font-size:16.5px;font-weight:700;margin-bottom:8px;}
 .qa p{margin:0;color:var(--muted);font-size:14.5px;}
@@ -340,13 +341,9 @@ footer .logo svg{width:24px;height:24px;}
   <div class="wrap">
     <div class="sec-head"><div><h2>{{terms_h}}</h2></div></div>
     <div class="cards-2">
-      <div class="term"><div class="k">{{t1_k}}</div><div class="v">{{t1_v}}</div></div>
-      <div class="term"><div class="k">{{t2_k}}</div><div class="v">{{t2_v}}</div></div>
-      <div class="term"><div class="k">{{t3_k}}</div><div class="v">{{t3_v}}</div></div>
-      <div class="term"><div class="k">{{t4_k}}</div><div class="v">{{t4_v}}</div></div>
-      <div class="term"><div class="k">{{t5_k}}</div><div class="v">{{t5_v}}</div></div>
-      <div class="term"><div class="k">{{t6_k}}</div><div class="v">{{t6_v}}</div></div>
+{{terms_html}}
     </div>
+    <div class="term road"><div class="k">{{road_k}}</div><div class="v">{{road_v}}</div></div>
   </div>
 </section>
 
