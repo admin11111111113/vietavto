@@ -72,6 +72,9 @@ JS = {
  'fu_petrol': 'Xăng', 'fu_electric': 'Điện', 'fu_diesel': 'Dầu', 'fu_hybrid': 'Hybrid',
  'per_day': '/ ngày', 'per_day_short': '/ngày', 'book': 'Đặt xe',
  'approx': 'khoảng',
+ 'disc_from': 'từ 5 ngày',
+ 'disc_applied': 'giảm giá từ 5 ngày',
+ 'disc_hint': '· từ 5 ngày −50.000 ₫/ngày',
  'no_photo': 'Ảnh sắp có',
  'err_from': 'Vui lòng chọn ngày nhận xe.',
  'err_to': 'Vui lòng chọn ngày trả xe.',
@@ -90,6 +93,7 @@ JS = {
 
 # Same order as build.TERMS
 TERMS = [
+ ('Giảm giá từ 5 ngày', '−50.000 ₫ mỗi ngày<small>Thuê từ 5 ngày trở lên, mỗi ngày rẻ hơn 50.000 ₫: ví dụ 900.000 ₫ → 850.000 ₫.</small>'),
  ('Số km', '250 km mỗi ngày<small>Giới hạn được cộng dồn cho cả thời gian thuê: 3 ngày = 750 km. Mỗi km vượt giới hạn là 5.000 ₫.</small>'),
  ('Giờ nhận và trả xe', '1 ngày: 7:00 — 22:00<small>Thuê từ 2 ngày — trả xe trước 22:00 ngày cuối cùng.</small>'),
  ('Tiền cọc — Khánh Hòa', '$200<small>Nha Trang và khu vực lân cận. Hoàn lại khi trả xe không hư hại.</small>'),

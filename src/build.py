@@ -95,6 +95,9 @@ JS = {
  'fu_petrol': ('Бензин', 'Petrol'), 'fu_electric': ('Электро', 'Electric'), 'fu_diesel': ('Дизель', 'Diesel'), 'fu_hybrid': ('Гибрид', 'Hybrid'),
  'per_day': ('/ сутки', '/ day'), 'per_day_short': ('/сут', '/day'), 'book': ('Забронировать', 'Book'),
  'approx': ('примерно', 'approx.'),
+ 'disc_from': ('от 5 суток', 'from 5 days'),
+ 'disc_applied': ('скидка от 5 суток', '5+ day discount'),
+ 'disc_hint': ('· от 5 суток −50 000 ₫/сут', '· from 5 days −50,000 ₫/day'),
  'no_photo': ('Фото скоро', 'Photo coming soon'),
  'err_from': ('Укажите дату получения.', 'Please choose a pick-up date.'),
  'err_to': ('Укажите дату возврата.', 'Please choose a return date.'),
@@ -112,6 +115,9 @@ JS = {
 }
 
 TERMS = [
+ (('Скидка от 5 суток', '5+ day discount'),
+  ('−50 000 ₫ в сутки<small>При аренде от 5 суток каждая сутки дешевле на 50 000 ₫: например, 900 000 ₫ → 850 000 ₫.</small>',
+   '−50,000 ₫ per day<small>Rent for 5 days or more and every day is 50,000 ₫ cheaper: e.g. 900,000 ₫ → 850,000 ₫.</small>')),
  (('Пробег', 'Mileage'),
   ('250 км в сутки<small>Лимит суммируется за весь срок: 3 суток — 750 км. Каждый км сверх лимита — 5 000 ₫.</small>',
    '250 km per day<small>The limit adds up over the rental: 3 days = 750 km. Each km over the limit is 5,000 ₫.</small>')),
@@ -253,9 +259,11 @@ def card_html(c, lang):
     home = HOME[lang]
     return ('      <article class="car"><figure class="car-media">%s<span class="car-badge">%s</span></figure>'
             '<div class="car-body"><div class="car-top"><h3>%s</h3><div class="price"><b>%s ₫</b> %s</div></div>'
-            '<ul class="car-meta">%s</ul><p class="spec">%s</p>'
+            '%s<ul class="car-meta">%s</ul><p class="spec">%s</p>'
             '<a class="car-cta" href="%s?car=%s#book">%s →</a></div></article>'
             % (media, esc(cls or ''), ('<a href="%s">%s</a>' % (car_url(c, lang), esc(c['name'])) if lang in ('ru', 'en') else esc(c['name'])), fmt_price(c.get('price', 0), lang), L('per_day'),
+               ('<div class="price-disc">%s — %s ₫%s</div>' % (L('disc_from'), fmt_price(int(c.get('price', 0)) - 50000, lang), L('per_day_short'))
+                if int(c.get('price') or 0) > 50000 else ''),
                ''.join(meta), esc(desc or ''), home, esc(c['id']), L('book')))
 
 def build_landing(page, lang):
@@ -336,13 +344,13 @@ def car_page(c, all_cars):
       'sections': [
         ('Характеристики %s' % name, ['%s — %s%s.%s' % (name, cls_ru.lower() or 'автомобиль', (': ' + sp_ru) if sp_ru else '',
                                      ' На фото — реальный автомобиль из нашего парка.' if c.get('photos') else '')]),
-        ('Цена аренды %s' % name, ['%s ₫ в сутки. Например, 3 суток — %s ₫, неделя — %s ₫. На месяц и дольше — отдельная, более выгодная ставка. Лимит пробега 250 км в сутки суммируется за весь срок: за неделю — 1 750 км, каждый км сверх лимита — 5 000 ₫.'
-                                   % (fp(p, 'ru'), fp(3 * p, 'ru'), fp(7 * p, 'ru'))]),
+        ('Цена аренды %s' % name, ['%s ₫ в сутки, а при аренде от 5 суток — %s ₫ в сутки. Например, 3 суток — %s ₫, неделя — %s ₫. На месяц и дольше — отдельная, более выгодная ставка. Лимит пробега 250 км в сутки суммируется за весь срок: за неделю — 1 750 км, каждый км сверх лимита — 5 000 ₫.'
+                                   % (fp(p, 'ru'), fp(p - 50000, 'ru'), fp(3 * p, 'ru'), fp(7 * (p - 50000), 'ru'))]),
         ('Условия аренды', ['Депозит $200 для поездок по провинции Кхань Хоа или $400 — по всему Вьетнаму. Документы: паспорт, международное водительское удостоверение (МВУ) и национальные права. Оплата — после осмотра машины, возврат — с тем же уровнем топлива. На 1 день машину можно взять с 7:00 до 22:00.']),
         ('Где забрать %s' % name, ['Передадим машину в вашем отеле, по адресу в Нячанге или в аэропорту Камрань — место и время согласуем в WhatsApp или Telegram.']),
       ],
       'faq': [
-        ('Сколько стоит аренда %s в Нячанге?' % name, '%s ₫ в сутки, неделя — %s ₫. На месяц — отдельная ставка.' % (fp(p, 'ru'), fp(7 * p, 'ru'))),
+        ('Сколько стоит аренда %s в Нячанге?' % name, '%s ₫ в сутки, от 5 суток — %s ₫ в сутки, неделя — %s ₫. На месяц — отдельная ставка.' % (fp(p, 'ru'), fp(p - 50000, 'ru'), fp(7 * (p - 50000), 'ru'))),
         ('Можно взять %s в аэропорту Камрань?' % name, 'Да, передадим машину в аэропорту к вашему прилёту.'),
         ('Можно поехать на %s в Далат?' % name, 'Да, с депозитом $400 для поездок по всему Вьетнаму.' + (' Электромобиль лучше подзарядить в дороге.' if ev else '')),
         ('Какие документы нужны для аренды?', 'Паспорт, международное водительское удостоверение (МВУ) и национальные права.'),
@@ -359,13 +367,13 @@ def car_page(c, all_cars):
       'sections': [
         ('%s specs' % name, ['The %s is a %s%s.%s' % (name, cls_en.lower() or 'car', (': ' + sp_en) if sp_en else '',
                               ' The photos show the real car from our fleet.' if c.get('photos') else '')]),
-        ('%s rental price' % name, ['%s ₫ per day. For example, 3 days — %s ₫, a week — %s ₫. A month or longer gets a separate, better rate. The 250 km per day limit adds up over the rental: 1,750 km for a week, each extra km is 5,000 ₫.'
-                                    % (fp(p, 'en'), fp(3 * p, 'en'), fp(7 * p, 'en'))]),
+        ('%s rental price' % name, ['%s ₫ per day, or %s ₫ per day when you rent for 5 days or more. For example, 3 days — %s ₫, a week — %s ₫. A month or longer gets a separate, better rate. The 250 km per day limit adds up over the rental: 1,750 km for a week, each extra km is 5,000 ₫.'
+                                    % (fp(p, 'en'), fp(p - 50000, 'en'), fp(3 * p, 'en'), fp(7 * (p - 50000), 'en'))]),
         ('Rental terms', ['Deposit $200 for trips within Khanh Hoa province or $400 across Vietnam. Documents: passport, International Driving Permit (1968 Convention) and national licence. You pay after inspecting the car and return it with the same fuel level. One-day rentals run from 7:00 to 22:00.']),
         ('Where to pick up the %s' % name, ['We hand over the car at your hotel, an address in Nha Trang or Cam Ranh airport — we agree the place and time on WhatsApp or Telegram.']),
       ],
       'faq': [
-        ('How much is a %s rental in Nha Trang?' % name, '%s ₫ per day, %s ₫ for a week. Monthly rentals get a separate rate.' % (fp(p, 'en'), fp(7 * p, 'en'))),
+        ('How much is a %s rental in Nha Trang?' % name, '%s ₫ per day, %s ₫ per day from 5 days, %s ₫ for a week. Monthly rentals get a separate rate.' % (fp(p, 'en'), fp(p - 50000, 'en'), fp(7 * (p - 50000), 'en'))),
         ('Can I pick up the %s at Cam Ranh airport?' % name, 'Yes, we can meet you with the car on arrival.'),
         ('Can I drive the %s to Da Lat?' % name, 'Yes, with the $400 deposit for trips across Vietnam.' + (' Plan a charging stop for the EV.' if ev else '')),
         ('What documents do I need?', 'Your passport, an International Driving Permit (1968 Convention) and your national licence.'),
