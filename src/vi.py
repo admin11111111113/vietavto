@@ -1,6 +1,11 @@
 # Vietnamese strings for /vi/ — same keys as S / JS / TERMS in build.py.
 
 S = {
+ 'about_p3': 'Tìm nơi thuê xe tự lái giá rẻ ở Nha Trang? Lựa chọn tiết kiệm nhất là xe điện VinFast VF3 giá 700.000 ₫/ngày và sedan Kia Soluto giá 900.000 ₫. Thuê từ một tháng trở lên có giá riêng, ưu đãi hơn. Gia đình và nhóm bạn có thể chọn Toyota Rush, Veloz, Mitsubishi Xpander 7 chỗ, nhóm đông hơn chọn Kia Carnival 7–11 chỗ.',
+ 'q7': 'Giá thuê xe tự lái ở Nha Trang bao nhiêu?',
+ 'a7': 'Từ 700.000 ₫/ngày với VinFast VF3 đến 2.100.000 ₫ với Kia Carnival. Sedan từ 900.000 ₫, xe 7 chỗ từ 1.000.000 ₫. Giá ghi trên từng xe ở trên.',
+ 'q8': 'Thuê xe theo tháng có rẻ hơn không?',
+ 'a8': 'Có. Thuê từ một tháng, giá mỗi ngày thấp hơn đáng kể — gửi ngày và mẫu xe qua mẫu đặt xe hoặc WhatsApp/Telegram, chúng tôi sẽ báo giá.',
  'title': 'Thuê xe tự lái Nha Trang — giá từ 700.000 ₫/ngày | VietAvto',
  'meta_desc': 'Cho thuê xe tự lái tại Nha Trang: VinFast, Toyota, Mitsubishi, Hyundai, Kia. Giá từ 700.000 ₫/ngày, cọc từ $200, giao xe tại khách sạn hoặc sân bay Cam Ranh. Đặt xe online, trả lời qua WhatsApp và Telegram.',
  'meta_kw': 'thuê xe tự lái Nha Trang, cho thuê xe ô tô Nha Trang, thuê xe tự lái sân bay Cam Ranh, thuê xe VinFast Nha Trang, thuê xe 7 chỗ Nha Trang, giá thuê xe tự lái Nha Trang',
