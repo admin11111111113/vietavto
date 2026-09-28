@@ -141,7 +141,7 @@ TERMS = [
 LANGS = ('ru', 'en', 'vi')
 ORIGIN = 'https://vietavto.pro'
 # Search-console ownership tags (Yandex Webmaster / Google Search Console); paste codes here.
-VERIFY = ''
+VERIFY = '<meta name="yandex-verification" content="7a832af37c556278">\n'
 
 def jsonld(lang, cars, vals):
     home = ORIGIN + HOME[lang]
