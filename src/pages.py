@@ -133,12 +133,12 @@ PAGES = [
      'Нет агрегатора и комиссии посредника — вы бронируете напрямую у владельца. Условия прозрачны: депозит $200 по провинции, 250 км в сутки с суммированием за весь срок, возврат «бак в бак». На месяц и дольше — отдельная, ещё более выгодная ставка.',
     ]),
     ('Как сэкономить ещё', [
-     'Берите электромобиль, если ездите в основном по городу и окрестностям, — это дешевле бензина. Возвращайте машину чистой, чтобы не платить за мойку (350 000 ₫), и с тем же уровнем топлива.',
+     'Берите электромобиль, если ездите в основном по городу и окрестностям, — это дешевле бензина. Возвращайте машину с тем же уровнем топлива, чтобы не доплачивать за бензин.',
     ]),
    ],
    'faq': [
     ('Какая самая дешёвая машина?', 'VinFast VF3 — 700 000 ₫ в сутки.'),
-    ('Есть скрытые платежи?', 'Нет. Отдельно оплачиваются только перепробег (5 000 ₫/км сверх лимита), недостающее топливо и мойка, если машину вернули грязной.'),
+    ('Есть скрытые платежи?', 'Нет. Отдельно оплачиваются только перепробег (5 000 ₫/км сверх лимита) и недостающее топливо.'),
     ('Есть скидка на долгий срок?', 'Да, на месяц и дольше действует отдельная ставка ниже посуточной.'),
    ],
   },
@@ -158,12 +158,12 @@ PAGES = [
      'No aggregator and no middleman commission — you book directly with the owner. Clear terms: $200 deposit within the province, 250 km per day added up over the rental, same-fuel-level return. A month or longer gets an even better rate.',
     ]),
     ('How to save more', [
-     'Choose an electric car if you mostly drive around the city — it costs less than petrol. Return the car clean to avoid the 350,000 ₫ wash fee, and with the same fuel level.',
+     'Choose an electric car if you mostly drive around the city — it costs less than petrol. Return it with the same fuel level to avoid paying for petrol.',
     ]),
    ],
    'faq': [
     ('What is the cheapest car?', 'The VinFast VF3 — 700,000 ₫ per day.'),
-    ('Are there hidden fees?', 'No. You only pay extra for mileage over the limit (5,000 ₫/km), missing fuel, and a wash if the car comes back dirty.'),
+    ('Are there hidden fees?', 'No. You only pay extra for mileage over the limit (5,000 ₫/km) and missing fuel.'),
     ('Is there a long-term discount?', 'Yes, a month or longer has a separate rate below the daily price.'),
    ],
   },

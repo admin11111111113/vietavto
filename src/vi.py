@@ -106,7 +106,6 @@ TERMS = [
  ('Giấy tờ', 'Hộ chiếu + IDP + bằng lái quốc gia<small>Cần để ký hợp đồng thuê xe.</small>'),
  ('Thanh toán', 'Sau khi kiểm tra xe<small>Bạn thanh toán sau khi ký hợp đồng và kiểm tra thân xe, nội thất.</small>'),
  ('Xăng', 'Cùng mức xăng<small>Trả xe với mức xăng như lúc nhận. Nếu ít hơn — bạn trả phần chênh lệch.</small>'),
- ('Rửa xe', '350.000 ₫<small>Nếu xe trả về bị bẩn, chúng tôi rửa với phí này.</small>'),
  ('Hư hại và phạt', 'Trừ vào tiền cọc<small>Khi xe bị hư hại hoặc có phạt vi phạm giao thông, tiền cọc sẽ bị trừ tương ứng.</small>'),
  ('Thuê theo tháng', 'Từ 15.000.000 ₫ mỗi tháng<small>Giá tháng ghi trên từng xe, từ 3 tháng còn rẻ hơn. Mẫu đặt xe tự tính giá.</small>'),
 ]
