@@ -16,7 +16,9 @@
     "desc_vi": "Xe điện đô thị do Việt Nam sản xuất: đi được khoảng 210 km mỗi lần sạc, dài chỉ 3,2 m — đỗ được ở những chỗ sedan không vừa. Lý tưởng để đi lại trong Nha Trang.",
     "photos": [
       "images/vf3.jpg"
-    ]
+    ],
+    "price_month": 15000000,
+    "price_3m": 14000000
   },
   {
     "id": "vf5",
@@ -35,7 +37,9 @@
     "desc_vi": "SUV điện cỡ nhỏ, đi được khoảng 300 km mỗi lần sạc. Rộng hơn VF3 và tăng tốc nhanh ngay từ khi xuất phát.",
     "photos": [
       "images/vf5.jpg"
-    ]
+    ],
+    "price_month": 19000000,
+    "price_3m": 18000000
   },
   {
     "id": "soluto",
@@ -54,7 +58,9 @@
     "desc_vi": "Sedan 1.4L đơn giản và tiết kiệm — lựa chọn chạy xăng rẻ nhất trong đội xe. Phù hợp cho hai người, ít hành lý.",
     "photos": [
       "images/soluto.jpg"
-    ]
+    ],
+    "price_month": 16000000,
+    "price_3m": 15000000
   },
   {
     "id": "mazda3",
@@ -72,8 +78,11 @@
     "desc_en": "A compact sedan with Mazda’s firm suspension and precise steering — the coastal road becomes the fun part.",
     "desc_vi": "Sedan nhỏ gọn với hệ thống treo chắc chắn đặc trưng của Mazda và vô lăng chính xác — lái xe dọc bờ biển thật thú vị.",
     "photos": [
-      "images/mazda3.jpg"
-    ]
+      "images/mazda3-1.jpg",
+      "images/mazda3-2.jpg"
+    ],
+    "price_month": 18000000,
+    "price_3m": 0
   },
   {
     "id": "rush",
@@ -92,7 +101,9 @@
     "desc_vi": "SUV 7 chỗ nhỏ gọn, gầm cao — vững vàng hơn trên đường xấu, đủ chỗ cho cả nhóm và hành lý.",
     "photos": [
       "images/rush.jpg"
-    ]
+    ],
+    "price_month": 18000000,
+    "price_3m": 17000000
   },
   {
     "id": "xpander",
@@ -111,7 +122,9 @@
     "desc_vi": "Mẫu MPV gia đình phổ biến nhất Việt Nam — hàng ghế thứ ba đủ cho người lớn, cốp rộng rãi cho vali.",
     "photos": [
       "images/xpander.jpg"
-    ]
+    ],
+    "price_month": 21000000,
+    "price_3m": 0
   },
   {
     "id": "veloz",
@@ -130,7 +143,9 @@
     "desc_vi": "Cùng phân khúc và mức giá với Xpander — dành cho nhóm đông và nhiều hành lý, với độ bền của Toyota.",
     "photos": [
       "images/luxa.jpg"
-    ]
+    ],
+    "price_month": 21000000,
+    "price_3m": 0
   },
   {
     "id": "creta",
@@ -149,7 +164,9 @@
     "desc_vi": "SUV nhỏ gọn với các tính năng hỗ trợ lái hiện đại và tư thế ngồi cao — thoải mái cho những chuyến đi Đà Lạt.",
     "photos": [
       "images/creta.jpg"
-    ]
+    ],
+    "price_month": 21000000,
+    "price_3m": 20000000
   },
   {
     "id": "xforce",
@@ -168,7 +185,9 @@
     "desc_vi": "Một trong những mẫu SUV mới nhất trong đội xe — đèn sắc nét, nền tảng mới, thực dụng như Creta.",
     "photos": [
       "images/veloz.jpg"
-    ]
+    ],
+    "price_month": 21000000,
+    "price_3m": 20000000
   },
   {
     "id": "luxa",
@@ -187,7 +206,9 @@
     "desc_vi": "Sedan cao cấp của VinFast trên nền tảng BMW 5 Series — động cơ 2.0 turbo, nội thất hạng thương gia. Lựa chọn tốt nhất để đón tiễn sân bay Cam Ranh.",
     "photos": [
       "images/xforce.jpg"
-    ]
+    ],
+    "price_month": 21000000,
+    "price_3m": 20000000
   },
   {
     "id": "carnival",
@@ -204,6 +225,8 @@
     "desc": "Большой семейный минивэн для компании до 11 человек: просторный салон, сдвижные двери и место под чемоданы. Удобен для трансфера из аэропорта Камрань и поездок всей семьёй.",
     "desc_en": "A large family minivan for groups of up to 11: a roomy cabin, sliding doors and space for suitcases. Great for Cam Ranh airport transfers and family trips.",
     "desc_vi": "MPV gia đình cỡ lớn cho nhóm đến 11 người: khoang rộng, cửa trượt và nhiều chỗ để vali. Tiện cho đưa đón sân bay Cam Ranh và du lịch cả gia đình.",
-    "photos": []
+    "photos": [],
+    "price_month": 0,
+    "price_3m": 0
   }
 ]

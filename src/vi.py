@@ -73,6 +73,11 @@ JS = {
  'per_day': '/ ngày', 'per_day_short': '/ngày', 'book': 'Đặt xe',
  'approx': 'khoảng',
  'disc_from': 'từ 5 ngày',
+ 'rate_month': 'giá theo tháng',
+ 'rate_3m': 'giá 3–6 tháng',
+ 'month_from': 'tháng',
+ 'per_month': '/tháng',
+ 'month_hint': '· từ 30 ngày — giá theo tháng, rẻ hơn',
  'disc_applied': 'giảm giá từ 5 ngày',
  'disc_hint': '· từ 5 ngày −50.000 ₫/ngày',
  'no_photo': 'Ảnh sắp có',
@@ -103,7 +108,7 @@ TERMS = [
  ('Xăng', 'Cùng mức xăng<small>Trả xe với mức xăng như lúc nhận. Nếu ít hơn — bạn trả phần chênh lệch.</small>'),
  ('Rửa xe', '350.000 ₫<small>Nếu xe trả về bị bẩn, chúng tôi rửa với phí này.</small>'),
  ('Hư hại và phạt', 'Trừ vào tiền cọc<small>Khi xe bị hư hại hoặc có phạt vi phạm giao thông, tiền cọc sẽ bị trừ tương ứng.</small>'),
- ('Thuê dài hạn', 'Từ một tháng — giá riêng<small>Gửi ngày thuê — chúng tôi báo giá tốt hơn giá theo ngày.</small>'),
+ ('Thuê theo tháng', 'Từ 15.000.000 ₫ mỗi tháng<small>Giá tháng ghi trên từng xe, từ 3 tháng còn rẻ hơn. Mẫu đặt xe tự tính giá.</small>'),
 ]
 
 # Car class/description translations, keyed by car id (used to seed cars.json cls_vi/desc_vi).

@@ -527,7 +527,8 @@ footer .logo svg{width:24px;height:24px;}
       '<span class="car-badge">' + esc(cls || '') + '</span><div class="gallery-count" hidden></div><div class="gallery-thumbs" hidden></div></figure>' +
       '<div class="car-body"><div class="car-top"><h3 title="' + esc(c.name) + '">' + (carUrl(c) ? '<a href="' + carUrl(c) + '">' + esc(c.name) + '</a>' : esc(c.name)) + '</h3>' +
       '<div class="price"><b>' + fmtPrice(c.price || 0) + ' ₫</b> ' + esc(T.per_day) + '</div>' +
-      (c.price > DISC ? '<div class="price-disc">' + esc(T.disc_from) + ' — ' + fmtPrice(c.price - DISC) + ' ₫' + esc(T.per_day_short) + '</div>' : '') + '</div>' +
+      (c.price > DISC ? '<div class="price-disc">' + esc(T.disc_from) + ' — ' + fmtPrice(c.price - DISC) + ' ₫' + esc(T.per_day_short) + '</div>' : '') +
+      (c.price_month ? '<div class="price-disc">' + esc(T.month_from) + ' — ' + fmtPrice(c.price_month) + ' ₫' + esc(T.per_month) + '</div>' : '') + '</div>' +
       '<ul class="car-meta">' + metaHTML(c) + '</ul>' +
       '<p class="spec">' + esc(desc || '') + '</p>' +
       '<a class="car-cta" href="#book" data-book-car="' + esc(c.id) + '">' + esc(T.book) + ' →</a></div>';
@@ -623,16 +624,32 @@ footer .logo svg{width:24px;height:24px;}
   function daysBetween(a, b){ if(!a || !b) return 0; return Math.round((new Date(b + 'T00:00:00') - new Date(a + 'T00:00:00')) / 86400000); }
   function dayWord(n){ return LANG === 'vi' ? 'ngày' : EN ? (n === 1 ? 'day' : 'days') : ((n % 10 === 1 && n % 100 !== 11) ? 'сутки' : 'суток'); }
   function currentCar(){ return selCar.value ? carById(selCar.value) : null; }
-  // Owner's rule: from 5 days the daily price is 50 000 VND lower.
-  function dayPrice(car, d){ return (d >= DISC_DAYS && car.price > DISC) ? car.price - DISC : car.price; }
+  // Rate for a rental of d days: 90+ days → 3–6 month price, 30+ → month price, 5+ → −50 000/day, else daily.
+  function rateInfo(car, d){
+    if(d >= 90 && car.price_3m) return {day: car.price_3m / 30, note: T.rate_3m};
+    // Never charge more than the next tier would cost in total (e.g. 25 days can't exceed one month).
+    if(d >= 30 && car.price_month){
+      if(car.price_3m && car.price_month / 30 * d > car.price_3m * 3) return {day: car.price_3m * 3 / d, note: T.rate_3m};
+      return {day: car.price_month / 30, note: T.rate_month};
+    }
+    var daily = (d >= DISC_DAYS && car.price > DISC) ? car.price - DISC : car.price;
+    if(car.price_month && daily * d > car.price_month) return {day: car.price_month / d, note: T.rate_month};
+    if(d >= DISC_DAYS && car.price > DISC) return {day: daily, note: T.disc_applied};
+    return {day: car.price, note: ''};
+  }
+  function roundK(v){ return Math.round(v / 1000) * 1000; }
+  function dayPrice(car, d){ return rateInfo(car, d).day; }
+  function totalPrice(car, d){ return roundK(dayPrice(car, d) * d); }
   function updateSummary(){
     var d = daysBetween(inFrom.value, inTo.value), car = currentCar();
     if(d > 0){
       var txt = esc(d + ' ' + dayWord(d));
       if(car && car.price){
-        txt += ' · ' + esc(T.approx) + ' <b>' + fmtPrice(dayPrice(car, d) * d) + ' ₫</b>';
-        if(d >= DISC_DAYS) txt += ' <span class="disc-tag">' + esc(T.disc_applied) + '</span>';
-        else txt += ' <span class="disc-hint">' + esc(T.disc_hint) + '</span>';
+        var ri = rateInfo(car, d);
+        txt += ' · ' + esc(T.approx) + ' <b>' + fmtPrice(totalPrice(car, d)) + ' ₫</b>';
+        if(ri.note) txt += ' <span class="disc-tag">' + esc(ri.note) + ' · ' + fmtPrice(roundK(ri.day)) + ' ₫' + esc(T.per_day_short) + '</span>';
+        if(d < DISC_DAYS) txt += ' <span class="disc-hint">' + esc(T.disc_hint) + '</span>';
+        else if(d < 30 && car.price_month) txt += ' <span class="disc-hint">' + esc(T.month_hint) + '</span>';
       }
       sumEl.innerHTML = txt;
     }else sumEl.textContent = '';
@@ -657,7 +674,7 @@ footer .logo svg{width:24px;height:24px;}
     var lines = [T.m_hello];
     lines.push(T.m_car + (car ? car.name : T.m_any));
     lines.push(T.m_dates + fmtDate(inFrom.value) + ' — ' + fmtDate(inTo.value) + ' (' + d + ' ' + dayWord(d) + ')');
-    if(car && car.price) lines.push(T.m_price + fmtPrice(dayPrice(car, d)) + ' ₫' + T.per_day_short + (d >= DISC_DAYS ? ' (' + T.disc_applied + ')' : '') + ', ' + T.m_total + fmtPrice(dayPrice(car, d) * d) + ' ₫');
+    if(car && car.price){ var ri = rateInfo(car, d); lines.push(T.m_price + fmtPrice(roundK(ri.day)) + ' ₫' + T.per_day_short + (ri.note ? ' (' + ri.note + ')' : '') + ', ' + T.m_total + fmtPrice(totalPrice(car, d)) + ' ₫'); }
     if(inPlace.value.trim()) lines.push(T.m_place + inPlace.value.trim());
     if(inName.value.trim()) lines.push(T.m_name + inName.value.trim());
     if(inPhone.value.trim()) lines.push(T.m_contact + inPhone.value.trim());
@@ -668,8 +685,8 @@ footer .logo svg{width:24px;height:24px;}
     var car = currentCar(), d = daysBetween(inFrom.value, inTo.value);
     var payload = {
       car: car ? car.name : '', from: fmtDate(inFrom.value), to: fmtDate(inTo.value),
-      days: d + ' ' + dayWord(d), total: (car && car.price) ? fmtPrice(dayPrice(car, d) * d) + ' ₫' : '',
-      discount: (car && car.price && d >= DISC_DAYS) ? '−' + fmtPrice(DISC) + ' ₫/сут × ' + d : '',
+      days: d + ' ' + dayWord(d), total: (car && car.price) ? fmtPrice(totalPrice(car, d)) + ' ₫' : '',
+      discount: (car && car.price && rateInfo(car, d).note) ? rateInfo(car, d).note + ': ' + fmtPrice(roundK(dayPrice(car, d))) + ' ₫/сут' : '',
       name: inName.value.trim(), phone: inPhone.value.trim(), place: inPlace.value.trim(),
       via: via, lang: document.documentElement.lang, website: inTrap.value
     };

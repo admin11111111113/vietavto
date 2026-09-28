@@ -217,6 +217,8 @@ details.tr[open] summary{margin-bottom:10px;}
       var g = document.createElement('div'); g.className = 'grid';
       g.appendChild(field('Название', c.name, function(v){ c.name = v; h.textContent = (i+1) + '. ' + (v || 'Новая машина'); }));
       g.appendChild(field('Цена, ₫ за сутки', c.price, function(v){ c.price = Number(String(v).replace(/\D/g,'')) || 0; }, {type:'text', placeholder:'например 900000'}));
+      g.appendChild(field('Цена за месяц, ₫ (0 — нет)', c.price_month || '', function(v){ c.price_month = Number(String(v).replace(/\D/g,'')) || 0; }, {type:'text', placeholder:'например 21000000'}));
+      g.appendChild(field('Цена за месяц при 3–6 мес., ₫ (0 — как месяц)', c.price_3m || '', function(v){ c.price_3m = Number(String(v).replace(/\D/g,'')) || 0; }, {type:'text', placeholder:'например 20000000'}));
       g.appendChild(field('Класс', c.cls, function(v){ c.cls = v; }, {placeholder:'Седан'}));
       var specs = document.createElement('div'); specs.className = 'full grid3';
       specs.appendChild(field('Мест', c.seats || '', function(v){ c.seats = Number(String(v).replace(/\D/g,'')) || 0; }, {placeholder:'5'}));

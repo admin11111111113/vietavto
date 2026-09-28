@@ -96,6 +96,11 @@ JS = {
  'per_day': ('/ сутки', '/ day'), 'per_day_short': ('/сут', '/day'), 'book': ('Забронировать', 'Book'),
  'approx': ('примерно', 'approx.'),
  'disc_from': ('от 5 суток', 'from 5 days'),
+ 'rate_month': ('месячная цена', 'monthly price'),
+ 'rate_3m': ('цена 3–6 месяцев', '3–6 month price'),
+ 'month_from': ('месяц', 'month'),
+ 'per_month': ('/мес', '/mo'),
+ 'month_hint': ('· от 30 суток — месячная цена, дешевле', '· from 30 days — cheaper monthly price'),
  'disc_applied': ('скидка от 5 суток', '5+ day discount'),
  'disc_hint': ('· от 5 суток −50 000 ₫/сут', '· from 5 days −50,000 ₫/day'),
  'no_photo': ('Фото скоро', 'Photo coming soon'),
@@ -145,9 +150,9 @@ TERMS = [
  (('Повреждения и штрафы', 'Damage & fines'),
   ('Из депозита<small>При повреждениях или штрафах за нарушение ПДД депозит удерживается соразмерно.</small>',
    'From the deposit<small>For damage or traffic fines the matching amount is withheld from the deposit.</small>')),
- (('Долгая аренда', 'Long-term rental'),
-  ('От месяца — своя ставка<small>Напишите даты — посчитаем выгоднее посуточной цены.</small>',
-   'A month or more — special rate<small>Send us your dates and we’ll quote below the daily price.</small>')),
+ (('Аренда на месяц', 'Monthly rental'),
+  ('От 15 000 000 ₫ в месяц<small>Цена за месяц указана в карточке каждой машины, от 3 месяцев — ещё дешевле. Калькулятор в форме считает сам.</small>',
+   'From 15,000,000 ₫ a month<small>Each car shows its monthly price; from 3 months it is even cheaper. The booking form calculates it for you.</small>')),
 ]
 
 LANGS = ('ru', 'en', 'vi')
@@ -263,7 +268,9 @@ def card_html(c, lang):
             '<a class="car-cta" href="%s?car=%s#book">%s →</a></div></article>'
             % (media, esc(cls or ''), ('<a href="%s">%s</a>' % (car_url(c, lang), esc(c['name'])) if lang in ('ru', 'en') else esc(c['name'])), fmt_price(c.get('price', 0), lang), L('per_day'),
                ('<div class="price-disc">%s — %s ₫%s</div>' % (L('disc_from'), fmt_price(int(c.get('price', 0)) - 50000, lang), L('per_day_short'))
-                if int(c.get('price') or 0) > 50000 else ''),
+                if int(c.get('price') or 0) > 50000 else '')
+               + ('<div class="price-disc">%s — %s ₫%s</div>' % (L('month_from'), fmt_price(c['price_month'], lang), L('per_month'))
+                  if c.get('price_month') else ''),
                ''.join(meta), esc(desc or ''), home, esc(c['id']), L('book')))
 
 def build_landing(page, lang):
@@ -346,6 +353,10 @@ def car_page(c, all_cars):
                                      ' На фото — реальный автомобиль из нашего парка.' if c.get('photos') else '')]),
         ('Цена аренды %s' % name, ['%s ₫ в сутки, а при аренде от 5 суток — %s ₫ в сутки. Например, 3 суток — %s ₫, неделя — %s ₫. На месяц и дольше — отдельная, более выгодная ставка. Лимит пробега 250 км в сутки суммируется за весь срок: за неделю — 1 750 км, каждый км сверх лимита — 5 000 ₫.'
                                    % (fp(p, 'ru'), fp(p - 50000, 'ru'), fp(3 * p, 'ru'), fp(7 * (p - 50000), 'ru'))]),
+        ('Аренда %s на месяц' % name, [('Месяц — %s ₫%s. Выходит примерно %s ₫ в сутки — заметно дешевле посуточной цены.'
+                                         % (fp(c['price_month'], 'ru'), (', от 3 месяцев — %s ₫ в месяц' % fp(c['price_3m'], 'ru')) if c.get('price_3m') else '',
+                                            fp(round(c['price_month'] / 30 / 1000) * 1000, 'ru')))
+                                        if c.get('price_month') else 'Цену на месяц и дольше назовём по вашим датам — напишите нам в WhatsApp или Telegram.']),
         ('Условия аренды', ['Депозит $200 для поездок по провинции Кхань Хоа или $400 — по всему Вьетнаму. Документы: паспорт, международное водительское удостоверение (МВУ) и национальные права. Оплата — после осмотра машины, возврат — с тем же уровнем топлива. На 1 день машину можно взять с 7:00 до 22:00.']),
         ('Где забрать %s' % name, ['Передадим машину в вашем отеле, по адресу в Нячанге или в аэропорту Камрань — место и время согласуем в WhatsApp или Telegram.']),
       ],
@@ -369,6 +380,10 @@ def car_page(c, all_cars):
                               ' The photos show the real car from our fleet.' if c.get('photos') else '')]),
         ('%s rental price' % name, ['%s ₫ per day, or %s ₫ per day when you rent for 5 days or more. For example, 3 days — %s ₫, a week — %s ₫. A month or longer gets a separate, better rate. The 250 km per day limit adds up over the rental: 1,750 km for a week, each extra km is 5,000 ₫.'
                                     % (fp(p, 'en'), fp(p - 50000, 'en'), fp(3 * p, 'en'), fp(7 * (p - 50000), 'en'))]),
+        ('Monthly %s rental' % name, [('One month — %s ₫%s. That is about %s ₫ a day — much cheaper than the daily rate.'
+                                        % (fp(c['price_month'], 'en'), (', from 3 months — %s ₫ a month' % fp(c['price_3m'], 'en')) if c.get('price_3m') else '',
+                                           fp(round(c['price_month'] / 30 / 1000) * 1000, 'en')))
+                                       if c.get('price_month') else 'For a month or longer we quote a price for your dates — message us on WhatsApp or Telegram.']),
         ('Rental terms', ['Deposit $200 for trips within Khanh Hoa province or $400 across Vietnam. Documents: passport, International Driving Permit (1968 Convention) and national licence. You pay after inspecting the car and return it with the same fuel level. One-day rentals run from 7:00 to 22:00.']),
         ('Where to pick up the %s' % name, ['We hand over the car at your hotel, an address in Nha Trang or Cam Ranh airport — we agree the place and time on WhatsApp or Telegram.']),
       ],
