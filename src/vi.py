@@ -1,8 +1,13 @@
 # Vietnamese strings for /vi/ — same keys as S / JS / TERMS in build.py.
 
 S = {
- 'title': 'Thuê xe tự lái Nha Trang — VietAvto',
- 'meta_desc': 'Cho thuê xe tự lái tại Nha Trang: VinFast, Toyota, Mitsubishi, Mazda và nhiều mẫu khác. Giá theo ngày, cọc rõ ràng, đặt xe online.',
+ 'title': 'Thuê xe tự lái Nha Trang — giá từ 700.000 ₫/ngày | VietAvto',
+ 'meta_desc': 'Cho thuê xe tự lái tại Nha Trang: VinFast, Toyota, Mitsubishi, Hyundai, Kia. Giá từ 700.000 ₫/ngày, cọc từ $200, giao xe tại khách sạn hoặc sân bay Cam Ranh. Đặt xe online, trả lời qua WhatsApp và Telegram.',
+ 'meta_kw': 'thuê xe tự lái Nha Trang, cho thuê xe ô tô Nha Trang, thuê xe tự lái sân bay Cam Ranh, thuê xe VinFast Nha Trang, thuê xe 7 chỗ Nha Trang, giá thuê xe tự lái Nha Trang',
+ 'og_locale': 'vi_VN',
+ 'about_h': 'Thuê xe tự lái tại Nha Trang',
+ 'about_p1': 'Thuê xe tự lái ở Nha Trang là cách thuận tiện nhất để khám phá bờ biển Khánh Hòa theo lịch của riêng bạn: bãi biển, đảo, thác nước và đèo lên Đà Lạt. VietAvto cho thuê xe từ đội xe riêng — từ xe điện VinFast VF3, VF5 đến Toyota Veloz, Mitsubishi Xpander 7 chỗ và MPV Kia Carnival.',
+ 'about_p2': 'Giá thuê xe tự lái tại Nha Trang từ 700.000 ₫/ngày, tiền cọc $200 trong tỉnh và $400 khi đi khắp Việt Nam. Giao xe tại khách sạn, địa chỉ ở Nha Trang hoặc sân bay Cam Ranh (CXR). Cần hộ chiếu, giấy phép lái xe quốc tế và bằng lái quốc gia.',
  'nav_fleet': 'Đội xe', 'nav_terms': 'Điều kiện', 'nav_faq': 'Hỏi đáp', 'nav_contact': 'Liên hệ',
  'nav_book': 'Đặt xe',
  'pill': 'Đội xe riêng tại Nha Trang',

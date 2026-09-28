@@ -12,9 +12,13 @@ LOGO = ('<svg viewBox="0 0 32 32" fill="none" stroke="#E8622C" stroke-width="2.4
         '<circle cx="9" cy="22" r="2.2"/><circle cx="23" cy="22" r="2.2"/></svg>')
 
 S = {
- 'title': ('Аренда авто в Нячанге — VietAvto', 'Car rental in Nha Trang — VietAvto'),
- 'meta_desc': ('Прокат автомобилей без водителя в Нячанге: VinFast, Toyota, Mitsubishi, Mazda и другие. Цены за сутки, понятный депозит, заявка онлайн.',
-               'Self-drive car rental in Nha Trang: VinFast, Toyota, Mitsubishi, Mazda and more. Daily prices, a clear deposit, book online.'),
+ 'title': ('Аренда авто в Нячанге без водителя — от 700 000 ₫/сутки | VietAvto', 'Car rental in Nha Trang, self-drive — from 700,000 ₫/day | VietAvto'),
+ 'meta_desc': ('Аренда авто в Нячанге без водителя: VinFast, Toyota, Mitsubishi, Hyundai, Kia. Цены от 700 000 ₫ в сутки, депозит от $200, передача в отеле или аэропорту Камрань. Заявка онлайн, ответ в WhatsApp и Telegram.', 'Self-drive car rental in Nha Trang: VinFast, Toyota, Mitsubishi, Hyundai, Kia. From 700,000 ₫ per day, deposit from $200, hand-over at your hotel or Cam Ranh airport. Book online, reply on WhatsApp or Telegram.'),
+ 'meta_kw': ('аренда авто Нячанг, аренда машины Нячанг, прокат авто Нячанг, аренда авто без водителя Вьетнам, аренда авто аэропорт Камрань, прокат машин Нячанг цены, аренда VinFast Нячанг', 'car rental Nha Trang, rent a car Nha Trang, self-drive car hire Nha Trang, Cam Ranh airport car rental, car rental Vietnam, VinFast rental Nha Trang'),
+ 'og_locale': ('ru_RU', 'en_US'),
+ 'about_h': ('Аренда авто в Нячанге', 'Car rental in Nha Trang'),
+ 'about_p1': ('Аренда машины в Нячанге — удобный способ увидеть побережье Кхань Хоа в своём темпе: пляжи и острова, водопады, горная дорога на Далат. VietAvto сдаёт автомобили без водителя из собственного парка — от электромобилей VinFast VF3 и VF5 до 7-местных Toyota Veloz, Mitsubishi Xpander и минивэна Kia Carnival.', 'Renting a car in Nha Trang is the easiest way to see the Khanh Hoa coast at your own pace: beaches and islands, waterfalls and the mountain road to Da Lat. VietAvto rents self-drive cars from its own fleet — from VinFast VF3 and VF5 electric cars to 7-seat Toyota Veloz, Mitsubishi Xpander and the Kia Carnival minivan.'),
+ 'about_p2': ('Цены на прокат авто в Нячанге — от 700 000 ₫ в сутки, депозит $200 по провинции и $400 для поездок по всему Вьетнаму. Машину передаём в отеле, по адресу в Нячанге или в аэропорту Камрань (CXR). Для аренды нужны паспорт, международное и национальное водительское удостоверение.', 'Car hire prices in Nha Trang start at 700,000 ₫ per day, with a $200 deposit within the province and $400 for trips across Vietnam. We hand over the car at your hotel, an address in Nha Trang or Cam Ranh airport (CXR). You need a passport, an International Driving Permit and your national licence.'),
  'nav_fleet': ('Автопарк', 'Fleet'), 'nav_terms': ('Условия', 'Terms'), 'nav_faq': ('Вопросы', 'FAQ'), 'nav_contact': ('Контакты', 'Contacts'),
  'nav_book': ('Забронировать', 'Book now'),
  'pill': ('Свой автопарк в Нячанге', 'Our own fleet in Nha Trang'),
@@ -130,6 +134,28 @@ TERMS = [
 ]
 
 LANGS = ('ru', 'en', 'vi')
+ORIGIN = 'https://vietavto.pro'
+# Search-console ownership tags (Yandex Webmaster / Google Search Console); paste codes here.
+VERIFY = ''
+
+def jsonld(lang, cars, vals):
+    home = ORIGIN + HOME[lang]
+    faq = [{'@type': 'Question', 'name': vals['q%d' % n],
+            'acceptedAnswer': {'@type': 'Answer', 'text': vals['a%d' % n]}} for n in range(1, 7)]
+    offers = [{'@type': 'Offer', 'name': c['name'], 'price': c['price'], 'priceCurrency': 'VND',
+               'unitText': 'DAY'} for c in cars if not c.get('hidden') and c.get('price')]
+    data = [
+      {'@context': 'https://schema.org', '@type': 'AutoRental', 'name': 'VietAvto', 'url': home,
+       'image': ORIGIN + '/images/luxa.jpg', 'logo': ORIGIN + '/apple-touch-icon.png',
+       'description': vals['meta_desc'], 'telephone': '+79041188897',
+       'address': {'@type': 'PostalAddress', 'addressLocality': 'Nha Trang', 'addressRegion': 'Khanh Hoa', 'addressCountry': 'VN'},
+       'areaServed': ['Nha Trang', 'Khanh Hoa', 'Cam Ranh'],
+       'openingHours': 'Mo-Su 07:00-22:00', 'priceRange': '700000-2100000 VND',
+       'sameAs': ['https://t.me/workminer', 'https://wa.me/79041188897'],
+       'makesOffer': offers},
+      {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faq},
+    ]
+    return json.dumps(data, ensure_ascii=False)
 HOME = {'ru': '/', 'en': '/en/', 'vi': '/vi/'}
 
 def pick(table, key, lang, vi_table):
@@ -147,6 +173,8 @@ def build(lang):
     vals = {k: pick(S, k, lang, VI.S) for k in S}
     vals.update({
         'lang': lang,
+        'origin': ORIGIN,
+        'verify_tags': VERIFY if lang == 'ru' else '',
         'terms_html': '\n'.join('      <div class="term"><div class="k">%s</div><div class="v">%s</div></div>' % kv
                                  for kv in (VI.TERMS if lang == 'vi' else [(k[i], v[i]) for k, v in TERMS])),
         'home': HOME[lang],
@@ -156,6 +184,7 @@ def build(lang):
         'cars_json': json.dumps(cars, ensure_ascii=False).replace('</', '<\\/'),
         'js_strings': json.dumps({k: pick(JS, k, lang, VI.JS) for k in JS}, ensure_ascii=False),
     })
+    vals['jsonld'] = jsonld(lang, cars, vals).replace('</', '<\\/')
     out = re.sub(r'\{\{(\w+)\}\}', lambda m: vals[m.group(1)], html)
     left = re.findall(r'\{\{\w+\}\}', out)
     assert not left, left
@@ -164,6 +193,19 @@ def build(lang):
     io.open(path, 'w', encoding='utf-8', newline='\n').write(out)
     return path
 
+def sitemap():
+    import datetime
+    today = datetime.date.today().isoformat()
+    alts = ''.join('    <xhtml:link rel="alternate" hreflang="%s" href="%s%s"/>\n' % (l, ORIGIN, HOME[l]) for l in LANGS)
+    urls = ''.join('  <url>\n    <loc>%s%s</loc>\n%s    <lastmod>%s</lastmod>\n    <changefreq>weekly</changefreq>\n'
+                   '    <priority>%s</priority>\n  </url>\n' % (ORIGIN, HOME[l], alts, today, '1.0' if l == 'ru' else '0.9')
+                   for l in LANGS)
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+           + urls + '</urlset>\n')
+    io.open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8', newline='\n').write(xml)
+
 if __name__ == '__main__':
     for l in LANGS:
         print('built', build(l))
+    sitemap()
