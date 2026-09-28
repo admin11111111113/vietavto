@@ -494,4 +494,60 @@ PAGES = [
    ],
   },
  },
+ {
+  'id': 'where',
+  'cars': ['vf3', 'soluto', 'xpander', 'creta'],
+  'ru': {
+   'slug': 'gde-snyat-avtomobil-v-nyachange',
+   'link': 'Где снять автомобиль в Нячанге',
+   'title': 'Где снять автомобиль в Нячанге: авто в аренду напрямую, без посредников | VietAvto',
+   'desc': 'Где снять автомобиль в аренду в Нячанге: агрегаторы, прокатные конторы или владелец парка — плюсы и минусы. Авто в аренду напрямую от 700 000 ₫ в сутки с доставкой в отель и аэропорт Камрань.',
+   'kw': 'где снять автомобиль в Нячанге, авто в аренду Нячанг, автомобиль в аренду Нячанг, снять машину Нячанг, взять машину в аренду Нячанг, где арендовать авто в Нячанге, машина напрокат Нячанг',
+   'h1': 'Где снять автомобиль в Нячанге',
+   'lead': 'Снять машину в Нячанге можно тремя способами: через агрегатор, в прокатной конторе или напрямую у владельца автопарка. Разберём, чем они отличаются, и как взять авто в аренду без переплат.',
+   'sections': [
+    ('Агрегаторы', [
+     'Сайты-агрегаторы собирают предложения разных прокатов. Удобно сравнить цены, но вы платите комиссию сервиса, а машина и условия зависят от конкретного прокатчика, с которым вы общаетесь уже после оплаты.',
+    ]),
+    ('Прокатные конторы у пляжа', [
+     'В туристических районах много небольших прокатов. Можно посмотреть машину вживую, но цены и условия часто устные, а депозит и правила возврата стоит уточнять заранее.',
+    ]),
+    ('Напрямую у владельца — VietAvto', [
+     'Мы сдаём автомобили в аренду из собственного парка: VinFast, Toyota, Mitsubishi, Hyundai, Kia. Без посредников и комиссий, с реальными фото каждой машины и понятными условиями — депозит $200 или $400, 250 км в сутки с суммированием, возврат «бак в бак». Цена авто в аренду — от 700 000 ₫ в сутки.',
+     'Машину передаём в отеле, по адресу в Нячанге или в аэропорту Камрань. Заявку можно оставить на сайте или сразу написать в WhatsApp или Telegram.',
+    ]),
+   ],
+   'faq': [
+    ('Где лучше снять автомобиль в Нячанге?', 'Выгоднее всего — напрямую у владельца парка: без комиссии агрегатора и с понятными условиями заранее.'),
+    ('Сколько стоит авто в аренду в Нячанге?', 'От 700 000 ₫ в сутки за VinFast VF3; седаны — от 900 000 ₫, 7-местные — от 1 000 000 ₫.'),
+    ('Можно снять машину с доставкой?', 'Да, передадим авто в отеле, по адресу в Нячанге или в аэропорту Камрань.'),
+   ],
+  },
+  'en': {
+   'slug': 'where-to-rent-a-car-in-nha-trang',
+   'link': 'Where to rent a car in Nha Trang',
+   'title': 'Where to Rent a Car in Nha Trang: Direct Car Hire, No Middlemen | VietAvto',
+   'desc': 'Where to rent a car in Nha Trang: aggregators, local rental shops or a fleet owner — pros and cons. Cars for rent directly from 700,000 ₫ a day with delivery to your hotel or Cam Ranh airport.',
+   'kw': 'where to rent a car in Nha Trang, car for rent Nha Trang, rent car Nha Trang, Nha Trang car hire, hire a car Nha Trang, rental cars Nha Trang, best car rental Nha Trang',
+   'h1': 'Where to Rent a Car in Nha Trang',
+   'lead': 'There are three ways to rent a car in Nha Trang: an online aggregator, a local rental shop, or directly from a fleet owner. Here is how they differ and how to hire a car without overpaying.',
+   'sections': [
+    ('Aggregators', [
+     'Aggregator sites list offers from many rental companies. Comparing prices is easy, but you pay the platform’s commission, and the car and terms depend on a local company you only deal with after paying.',
+    ]),
+    ('Local rental shops', [
+     'Tourist areas have plenty of small rental shops. You can see the car in person, but prices and terms are often verbal, so check the deposit and return rules upfront.',
+    ]),
+    ('Directly from the owner — VietAvto', [
+     'We rent cars from our own fleet: VinFast, Toyota, Mitsubishi, Hyundai and Kia. No middlemen and no commission, real photos of every car and clear terms — a $200 or $400 deposit, 250 km per day added up over the rental, same-fuel-level return. Cars for rent from 700,000 ₫ a day.',
+     'We hand over the car at your hotel, an address in Nha Trang or Cam Ranh airport. Send a request on the site or message us on WhatsApp or Telegram.',
+    ]),
+   ],
+   'faq': [
+    ('What is the best way to rent a car in Nha Trang?', 'Renting directly from a fleet owner is usually cheapest: no aggregator fee and clear terms upfront.'),
+    ('How much does a rental car cost in Nha Trang?', 'From 700,000 ₫ a day for the VinFast VF3; sedans from 900,000 ₫, 7-seaters from 1,000,000 ₫.'),
+    ('Can the car be delivered?', 'Yes, to your hotel, an address in Nha Trang or Cam Ranh airport.'),
+   ],
+  },
+ },
 ]

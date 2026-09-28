@@ -172,6 +172,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://vietavto.pro/gde-snyat-avtomobil-v-nyachange/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://vietavto.pro/gde-snyat-avtomobil-v-nyachange/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vietavto.pro/en/where-to-rent-a-car-in-nha-trang/"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vietavto.pro/en/where-to-rent-a-car-in-nha-trang/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://vietavto.pro/gde-snyat-avtomobil-v-nyachange/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vietavto.pro/en/where-to-rent-a-car-in-nha-trang/"/>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://vietavto.pro/arenda-vinfast-vf3-nyachang/</loc>
     <xhtml:link rel="alternate" hreflang="ru" href="https://vietavto.pro/arenda-vinfast-vf3-nyachang/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://vietavto.pro/en/rent-vinfast-vf3-nha-trang/"/>

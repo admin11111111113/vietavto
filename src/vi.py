@@ -1,6 +1,11 @@
 # Vietnamese strings for /vi/ — same keys as S / JS / TERMS in build.py.
 
 S = {
+ 'about_p4': 'Thuê xe ô tô ở Nha Trang ở đâu? Bạn có thể đặt qua các trang tổng hợp, cửa hàng cho thuê gần biển hoặc thuê trực tiếp từ chủ xe. VietAvto cho thuê xe trực tiếp tại Nha Trang: không phí trung gian, ảnh thật của từng xe, trả lời qua WhatsApp hoặc Telegram. Giao xe tại khách sạn hoặc sân bay Cam Ranh.',
+ 'q9': 'Thuê xe tự lái ở Nha Trang ở đâu?',
+ 'a9': 'Ngay tại đây: chọn xe và ngày ở mẫu phía trên — bạn thuê trực tiếp từ chủ xe, không qua trung gian. Giao xe tại khách sạn, địa chỉ ở Nha Trang hoặc sân bay Cam Ranh.',
+ 'q10': 'Có thể thuê xe không cần cọc không?',
+ 'a10': 'Cần đặt cọc: $200 cho chuyến đi trong tỉnh Khánh Hòa và $400 cho toàn Việt Nam. Tiền cọc được hoàn lại nếu xe không hư hại và không có phạt.',
  'about_p3': 'Tìm nơi thuê xe tự lái giá rẻ ở Nha Trang? Lựa chọn tiết kiệm nhất là xe điện VinFast VF3 giá 700.000 ₫/ngày và sedan Kia Soluto giá 900.000 ₫. Thuê từ một tháng trở lên có giá riêng, ưu đãi hơn. Gia đình và nhóm bạn có thể chọn Toyota Rush, Veloz, Mitsubishi Xpander 7 chỗ, nhóm đông hơn chọn Kia Carnival 7–11 chỗ.',
  'q7': 'Giá thuê xe tự lái ở Nha Trang bao nhiêu?',
  'a7': 'Từ 700.000 ₫/ngày với VinFast VF3 đến 2.100.000 ₫ với Kia Carnival. Sedan từ 900.000 ₫, xe 7 chỗ từ 1.000.000 ₫. Giá ghi trên từng xe ở trên.',
