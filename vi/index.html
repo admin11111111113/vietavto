@@ -210,6 +210,9 @@ section.block{padding:56px 0 8px;}
 
 /* ---------- terms & faq ---------- */
 .about h2{font-size:clamp(24px,3vw,32px);font-weight:800;margin-bottom:14px;}
+.guides{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+.guides a{padding:10px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-weight:600;font-size:14.5px;background:var(--panel);}
+.guides a:hover{border-color:var(--accent);color:var(--accent-2);}
 .about p{color:#b9bcc2;max-width:80ch;margin:0 0 12px;font-size:15.5px;}
 .cards-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
 .term,.qa{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;}
@@ -362,7 +365,19 @@ footer .logo svg{width:24px;height:24px;}
     <div class="sec-head">
       <div><h2>Đội xe</h2><p>Giá theo ngày, xe tự lái (không kèm tài xế). Thuê từ một tháng trở lên có giá riêng — hỏi khi đặt xe.</p></div>
     </div>
-    <div class="grid" id="fleet-grid"></div>
+    <div class="grid" id="fleet-grid">
+      <article class="car"><figure class="car-media"><img class="gallery-main" src="/images/vf3.jpg" alt="VinFast VF3" loading="lazy"><span class="car-badge">Ô tô điện mini</span></figure><div class="car-body"><div class="car-top"><h3>VinFast VF3</h3><div class="price"><b>700.000 ₫</b> / ngày</div></div><ul class="car-meta"><li>4 chỗ</li><li>Số tự động</li><li>Điện</li></ul><p class="spec">Xe điện đô thị do Việt Nam sản xuất: đi được khoảng 210 km mỗi lần sạc, dài chỉ 3,2 m — đỗ được ở những chỗ sedan không vừa. Lý tưởng để đi lại trong Nha Trang.</p><a class="car-cta" href="/vi/?car=vf3#book">Đặt xe →</a></div></article>
+      <article class="car"><figure class="car-media"><img class="gallery-main" src="/images/vf5.jpg" alt="VinFast VF5" loading="lazy"><span class="car-badge">SUV điện</span></figure><div class="car-body"><div class="car-top"><h3>VinFast VF5</h3><div class="price"><b>800.000 ₫</b> / ngày</div></div><ul class="car-meta"><li>5 chỗ</li><li>Số tự động</li><li>Điện</li></ul><p class="spec">SUV điện cỡ nhỏ, đi được khoảng 300 km mỗi lần sạc. Rộng hơn VF3 và tăng tốc nhanh ngay từ khi xuất phát.</p><a class="car-cta" href="/vi/?car=vf5#book">Đặt xe →</a></div></article>
+      <article class="car"><figure class="car-media"><img class="gallery-main" src="/images/soluto.jpg" alt="Kia Soluto" loading="lazy"><span class="car-badge">Sedan</span></figure><div class="car-body"><div class="car-top"><h3>Kia Soluto</h3><div class="price"><b>900.000 ₫</b> / ngày</div></div><ul class="car-meta"><li>5 chỗ</li><li>Xăng</li></ul><p class="spec">Sedan 1.4L đơn giản và tiết kiệm — lựa chọn chạy xăng rẻ nhất trong đội xe. Phù hợp cho hai người, ít hành lý.</p><a class="car-cta" href="/vi/?car=soluto#book">Đặt xe →</a></div></article>
+      <article class="car"><figure class="car-media"><img class="gallery-main" src="/images/mazda3.jpg" alt="Mazda3" loading="lazy"><span class="car-badge">Sedan</span></figure><div class="car-body"><div class="car-top"><h3>Mazda3</h3><div class="price"><b>900.000 ₫</b> / ngày</div></div><ul class="car-meta"><li>5 chỗ</li><li>Số tự động</li><li>Xăng</li></ul><p class="spec">Sedan nhỏ gọn với hệ thống treo chắc chắn đặc trưng của Mazda và vô lăng chính xác — lái xe dọc bờ biển thật thú vị.</p><a class="car-cta" href="/vi/?car=mazda3#book">Đặt xe →</a></div></article>
+      <article class="car"><figure class="car-media"><img class="gallery-main" src="/images/rush.jpg" alt="Toyota Rush" loading="lazy"><span class="car-badge">SUV 7 chỗ</span></figure><div class="car-body"><div class="car-top"><h3>Toyota Rush</h3><div class="price"><b>1.000.000 ₫</b> / ngày</div></div><ul class="car-meta"><li>7 chỗ</li><li>Số tự động</li><li>Xăng</li></ul><p class="spec">SUV 7 chỗ nhỏ gọn, gầm cao — vững vàng hơn trên đường xấu, đủ chỗ cho cả nhóm và hành lý.</p><a class="car-cta" href="/vi/?car=rush#book">Đặt xe →</a></div></article>
+      <article class="car"><figure class="car-media"><img class="gallery-main" src="/images/xpander.jpg" alt="Mitsubishi Xpander" loading="lazy"><span class="car-badge">MPV 7 chỗ</span></figure><div class="car-body"><div class="car-top"><h3>Mitsubishi Xpander</h3><div class="price"><b>1.100.000 ₫</b> / ngày</div></div><ul class="car-meta"><li>7 chỗ</li><li>Xăng</li></ul><p class="spec">Mẫu MPV gia đình phổ biến nhất Việt Nam — hàng ghế thứ ba đủ cho người lớn, cốp rộng rãi cho vali.</p><a class="car-cta" href="/vi/?car=xpander#book">Đặt xe →</a></div></article>
+      <article class="car"><figure class="car-media"><img class="gallery-main" src="/images/luxa.jpg" alt="Toyota Veloz" loading="lazy"><span class="car-badge">MPV 7 chỗ</span></figure><div class="car-body"><div class="car-top"><h3>Toyota Veloz</h3><div class="price"><b>1.100.000 ₫</b> / ngày</div></div><ul class="car-meta"><li>7 chỗ</li><li>Số tự động</li><li>Xăng</li></ul><p class="spec">Cùng phân khúc và mức giá với Xpander — dành cho nhóm đông và nhiều hành lý, với độ bền của Toyota.</p><a class="car-cta" href="/vi/?car=veloz#book">Đặt xe →</a></div></article>
+      <article class="car"><figure class="car-media"><img class="gallery-main" src="/images/creta.jpg" alt="Hyundai Creta" loading="lazy"><span class="car-badge">SUV</span></figure><div class="car-body"><div class="car-top"><h3>Hyundai Creta</h3><div class="price"><b>1.150.000 ₫</b> / ngày</div></div><ul class="car-meta"><li>5 chỗ</li><li>Số tự động</li><li>Xăng</li></ul><p class="spec">SUV nhỏ gọn với các tính năng hỗ trợ lái hiện đại và tư thế ngồi cao — thoải mái cho những chuyến đi Đà Lạt.</p><a class="car-cta" href="/vi/?car=creta#book">Đặt xe →</a></div></article>
+      <article class="car"><figure class="car-media"><img class="gallery-main" src="/images/veloz.jpg" alt="Mitsubishi Xforce" loading="lazy"><span class="car-badge">SUV, 2024</span></figure><div class="car-body"><div class="car-top"><h3>Mitsubishi Xforce</h3><div class="price"><b>1.150.000 ₫</b> / ngày</div></div><ul class="car-meta"><li>5 chỗ</li><li>Số tự động</li><li>Xăng</li></ul><p class="spec">Một trong những mẫu SUV mới nhất trong đội xe — đèn sắc nét, nền tảng mới, thực dụng như Creta.</p><a class="car-cta" href="/vi/?car=xforce#book">Đặt xe →</a></div></article>
+      <article class="car"><figure class="car-media"><img class="gallery-main" src="/images/xforce.jpg" alt="VinFast Lux A2.0" loading="lazy"><span class="car-badge">Sedan hạng sang</span></figure><div class="car-body"><div class="car-top"><h3>VinFast Lux A2.0</h3><div class="price"><b>1.200.000 ₫</b> / ngày</div></div><ul class="car-meta"><li>5 chỗ</li><li>Số tự động</li><li>Xăng</li></ul><p class="spec">Sedan cao cấp của VinFast trên nền tảng BMW 5 Series — động cơ 2.0 turbo, nội thất hạng thương gia. Lựa chọn tốt nhất để đón tiễn sân bay Cam Ranh.</p><a class="car-cta" href="/vi/?car=luxa#book">Đặt xe →</a></div></article>
+      <article class="car"><figure class="car-media"><div class="no-photo">Ảnh sắp có</div><span class="car-badge">MPV, 7–11 chỗ</span></figure><div class="car-body"><div class="car-top"><h3>Kia Carnival</h3><div class="price"><b>2.100.000 ₫</b> / ngày</div></div><ul class="car-meta"><li>Số tự động</li></ul><p class="spec">MPV gia đình cỡ lớn cho nhóm đến 11 người: khoang rộng, cửa trượt và nhiều chỗ để vali. Tiện cho đưa đón sân bay Cam Ranh và du lịch cả gia đình.</p><a class="car-cta" href="/vi/?car=carnival#book">Đặt xe →</a></div></article>
+    </div>
   </div>
 </section>
 
@@ -383,6 +398,7 @@ footer .logo svg{width:24px;height:24px;}
     <p>Thuê xe tự lái ở Nha Trang là cách thuận tiện nhất để khám phá bờ biển Khánh Hòa theo lịch của riêng bạn: bãi biển, đảo, thác nước và đèo lên Đà Lạt. VietAvto cho thuê xe từ đội xe riêng — từ xe điện VinFast VF3, VF5 đến Toyota Veloz, Mitsubishi Xpander 7 chỗ và MPV Kia Carnival.</p>
     <p>Giá thuê xe tự lái tại Nha Trang từ 700.000 ₫/ngày, tiền cọc $200 trong tỉnh và $400 khi đi khắp Việt Nam. Giao xe tại khách sạn, địa chỉ ở Nha Trang hoặc sân bay Cam Ranh (CXR). Cần hộ chiếu, giấy phép lái xe quốc tế và bằng lái quốc gia.</p>
     <p>Tìm nơi thuê xe tự lái giá rẻ ở Nha Trang? Lựa chọn tiết kiệm nhất là xe điện VinFast VF3 giá 700.000 ₫/ngày và sedan Kia Soluto giá 900.000 ₫. Thuê từ một tháng trở lên có giá riêng, ưu đãi hơn. Gia đình và nhóm bạn có thể chọn Toyota Rush, Veloz, Mitsubishi Xpander 7 chỗ, nhóm đông hơn chọn Kia Carnival 7–11 chỗ.</p>
+    
   </div>
 </section>
 
@@ -715,6 +731,9 @@ footer .logo svg{width:24px;height:24px;}
 
   // Render from the data baked into the page, then refresh from /cars.json (edited at /admin).
   renderFleet(cars);
+  // Landing pages link here with ?car=<id> to preselect the car in the form.
+  var qCar = new URLSearchParams(location.search).get('car');
+  if(qCar && carById(qCar)){ selCar.value = qCar; updateSummary(); }
   fetch('/cars.json?v=' + Date.now()).then(function(r){ return r.ok ? r.json() : null; }).then(function(list){
     if(Array.isArray(list) && list.length && JSON.stringify(list) !== JSON.stringify(cars)) renderFleet(list);
   }).catch(function(){});

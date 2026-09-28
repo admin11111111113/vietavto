@@ -183,6 +183,8 @@ def build(lang):
         'terms_html': '\n'.join('      <div class="term"><div class="k">%s</div><div class="v">%s</div></div>' % kv
                                  for kv in (VI.TERMS if lang == 'vi' else [(k[i], v[i]) for k, v in TERMS])),
         'home': HOME[lang],
+        'fleet_static': '\n'.join(card_html(c, lang) for c in sorted(cars, key=lambda c: c.get('order', 0)) if not c.get('hidden')),
+        'guides_html': ('<div class="guides">%s</div>' % guides_html(lang)) if lang in ('ru', 'en') else '',
         'logo_svg': LOGO,
         'lang_switch': lang_switch(lang),
         # </script> can't appear inside the JSON block
@@ -198,6 +200,98 @@ def build(lang):
     io.open(path, 'w', encoding='utf-8', newline='\n').write(out)
     return path
 
+# ---------------- SEO landing pages (RU + EN) ----------------
+import html as _html
+import pages as P
+
+LSTR = {
+ 'cars_h': ('Подходящие машины', 'Recommended cars'),
+ 'all_cars': ('Весь автопарк', 'All cars'),
+ 'faq_h': ('Вопросы и ответы', 'Questions & answers'),
+ 'more_h': ('Полезное', 'More guides'),
+ 'cta_book': ('Выбрать машину и даты', 'Choose car & dates'),
+}
+esc = lambda s: _html.escape(str(s), quote=True)
+
+def landing_url(page, lang):
+    return ORIGIN + ('/' if lang == 'ru' else '/en/') + page[lang]['slug'] + '/'
+
+def guides_html(lang, exclude=None):
+    if lang not in ('ru', 'en'):
+        return ''
+    return ''.join('<a href="%s">%s</a>' % (landing_url(p, lang).replace(ORIGIN, ''), esc(p[lang]['link']))
+                   for p in P.PAGES if p['id'] != exclude)
+
+def fmt_price(v, lang):
+    s = '{:,}'.format(int(v))
+    return {'ru': s.replace(',', ' '), 'vi': s.replace(',', '.')}.get(lang, s)
+
+def card_html(c, lang):
+    L = lambda k: pick(JS, k, lang, VI.JS)
+    cls = c.get('cls') if lang == 'ru' else (c.get('cls_' + lang) or c.get('cls_en') or c.get('cls'))
+    desc = c.get('desc') if lang == 'ru' else (c.get('desc_' + lang) or c.get('desc_en') or c.get('desc'))
+    meta = []
+    if c.get('seats'):
+        meta.append('<li>%s %s</li>' % (c['seats'], L('seats')))
+    if c.get('gearbox') in ('auto', 'manual'):
+        meta.append('<li>%s</li>' % L('gb_' + c['gearbox']))
+    if c.get('fuel') in ('petrol', 'electric', 'diesel', 'hybrid'):
+        meta.append('<li>%s</li>' % L('fu_' + c['fuel']))
+    photos = c.get('photos') or []
+    media = ('<img class="gallery-main" src="/%s" alt="%s" loading="lazy">' % (esc(photos[0]), esc(c['name']))
+             if photos else '<div class="no-photo">%s</div>' % L('no_photo'))
+    home = HOME[lang]
+    return ('      <article class="car"><figure class="car-media">%s<span class="car-badge">%s</span></figure>'
+            '<div class="car-body"><div class="car-top"><h3>%s</h3><div class="price"><b>%s ₫</b> %s</div></div>'
+            '<ul class="car-meta">%s</ul><p class="spec">%s</p>'
+            '<a class="car-cta" href="%s?car=%s#book">%s →</a></div></article>'
+            % (media, esc(cls or ''), esc(c['name']), fmt_price(c.get('price', 0), lang), L('per_day'),
+               ''.join(meta), esc(desc or ''), home, esc(c['id']), L('book')))
+
+def build_landing(page, lang):
+    i = 0 if lang == 'ru' else 1
+    d = page[lang]
+    tpl = rd('src/template.html')
+    style = re.search(r'<style>.*?</style>', tpl, re.S).group(0)
+    header = re.search(r'<header class="site-header">.*?</header>', tpl, re.S).group(0).replace('href="#', 'href="{{home}}#')
+    footer = re.search(r'<footer>.*?</footer>', tpl, re.S).group(0)
+    other = 'en' if lang == 'ru' else 'ru'
+    switch = ''.join(
+        '<span>%s</span>' % l.upper() if l == lang else
+        '<a href="%s" hreflang="%s">%s</a>' % ((landing_url(page, l).replace(ORIGIN, '') if l in ('ru', 'en') else HOME[l]), l, l.upper())
+        for l in LANGS)
+    cars = {c['id']: c for c in json.loads(rd('cars.json'))}
+    url = landing_url(page, lang)
+    faq_ld = [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in d['faq']]
+    crumbs = [{'@type': 'ListItem', 'position': 1, 'name': 'VietAvto', 'item': ORIGIN + HOME[lang]},
+              {'@type': 'ListItem', 'position': 2, 'name': d['h1'], 'item': url}]
+    ld = [{'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faq_ld},
+          {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': crumbs}]
+    vals = {k: S[k][i] for k in S}
+    vals.update({k: v[i] for k, v in LSTR.items()})
+    vals.update({
+        'lang': lang, 'origin': ORIGIN, 'home': HOME[lang], 'logo_svg': LOGO, 'lang_switch': switch,
+        'title': esc(d['title']), 'desc': esc(d['desc']), 'kw': esc(d['kw']), 'h1': esc(d['h1']), 'lead': esc(d['lead']),
+        'url': url,
+        'alternates': '\n'.join('<link rel="alternate" hreflang="%s" href="%s">' % (l, landing_url(page, l)) for l in ('ru', 'en'))
+                      + '\n<link rel="alternate" hreflang="x-default" href="%s">' % landing_url(page, 'ru'),
+        'cards': '\n'.join(card_html(cars[cid], lang) for cid in page['cars'] if cid in cars and not cars[cid].get('hidden')),
+        'sections': '\n'.join('      <h2>%s</h2>\n%s' % (esc(h), '\n'.join('      <p>%s</p>' % esc(p) for p in ps)) for h, ps in d['sections']),
+        'faq': '\n'.join('      <div class="qa"><h3>%s</h3><p>%s</p></div>' % (esc(q), esc(a)) for q, a in d['faq']),
+        'guides': guides_html(lang, exclude=page['id']),
+        'jsonld': json.dumps(ld, ensure_ascii=False).replace('</', '<\\/'),
+        'style': style, 'header': header, 'footer': footer,
+    })
+    out = rd('src/landing.html')
+    for _ in range(2):  # header/footer carry their own placeholders
+        out = re.sub(r'\{\{(\w+)\}\}', lambda m: vals[m.group(1)], out)
+    left = re.findall(r'\{\{\w+\}\}', out)
+    assert not left, left
+    path = os.path.join(ROOT, (page[lang]['slug'] if lang == 'ru' else 'en/' + page[lang]['slug']), 'index.html')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    io.open(path, 'w', encoding='utf-8', newline='\n').write(out)
+    return path
+
 def sitemap():
     import datetime
     today = datetime.date.today().isoformat()
@@ -205,6 +299,11 @@ def sitemap():
     urls = ''.join('  <url>\n    <loc>%s%s</loc>\n%s    <lastmod>%s</lastmod>\n    <changefreq>weekly</changefreq>\n'
                    '    <priority>%s</priority>\n  </url>\n' % (ORIGIN, HOME[l], alts, today, '1.0' if l == 'ru' else '0.9')
                    for l in LANGS)
+    for p in P.PAGES:
+        palts = ''.join('    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>\n' % (l, landing_url(p, l)) for l in ('ru', 'en'))
+        for l in ('ru', 'en'):
+            urls += ('  <url>\n    <loc>%s</loc>\n%s    <lastmod>%s</lastmod>\n    <changefreq>monthly</changefreq>\n'
+                     '    <priority>0.8</priority>\n  </url>\n' % (landing_url(p, l), palts, today))
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
            + urls + '</urlset>\n')
@@ -213,4 +312,7 @@ def sitemap():
 if __name__ == '__main__':
     for l in LANGS:
         print('built', build(l))
+    for p in P.PAGES:
+        for l in ('ru', 'en'):
+            print('built', build_landing(p, l))
     sitemap()

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}">
+<meta name="keywords" content="{{kw}}">
+<link rel="canonical" href="{{url}}">
+{{alternates}}
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VietAvto">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{desc}}">
+<meta property="og:url" content="{{url}}">
+<meta property="og:image" content="{{origin}}/images/luxa.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0E0F11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{{jsonld}}</script>
+{{style}}
+<style>
+.crumbs{font-size:14px;color:var(--muted);margin-bottom:18px;}
+.crumbs a{color:var(--muted);text-decoration:none;}
+.crumbs a:hover{color:#fff;}
+.land-hero h1{font-size:clamp(34px,5vw,60px);max-width:18ch;}
+.land-cta{display:flex;gap:12px;flex-wrap:wrap;}
+.text-block{background:rgba(22,23,26,.86);border:1px solid var(--line);border-radius:20px;padding:28px;}
+.text-block h2{font-size:clamp(22px,2.6vw,28px);font-weight:800;margin:0 0 10px;}
+.text-block h2:not(:first-child){margin-top:26px;}
+.text-block p{color:#c3c5c9;margin:0 0 12px;max-width:80ch;}
+.guides{display:flex;flex-wrap:wrap;gap:10px;}
+.guides a{padding:10px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-weight:600;font-size:14.5px;background:var(--panel);}
+.guides a:hover{border-color:var(--accent);color:var(--accent-2);}
+@media (max-width:560px){ .text-block{padding:20px;} }
+</style>
+</head>
+<body>
+
+<div class="page-bg" aria-hidden="true"><img src="/images/luxa.jpg" alt=""><div class="shade"></div><div class="dim" id="bg-dim"></div></div>
+
+{{header}}
+
+<main>
+<section class="hero land-hero">
+  <div class="wrap">
+    <nav class="crumbs"><a href="{{home}}">VietAvto</a> / {{h1}}</nav>
+    <h1>{{h1}}</h1>
+    <p class="lede">{{lead}}</p>
+    <div class="land-cta">
+      <a class="btn btn-accent" href="{{home}}#book">{{cta_book}}</a>
+      <a class="btn" href="https://wa.me/79041188897" target="_blank" rel="noopener nofollow">WhatsApp</a>
+      <a class="btn" href="https://t.me/workminer" target="_blank" rel="noopener nofollow">Telegram</a>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>{{cars_h}}</h2></div><a class="btn" href="{{home}}#fleet">{{all_cars}} →</a></div>
+    <div class="grid">
+{{cards}}
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="text-block">
+{{sections}}
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>{{faq_h}}</h2></div></div>
+    <div class="cards-2">
+{{faq}}
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>{{more_h}}</h2></div></div>
+    <div class="guides">{{guides}}</div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="contact" id="contact">
+    <div>
+      <h2>{{cta_h}}</h2>
+      <p>{{cta_p}}</p>
+      <div class="contact-list">
+        <a href="https://wa.me/79041188897" target="_blank" rel="noopener nofollow">WhatsApp: +7 904 118-88-97</a>
+        <a href="https://t.me/workminer" target="_blank" rel="noopener nofollow">Telegram: @workminer</a>
+      </div>
+    </div>
+    <div class="contact-actions">
+      <a class="btn btn-accent" href="{{home}}#book">{{cta_book}}</a>
+      <a class="btn" href="https://wa.me/79041188897" target="_blank" rel="noopener nofollow">{{cta_wa}}</a>
+      <a class="btn" href="https://t.me/workminer" target="_blank" rel="noopener nofollow">{{cta_tg}}</a>
+    </div>
+  </section>
+</div>
+</main>
+
+{{footer}}
+
+<script>
+(function(){
+  var dim = document.getElementById('bg-dim');
+  function onScroll(){ dim.style.opacity = Math.min(window.scrollY / 900, 1) * 0.55; }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('.lang a[hreflang]');
+    if(a){ try{ localStorage.setItem('vietavto_lang', a.getAttribute('hreflang')); }catch(err){} }
+  });
+})();
+</script>
+</body>
+</html>
