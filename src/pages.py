@@ -386,4 +386,112 @@ PAGES = [
    ],
   },
  },
+ {
+  'id': 'suv',
+  'cars': ['creta', 'xforce', 'vf5', 'rush'],
+  'ru': {
+   'slug': 'arenda-krossovera-nyachang',
+   'link': 'Аренда кроссовера и SUV',
+   'title': 'Аренда кроссовера и SUV в Нячанге — Hyundai Creta, Xforce, Toyota Rush | VietAvto',
+   'desc': 'Аренда кроссовера в Нячанге без водителя: Hyundai Creta, Mitsubishi Xforce 2024, VinFast VF5, 7-местный Toyota Rush. От 800 000 ₫ в сутки. Высокая посадка для поездок к водопадам и в Далат.',
+   'kw': 'аренда кроссовера Нячанг, аренда SUV Нячанг, аренда внедорожника Нячанг, аренда Hyundai Creta Нячанг, аренда Mitsubishi Xforce, аренда Toyota Rush Нячанг',
+   'h1': 'Аренда кроссовера и SUV в Нячанге',
+   'lead': 'Кроссовер — самый универсальный выбор для Кхань Хоа: удобен в городе и уверенно чувствует себя на горных и разбитых дорогах к водопадам, пляжам и в Далат.',
+   'sections': [
+    ('Какие кроссоверы есть в парке', [
+     'Hyundai Creta — компактный кроссовер с современными ассистентами и высокой посадкой. Mitsubishi Xforce 2024 года — один из самых новых автомобилей в парке. VinFast VF5 — электрокроссовер с запасом хода около 300 км. Toyota Rush — 7-местный внедорожник для семьи или компании.',
+    ]),
+    ('Зачем кроссовер в Нячанге', [
+     'Дороги к водопадам Ба Хо и Янг Бей, на перевал Кхань Ле и к дальним пляжам бывают узкими и неровными. Высокий клиренс и посадка дают больше уверенности, а вместительный багажник — место для вещей на несколько дней поездки.',
+    ]),
+    ('Цены и условия', [
+     'От 800 000 ₫ в сутки за VinFast VF5 до 1 150 000 ₫ за Creta и Xforce. Депозит $200 по провинции и $400 для поездок по всему Вьетнаму, лимит 250 км в сутки суммируется за весь срок.',
+    ]),
+   ],
+   'faq': [
+    ('Какой кроссовер самый новый?', 'Mitsubishi Xforce 2024 года.'),
+    ('Есть ли 7-местный внедорожник?', 'Да, Toyota Rush на 7 мест.'),
+    ('Подойдёт ли кроссовер для поездки в Далат?', 'Да, это лучший выбор для горной дороги через перевал Кхань Ле.'),
+   ],
+  },
+  'en': {
+   'slug': 'suv-crossover-rental-nha-trang',
+   'link': 'SUV & crossover rental',
+   'title': 'SUV & Crossover Rental in Nha Trang — Hyundai Creta, Xforce, Toyota Rush | VietAvto',
+   'desc': 'Self-drive SUV and crossover rental in Nha Trang: Hyundai Creta, 2024 Mitsubishi Xforce, VinFast VF5, 7-seat Toyota Rush. From 800,000 ₫ a day. High clearance for waterfalls and Da Lat trips.',
+   'kw': 'SUV rental Nha Trang, crossover rental Nha Trang, Hyundai Creta rental, Mitsubishi Xforce rental, Toyota Rush rental Nha Trang, 4x4 rental Vietnam',
+   'h1': 'SUV & Crossover Rental in Nha Trang',
+   'lead': 'A crossover is the most versatile choice in Khanh Hoa: easy in town and confident on mountain and rough roads to waterfalls, beaches and Da Lat.',
+   'sections': [
+    ('Crossovers in our fleet', [
+     'The Hyundai Creta is a compact crossover with modern driver aids and a high seating position. The 2024 Mitsubishi Xforce is one of the newest cars in the fleet. The VinFast VF5 is an electric crossover with about 300 km of range. The Toyota Rush is a 7-seat SUV for families and groups.',
+    ]),
+    ('Why a crossover in Nha Trang', [
+     'Roads to Ba Ho and Yang Bay waterfalls, over the Khanh Le Pass and to remote beaches can be narrow and uneven. Higher clearance and seating give more confidence, and the larger boot fits luggage for a multi-day trip.',
+    ]),
+    ('Prices and terms', [
+     'From 800,000 ₫ a day for the VinFast VF5 to 1,150,000 ₫ for the Creta and Xforce. $200 deposit within the province and $400 for trips across Vietnam; the 250 km per day limit adds up over the rental.',
+    ]),
+   ],
+   'faq': [
+    ('Which crossover is the newest?', 'The 2024 Mitsubishi Xforce.'),
+    ('Do you have a 7-seat SUV?', 'Yes, the 7-seat Toyota Rush.'),
+    ('Is a crossover good for Da Lat?', 'Yes, it is the best choice for the mountain road over the Khanh Le Pass.'),
+   ],
+  },
+ },
+ {
+  'id': 'sedan',
+  'cars': ['soluto', 'mazda3', 'luxa'],
+  'ru': {
+   'slug': 'arenda-sedana-nyachang',
+   'link': 'Аренда седана в Нячанге',
+   'title': 'Аренда седана в Нячанге — Kia Soluto, Mazda3, VinFast Lux A2.0 | VietAvto',
+   'desc': 'Аренда седана в Нячанге без водителя: экономичный Kia Soluto и Mazda3 от 900 000 ₫ в сутки, бизнес-седан VinFast Lux A2.0 за 1 200 000 ₫. Для пары, города и трансфера.',
+   'kw': 'аренда седана Нячанг, аренда легкового авто Нячанг, аренда Kia Soluto Нячанг, аренда Mazda3 Нячанг, аренда бизнес седана Нячанг, аренда VinFast Lux A2.0',
+   'h1': 'Аренда седана в Нячанге',
+   'lead': 'Седан — удобный и экономичный вариант для пары или небольшой семьи: мягко едет по трассе вдоль побережья, легко паркуется у пляжей и расходует мало топлива.',
+   'sections': [
+    ('Седаны в нашем парке', [
+     'Kia Soluto — простой и экономичный седан 1.4 л, самый доступный бензиновый автомобиль в парке. Mazda3 — компактный седан с плотной подвеской и точным рулём, в котором поездка вдоль моря превращается в удовольствие. VinFast Lux A2.0 — флагманский бизнес-седан на платформе BMW 5-й серии с двигателем 2.0 турбо.',
+    ]),
+    ('Кому подходит седан', [
+     'Паре или семье из трёх человек, которые ездят по Нячангу, к пляжам Зоклет и Бай Дай и в аэропорт Камрань. Для трансфера, деловой встречи или особого случая — VinFast Lux A2.0.',
+    ]),
+    ('Цены', [
+     'Kia Soluto и Mazda3 — 900 000 ₫ в сутки, VinFast Lux A2.0 — 1 200 000 ₫. На месяц и дольше — отдельная, более выгодная ставка.',
+    ]),
+   ],
+   'faq': [
+    ('Какой седан самый экономичный?', 'Kia Soluto с двигателем 1.4 л — 900 000 ₫ в сутки.'),
+    ('Есть ли бизнес-седан?', 'Да, VinFast Lux A2.0 на платформе BMW 5-й серии.'),
+    ('Поместятся ли чемоданы?', 'Да, два больших чемодана помещаются в багажник седана.'),
+   ],
+  },
+  'en': {
+   'slug': 'sedan-rental-nha-trang',
+   'link': 'Sedan rental in Nha Trang',
+   'title': 'Sedan Rental in Nha Trang — Kia Soluto, Mazda3, VinFast Lux A2.0 | VietAvto',
+   'desc': 'Self-drive sedan rental in Nha Trang: economical Kia Soluto and Mazda3 from 900,000 ₫ a day, VinFast Lux A2.0 executive sedan at 1,200,000 ₫. For couples, city driving and airport transfers.',
+   'kw': 'sedan rental Nha Trang, car hire Nha Trang sedan, Kia Soluto rental, Mazda3 rental Nha Trang, executive car rental Nha Trang, VinFast Lux A2.0 rental',
+   'h1': 'Sedan Rental in Nha Trang',
+   'lead': 'A sedan is a comfortable, economical choice for a couple or small family: smooth on the coastal highway, easy to park at the beach and light on fuel.',
+   'sections': [
+    ('Sedans in our fleet', [
+     'The Kia Soluto is a simple, economical 1.4 L sedan — the most affordable petrol car in the fleet. The Mazda3 is a compact sedan with firm suspension and precise steering that makes the coastal road a pleasure. The VinFast Lux A2.0 is a flagship executive sedan on the BMW 5 Series platform with a 2.0 turbo engine.',
+    ]),
+    ('Who a sedan suits', [
+     'Couples or a family of three driving around Nha Trang, to Doc Let and Bai Dai beaches and to Cam Ranh airport. For a transfer, a business meeting or a special occasion — the VinFast Lux A2.0.',
+    ]),
+    ('Prices', [
+     'Kia Soluto and Mazda3 — 900,000 ₫ a day, VinFast Lux A2.0 — 1,200,000 ₫. A month or longer gets a separate, better rate.',
+    ]),
+   ],
+   'faq': [
+    ('Which sedan is the most economical?', 'The 1.4 L Kia Soluto — 900,000 ₫ a day.'),
+    ('Do you have an executive sedan?', 'Yes, the VinFast Lux A2.0 on the BMW 5 Series platform.'),
+    ('Will suitcases fit?', 'Yes, two large suitcases fit in a sedan boot.'),
+   ],
+  },
+ },
 ]

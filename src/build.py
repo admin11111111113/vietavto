@@ -219,8 +219,12 @@ def landing_url(page, lang):
 def guides_html(lang, exclude=None):
     if lang not in ('ru', 'en'):
         return ''
-    return ''.join('<a href="%s">%s</a>' % (landing_url(p, lang).replace(ORIGIN, ''), esc(p[lang]['link']))
-                   for p in P.PAGES if p['id'] != exclude)
+    links = ''.join('<a href="%s">%s</a>' % (landing_url(p, lang).replace(ORIGIN, ''), esc(p[lang]['link']))
+                    for p in P.PAGES if p['id'] != exclude)
+    links += ''.join('<a href="%s">%s</a>' % (car_url(c, lang), esc(('Аренда ' if lang == 'ru' else 'Rent ') + c['name']))
+                     for c in sorted(json.loads(rd('cars.json')), key=lambda c: c.get('order', 0))
+                     if not c.get('hidden') and 'car-' + c['id'] != exclude)
+    return links
 
 def fmt_price(v, lang):
     s = '{:,}'.format(int(v))
@@ -245,7 +249,7 @@ def card_html(c, lang):
             '<div class="car-body"><div class="car-top"><h3>%s</h3><div class="price"><b>%s ₫</b> %s</div></div>'
             '<ul class="car-meta">%s</ul><p class="spec">%s</p>'
             '<a class="car-cta" href="%s?car=%s#book">%s →</a></div></article>'
-            % (media, esc(cls or ''), esc(c['name']), fmt_price(c.get('price', 0), lang), L('per_day'),
+            % (media, esc(cls or ''), ('<a href="%s">%s</a>' % (car_url(c, lang), esc(c['name'])) if lang in ('ru', 'en') else esc(c['name'])), fmt_price(c.get('price', 0), lang), L('per_day'),
                ''.join(meta), esc(desc or ''), home, esc(c['id']), L('book')))
 
 def build_landing(page, lang):
@@ -292,6 +296,84 @@ def build_landing(page, lang):
     io.open(path, 'w', encoding='utf-8', newline='\n').write(out)
     return path
 
+# ---------------- one page per car (RU + EN), generated from cars.json ----------------
+def car_slug(c):
+    return re.sub(r'[^a-z0-9]+', '-', c['name'].lower()).strip('-') or c['id']
+
+def car_page(c, all_cars):
+    name, p = c['name'], int(c.get('price') or 0)
+    s = car_slug(c)
+    fp = lambda v, l: fmt_price(v, l)
+    def specs(lang):
+        i = 0 if lang == 'ru' else 1
+        out = []
+        if c.get('seats'):
+            out.append('%s %s' % (c['seats'], JS['seats'][i]))
+        if c.get('gearbox') in ('auto', 'manual'):
+            out.append(JS['gb_' + c['gearbox']][i].lower())
+        if c.get('fuel') in ('petrol', 'electric', 'diesel', 'hybrid'):
+            out.append(JS['fu_' + c['fuel']][i].lower())
+        return ', '.join(out)
+    ev = c.get('fuel') == 'electric'
+    live = [x for x in all_cars if x['id'] != c['id'] and not x.get('hidden')]
+    related = [x['id'] for x in sorted(live, key=lambda x: abs(int(x.get('price') or 0) - p))[:3]]
+    cls_ru, cls_en = c.get('cls') or '', c.get('cls_en') or c.get('cls') or ''
+    sp_ru, sp_en = specs('ru'), specs('en')
+    ru = {
+      'slug': 'arenda-%s-nyachang' % s,
+      'link': 'Аренда ' + name,
+      'title': 'Аренда %s в Нячанге — %s ₫/сутки без водителя | VietAvto' % (name, fp(p, 'ru')),
+      'desc': 'Аренда %s в Нячанге без водителя: %s ₫ в сутки, депозит от $200, передача в отеле или аэропорту Камрань. Фото, характеристики, условия и онлайн-заявка.' % (name, fp(p, 'ru')),
+      'kw': 'аренда %s Нячанг, прокат %s Нячанг, %s напрокат Вьетнам, аренда %s Камрань, %s цена аренды' % (name, name, name, name, name),
+      'h1': 'Аренда %s в Нячанге' % name,
+      'lead': c.get('desc') or '',
+      'sections': [
+        ('Характеристики %s' % name, ['%s — %s%s.%s' % (name, cls_ru.lower() or 'автомобиль', (': ' + sp_ru) if sp_ru else '',
+                                     ' На фото — реальный автомобиль из нашего парка.' if c.get('photos') else '')]),
+        ('Цена аренды %s' % name, ['%s ₫ в сутки. Например, 3 суток — %s ₫, неделя — %s ₫. На месяц и дольше — отдельная, более выгодная ставка. Лимит пробега 250 км в сутки суммируется за весь срок: за неделю — 1 750 км, каждый км сверх лимита — 5 000 ₫.'
+                                   % (fp(p, 'ru'), fp(3 * p, 'ru'), fp(7 * p, 'ru'))]),
+        ('Условия аренды', ['Депозит $200 для поездок по провинции Кхань Хоа или $400 — по всему Вьетнаму. Документы: паспорт, международное водительское удостоверение (МВУ) и национальные права. Оплата — после осмотра машины, возврат — с тем же уровнем топлива. На 1 день машину можно взять с 7:00 до 22:00.']),
+        ('Где забрать %s' % name, ['Передадим машину в вашем отеле, по адресу в Нячанге или в аэропорту Камрань — место и время согласуем в WhatsApp или Telegram.']),
+      ],
+      'faq': [
+        ('Сколько стоит аренда %s в Нячанге?' % name, '%s ₫ в сутки, неделя — %s ₫. На месяц — отдельная ставка.' % (fp(p, 'ru'), fp(7 * p, 'ru'))),
+        ('Можно взять %s в аэропорту Камрань?' % name, 'Да, передадим машину в аэропорту к вашему прилёту.'),
+        ('Можно поехать на %s в Далат?' % name, 'Да, с депозитом $400 для поездок по всему Вьетнаму.' + (' Электромобиль лучше подзарядить в дороге.' if ev else '')),
+        ('Какие документы нужны для аренды?', 'Паспорт, международное водительское удостоверение (МВУ) и национальные права.'),
+      ],
+    }
+    en = {
+      'slug': 'rent-%s-nha-trang' % s,
+      'link': 'Rent ' + name,
+      'title': 'Rent %s in Nha Trang — %s ₫/day, Self-Drive | VietAvto' % (name, fp(p, 'en')),
+      'desc': 'Rent a %s in Nha Trang, self-drive: %s ₫ a day, deposit from $200, hand-over at your hotel or Cam Ranh airport. Photos, specs, terms and online booking.' % (name, fp(p, 'en')),
+      'kw': '%s rental Nha Trang, rent %s Nha Trang, %s hire Vietnam, %s Cam Ranh airport, %s rental price' % (name, name, name, name, name),
+      'h1': 'Rent %s in Nha Trang' % name,
+      'lead': c.get('desc_en') or c.get('desc') or '',
+      'sections': [
+        ('%s specs' % name, ['The %s is a %s%s.%s' % (name, cls_en.lower() or 'car', (': ' + sp_en) if sp_en else '',
+                              ' The photos show the real car from our fleet.' if c.get('photos') else '')]),
+        ('%s rental price' % name, ['%s ₫ per day. For example, 3 days — %s ₫, a week — %s ₫. A month or longer gets a separate, better rate. The 250 km per day limit adds up over the rental: 1,750 km for a week, each extra km is 5,000 ₫.'
+                                    % (fp(p, 'en'), fp(3 * p, 'en'), fp(7 * p, 'en'))]),
+        ('Rental terms', ['Deposit $200 for trips within Khanh Hoa province or $400 across Vietnam. Documents: passport, International Driving Permit (1968 Convention) and national licence. You pay after inspecting the car and return it with the same fuel level. One-day rentals run from 7:00 to 22:00.']),
+        ('Where to pick up the %s' % name, ['We hand over the car at your hotel, an address in Nha Trang or Cam Ranh airport — we agree the place and time on WhatsApp or Telegram.']),
+      ],
+      'faq': [
+        ('How much is a %s rental in Nha Trang?' % name, '%s ₫ per day, %s ₫ for a week. Monthly rentals get a separate rate.' % (fp(p, 'en'), fp(7 * p, 'en'))),
+        ('Can I pick up the %s at Cam Ranh airport?' % name, 'Yes, we can meet you with the car on arrival.'),
+        ('Can I drive the %s to Da Lat?' % name, 'Yes, with the $400 deposit for trips across Vietnam.' + (' Plan a charging stop for the EV.' if ev else '')),
+        ('What documents do I need?', 'Your passport, an International Driving Permit (1968 Convention) and your national licence.'),
+      ],
+    }
+    return {'id': 'car-' + c['id'], 'cars': [c['id']] + related, 'ru': ru, 'en': en}
+
+def car_pages():
+    cars = json.loads(rd('cars.json'))
+    return [car_page(c, cars) for c in sorted(cars, key=lambda c: c.get('order', 0)) if not c.get('hidden')]
+
+def car_url(c, lang):
+    return {'ru': '/arenda-%s-nyachang/', 'en': '/en/rent-%s-nha-trang/'}[lang] % car_slug(c) if lang in ('ru', 'en') else ''
+
 def sitemap():
     import datetime
     today = datetime.date.today().isoformat()
@@ -299,7 +381,7 @@ def sitemap():
     urls = ''.join('  <url>\n    <loc>%s%s</loc>\n%s    <lastmod>%s</lastmod>\n    <changefreq>weekly</changefreq>\n'
                    '    <priority>%s</priority>\n  </url>\n' % (ORIGIN, HOME[l], alts, today, '1.0' if l == 'ru' else '0.9')
                    for l in LANGS)
-    for p in P.PAGES:
+    for p in P.PAGES + car_pages():
         palts = ''.join('    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>\n' % (l, landing_url(p, l)) for l in ('ru', 'en'))
         for l in ('ru', 'en'):
             urls += ('  <url>\n    <loc>%s</loc>\n%s    <lastmod>%s</lastmod>\n    <changefreq>monthly</changefreq>\n'
@@ -312,7 +394,7 @@ def sitemap():
 if __name__ == '__main__':
     for l in LANGS:
         print('built', build(l))
-    for p in P.PAGES:
+    for p in P.PAGES + car_pages():
         for l in ('ru', 'en'):
             print('built', build_landing(p, l))
     sitemap()

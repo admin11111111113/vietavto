@@ -188,6 +188,8 @@ section.block{padding:56px 0 8px;}
 .gallery-thumbs img{width:100%;height:100%;object-fit:cover;}
 .car-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:10px;flex:1;}
 .car-top{display:flex;flex-direction:column;gap:4px;}
+.car-top h3 a{text-decoration:none;color:inherit;}
+.car-top h3 a:hover{color:var(--accent-2);}
 .car-top h3{font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:0;line-height:1.25;}
 .price{white-space:nowrap;font-size:13px;color:var(--muted);}
 .price b{font-size:17px;color:var(--text);font-weight:800;}
@@ -494,6 +496,11 @@ footer .logo svg{width:24px;height:24px;}
   var cars = [];
   try{ cars = JSON.parse($('cars-data').textContent) || []; }catch(e){}
 
+  // Same slug rule as car_slug() in build.py; VI has no per-car pages.
+  function carUrl(c){
+    var s = String(c.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || c.id;
+    return LANG === 'ru' ? '/arenda-' + s + '-nyachang/' : LANG === 'en' ? '/en/rent-' + s + '-nha-trang/' : '';
+  }
   function photoUrl(p){ return /^(https?:)?\//.test(p) ? p : '/' + p; }
   function metaHTML(c){
     var out = [];
@@ -511,7 +518,7 @@ footer .logo svg{width:24px;height:24px;}
       : '<div class="no-photo"><svg viewBox="0 0 32 32"><path d="M4 21v-4l3-6.5A2 2 0 0 1 8.8 9.4h14.4a2 2 0 0 1 1.8 1.1L28 17v4a1 1 0 0 1-1 1h-2M7 22H5a1 1 0 0 1-1-1M4 17h24M11 22h10"/><circle cx="9" cy="22" r="2.2"/><circle cx="23" cy="22" r="2.2"/></svg>' + esc(T.no_photo) + '</div>';
     return '<figure class="car-media">' + media +
       '<span class="car-badge">' + esc(cls || '') + '</span><div class="gallery-count" hidden></div><div class="gallery-thumbs" hidden></div></figure>' +
-      '<div class="car-body"><div class="car-top"><h3 title="' + esc(c.name) + '">' + esc(c.name) + '</h3>' +
+      '<div class="car-body"><div class="car-top"><h3 title="' + esc(c.name) + '">' + (carUrl(c) ? '<a href="' + carUrl(c) + '">' + esc(c.name) + '</a>' : esc(c.name)) + '</h3>' +
       '<div class="price"><b>' + fmtPrice(c.price || 0) + ' ₫</b> ' + esc(T.per_day) + '</div></div>' +
       '<ul class="car-meta">' + metaHTML(c) + '</ul>' +
       '<p class="spec">' + esc(desc || '') + '</p>' +

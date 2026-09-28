@@ -1,0 +1,46 @@
+# Rebuilds all pages (home RU/EN/VI, landing and per-car pages, sitemap) whenever the fleet
+# data or the page sources change — e.g. after "Сохранить на сайт" in /admin commits cars.json.
+name: Build pages
+
+on:
+  push:
+    branches: [main]
+    paths: ['cars.json', 'src/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: build-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build
+        run: python src/build.py
+      - name: Commit generated pages
+        run: |
+          git config user.name "VietAvto Build"
+          git config user.email "build@vietavto.pro"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing changed"
+            exit 0
+          fi
+          git commit -m "Auto-build pages from cars.json"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Trigger Pages rebuild
+        # Pushes made with GITHUB_TOKEN may not start a Pages build on their own.
+        run: |
+          curl -s -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${{ github.repository }}/pages/builds || true
