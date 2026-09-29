@@ -152,6 +152,29 @@ TERMS = [
    'From 15,000,000 ₫ a month<small>Each car shows its monthly price; from 3 months it is even cheaper. The booking form calculates it for you.</small>')),
 ]
 
+
+# --- no delivery (2026-09-29): cars are picked up from us in Nha Trang ---
+_AIR = re.compile(r'аэропорт|Камрань|airport|Cam Ranh|CXR', re.I)
+S['meta_kw'] = tuple(', '.join(k for k in v.split(', ') if not _AIR.search(k)) for v in S['meta_kw'])
+S.update({
+ 'meta_desc': ('Аренда авто в Нячанге недорого и без водителя: VinFast, Toyota, Mitsubishi, Hyundai, Kia. От 700 000 ₫ в сутки, скидка от 5 суток и на месяц, депозит от $200. Заявка онлайн, ответ в WhatsApp и Telegram.',
+               'Cheap self-drive car rental in Nha Trang: VinFast, Toyota, Mitsubishi, Hyundai, Kia. From 700,000 ₫ per day, discounts from 5 days and monthly, deposit from $200. Book online, reply on WhatsApp or Telegram.'),
+ 'about_p2': ('Цены на прокат авто в Нячанге — от 700 000 ₫ в сутки, от 5 суток дешевле, на месяц — отдельная цена. Депозит $200 по провинции и $400 для поездок по всему Вьетнаму. Машину забираете у нас в Нячанге. Для аренды нужны паспорт, международное и национальное водительское удостоверение.',
+              'Car hire prices in Nha Trang start at 700,000 ₫ per day, cheaper from 5 days, with a separate monthly price. The deposit is $200 within the province and $400 for trips across Vietnam. You pick the car up from us in Nha Trang. You need a passport, an International Driving Permit and your national licence.'),
+ 'about_p4': ('Где снять автомобиль в Нячанге? Авто в аренду можно взять у агрегаторов, в прокатных конторах у пляжа или напрямую у владельца парка. VietAvto — это прямая аренда автомобиля в Нячанге: без комиссии посредника, с реальными фото каждой машины и ответом в WhatsApp или Telegram. Машину забираете у нас в Нячанге.',
+              'Where to rent a car in Nha Trang? You can book through aggregators, walk into a rental shop near the beach, or rent directly from a fleet owner. VietAvto is a direct car hire in Nha Trang: no middleman commission, real photos of every car and replies on WhatsApp or Telegram. You pick the car up from us in Nha Trang.'),
+ 'a9': ('Прямо здесь: выберите машину и даты в форме вверху — это аренда напрямую у владельца, без посредников. Машину забираете у нас в Нячанге, адрес пришлём при бронировании.',
+        'Right here: pick a car and dates in the form above — you rent directly from the owner, no middlemen. You pick the car up from us in Nha Trang; we send the address when you book.'),
+ 'ft3_h': ('Выдача в Нячанге', 'Pick-up in Nha Trang'),
+ 'ft3_p': ('Забираете машину у нас — адрес пришлём при бронировании.', 'Collect the car from us — we send the address when you book.'),
+ 'q4': ('Где забрать машину?', 'Where do I pick up the car?'),
+ 'a4': ('Машину забираете у нас в Нячанге, точный адрес пришлём после бронирования.',
+        'You pick the car up from us in Nha Trang; we send the exact address after booking.'),
+ 'f_place': ('Комментарий (необязательно)', 'Comment (optional)'),
+ 'f_place_ph': ('Например: нужно детское кресло', 'E.g. I need a child seat'),
+})
+JS.update({'m_place': ('Комментарий: ', 'Comment: ')})
+
 LANGS = ('ru', 'en', 'vi')
 ORIGIN = 'https://vietavto.pro'
 # Search-console ownership tags (Yandex Webmaster / Google Search Console); paste codes here.
@@ -341,8 +364,8 @@ def car_page(c, all_cars):
       'slug': 'arenda-%s-nyachang' % s,
       'link': 'Аренда ' + name,
       'title': 'Аренда %s в Нячанге — %s ₫/сутки без водителя | VietAvto' % (name, fp(p, 'ru')),
-      'desc': 'Аренда %s в Нячанге без водителя: %s ₫ в сутки, депозит от $200, передача в отеле или аэропорту Камрань. Фото, характеристики, условия и онлайн-заявка.' % (name, fp(p, 'ru')),
-      'kw': 'аренда %s Нячанг, прокат %s Нячанг, %s напрокат Вьетнам, аренда %s Камрань, %s цена аренды' % (name, name, name, name, name),
+      'desc': 'Аренда %s в Нячанге без водителя: %s ₫ в сутки, депозит от $200, машину забираете у нас в Нячанге. Фото, характеристики, условия и онлайн-заявка.' % (name, fp(p, 'ru')),
+      'kw': 'аренда %s Нячанг, прокат %s Нячанг, %s напрокат Вьетнам, аренда %s посуточно, %s цена аренды' % (name, name, name, name, name),
       'h1': 'Аренда %s в Нячанге' % name,
       'lead': c.get('desc') or '',
       'sections': [
@@ -355,11 +378,11 @@ def car_page(c, all_cars):
                                             fp(round(c['price_month'] / 30 / 1000) * 1000, 'ru')))
                                         if c.get('price_month') else 'Цену на месяц и дольше назовём по вашим датам — напишите нам в WhatsApp или Telegram.']),
         ('Условия аренды', ['Депозит $200 для поездок по провинции Кхань Хоа или $400 — по всему Вьетнаму. Документы: паспорт, международное водительское удостоверение (МВУ) и национальные права. Оплата — после осмотра машины, возврат — с тем же уровнем топлива. На 1 день машину можно взять с 7:00 до 22:00.']),
-        ('Где забрать %s' % name, ['Передадим машину в вашем отеле, по адресу в Нячанге или в аэропорту Камрань — место и время согласуем в WhatsApp или Telegram.']),
+        ('Где забрать %s' % name, ['Машину забираете у нас в Нячанге — точный адрес пришлём при бронировании, время получения согласуем в WhatsApp или Telegram.']),
       ],
       'faq': [
         ('Сколько стоит аренда %s в Нячанге?' % name, '%s ₫ в сутки, от 5 суток — %s ₫ в сутки, неделя — %s ₫. На месяц — отдельная ставка.' % (fp(p, 'ru'), fp(p - 50000, 'ru'), fp(7 * (p - 50000), 'ru'))),
-        ('Можно взять %s в аэропорту Камрань?' % name, 'Да, передадим машину в аэропорту к вашему прилёту.'),
+        ('Где забрать %s?' % name, 'У нас в Нячанге — адрес пришлём при бронировании.'),
         ('Можно поехать на %s в Далат?' % name, 'Да, с депозитом $400 для поездок по всему Вьетнаму.' + (' Электромобиль лучше подзарядить в дороге.' if ev else '')),
         ('Какие документы нужны для аренды?', 'Паспорт, международное водительское удостоверение (МВУ) и национальные права.'),
       ],
@@ -368,8 +391,8 @@ def car_page(c, all_cars):
       'slug': 'rent-%s-nha-trang' % s,
       'link': 'Rent ' + name,
       'title': 'Rent %s in Nha Trang — %s ₫/day, Self-Drive | VietAvto' % (name, fp(p, 'en')),
-      'desc': 'Rent a %s in Nha Trang, self-drive: %s ₫ a day, deposit from $200, hand-over at your hotel or Cam Ranh airport. Photos, specs, terms and online booking.' % (name, fp(p, 'en')),
-      'kw': '%s rental Nha Trang, rent %s Nha Trang, %s hire Vietnam, %s Cam Ranh airport, %s rental price' % (name, name, name, name, name),
+      'desc': 'Rent a %s in Nha Trang, self-drive: %s ₫ a day, deposit from $200, pick-up from us in Nha Trang. Photos, specs, terms and online booking.' % (name, fp(p, 'en')),
+      'kw': '%s rental Nha Trang, rent %s Nha Trang, %s hire Vietnam, %s daily rental, %s rental price' % (name, name, name, name, name),
       'h1': 'Rent %s in Nha Trang' % name,
       'lead': c.get('desc_en') or c.get('desc') or '',
       'sections': [
@@ -382,11 +405,11 @@ def car_page(c, all_cars):
                                            fp(round(c['price_month'] / 30 / 1000) * 1000, 'en')))
                                        if c.get('price_month') else 'For a month or longer we quote a price for your dates — message us on WhatsApp or Telegram.']),
         ('Rental terms', ['Deposit $200 for trips within Khanh Hoa province or $400 across Vietnam. Documents: passport, International Driving Permit (1968 Convention) and national licence. You pay after inspecting the car and return it with the same fuel level. One-day rentals run from 7:00 to 22:00.']),
-        ('Where to pick up the %s' % name, ['We hand over the car at your hotel, an address in Nha Trang or Cam Ranh airport — we agree the place and time on WhatsApp or Telegram.']),
+        ('Where to pick up the %s' % name, ['You pick the car up from us in Nha Trang — we send the exact address when you book and agree the time on WhatsApp or Telegram.']),
       ],
       'faq': [
         ('How much is a %s rental in Nha Trang?' % name, '%s ₫ per day, %s ₫ per day from 5 days, %s ₫ for a week. Monthly rentals get a separate rate.' % (fp(p, 'en'), fp(p - 50000, 'en'), fp(7 * (p - 50000), 'en'))),
-        ('Can I pick up the %s at Cam Ranh airport?' % name, 'Yes, we can meet you with the car on arrival.'),
+        ('Where do I pick up the %s?' % name, 'From us in Nha Trang — we send the address when you book.'),
         ('Can I drive the %s to Da Lat?' % name, 'Yes, with the $400 deposit for trips across Vietnam.' + (' Plan a charging stop for the EV.' if ev else '')),
         ('What documents do I need?', 'Your passport, an International Driving Permit (1968 Convention) and your national licence.'),
       ],

@@ -3,64 +3,6 @@
 
 PAGES = [
  {
-  'id': 'airport',
-  'cars': ['luxa', 'veloz', 'xpander', 'carnival'],
-  'ru': {
-   'slug': 'arenda-avto-aeroport-kamran',
-   'link': 'Аренда авто в аэропорту Камрань',
-   'title': 'Аренда авто в аэропорту Камрань (CXR) — прокат с доставкой к прилёту | VietAvto',
-   'desc': 'Аренда авто в аэропорту Камрань без водителя: встретим с машиной после прилёта, от 700 000 ₫ в сутки. VinFast, Toyota, Mitsubishi, Kia Carnival. Заявка онлайн, ответ в WhatsApp и Telegram.',
-   'kw': 'аренда авто аэропорт Камрань, прокат авто Камрань, аренда машины в аэропорту Нячанга, аренда авто CXR, машина в аэропорту Камрань без водителя, аренда авто Камрань цены',
-   'h1': 'Аренда авто в аэропорту Камрань',
-   'lead': 'Прилетаете в Нячанг? Машина может ждать вас прямо в аэропорту Камрань (CXR) — без очередей на стойках и без такси. Выберите авто и даты, а место и время встречи согласуем в WhatsApp или Telegram.',
-   'sections': [
-    ('Как забрать машину в аэропорту', [
-     'Международный аэропорт Камрань находится примерно в 35 км к югу от центра Нячанга, дорога до города занимает около 40–45 минут по прибрежному шоссе. Мы передаём автомобиль на парковке аэропорта в согласованное время: проверяете машину, подписываете договор и сразу едете в отель.',
-     'Чтобы всё прошло быстро, укажите в заявке номер рейса или время прилёта. Если рейс задерживается — просто напишите нам, встретим позже.'
-    ]),
-    ('Какую машину взять из аэропорта', [
-     'Для пары с чемоданами хватит седана или кроссовера. Семье или компании с багажом удобнее 7-местные Toyota Veloz и Mitsubishi Xpander, а для группы до 11 человек — минивэн Kia Carnival. Для особого случая — бизнес-седан VinFast Lux A2.0.',
-     'Вернуть машину тоже можно в аэропорту перед вылетом: договоримся о времени заранее.'
-    ]),
-    ('Сколько стоит и что нужно', [
-     'Цены — от 700 000 ₫ в сутки, депозит $200 для поездок по провинции Кхань Хоа и $400 для поездок по всему Вьетнаму. Для договора нужны паспорт, международное водительское удостоверение (МВУ) и национальные права. Оплата — после осмотра машины.'
-    ]),
-   ],
-   'faq': [
-    ('Можно получить машину ночью?', 'Выдача в аэропорту возможна по договорённости с учётом времени рейса — напишите нам время прилёта при бронировании.'),
-    ('Сколько ехать из аэропорта Камрань до Нячанга?', 'Около 35 км, примерно 40–45 минут по прибрежной дороге.'),
-    ('Можно вернуть машину в аэропорту?', 'Да, согласуем время возврата перед вашим вылетом.'),
-   ],
-  },
-  'en': {
-   'slug': 'cam-ranh-airport-car-rental',
-   'link': 'Cam Ranh airport car rental',
-   'title': 'Cam Ranh Airport Car Rental (CXR) — Self-Drive Car Waiting on Arrival | VietAvto',
-   'desc': 'Self-drive car rental at Cam Ranh airport (CXR), Nha Trang: we meet you with the car on arrival, from 700,000 ₫ a day. VinFast, Toyota, Mitsubishi, Kia Carnival. Book online, reply on WhatsApp or Telegram.',
-   'kw': 'Cam Ranh airport car rental, CXR car hire, Nha Trang airport car rental, rent a car Cam Ranh, self-drive car Cam Ranh airport',
-   'h1': 'Cam Ranh Airport Car Rental',
-   'lead': 'Flying into Nha Trang? Your car can be waiting at Cam Ranh airport (CXR) — no rental desk queues and no taxi. Pick a car and dates, and we agree the meeting point and time on WhatsApp or Telegram.',
-   'sections': [
-    ('How the airport pick-up works', [
-     'Cam Ranh International Airport is about 35 km south of central Nha Trang, a 40–45 minute drive along the coastal road. We hand over the car in the airport car park at the agreed time: you inspect it, sign the agreement and drive straight to your hotel.',
-     'Add your flight number or arrival time to the request. If the flight is delayed, just message us and we will meet you later.'
-    ]),
-    ('Which car to take from the airport', [
-     'A couple with suitcases will be fine in a sedan or crossover. Families and groups with luggage are more comfortable in a 7-seat Toyota Veloz or Mitsubishi Xpander, and groups of up to 11 in the Kia Carnival minivan. For a special occasion — the VinFast Lux A2.0 executive sedan.',
-     'You can also return the car at the airport before your flight — just agree the time in advance.'
-    ]),
-    ('Prices and documents', [
-     'Prices start at 700,000 ₫ per day. The deposit is $200 for trips within Khanh Hoa province and $400 for trips across Vietnam. For the agreement you need your passport, an International Driving Permit and your national licence. You pay after inspecting the car.'
-    ]),
-   ],
-   'faq': [
-    ('Can I pick up the car at night?', 'Airport hand-over can be arranged around your flight time — include your arrival time when you book.'),
-    ('How far is Cam Ranh airport from Nha Trang?', 'About 35 km, roughly 40–45 minutes along the coastal road.'),
-    ('Can I return the car at the airport?', 'Yes, we agree a return time before your departure.'),
-   ],
-  },
- },
- {
   'id': 'monthly',
   'cars': ['vf3', 'soluto', 'vf5', 'xpander'],
   'ru': {
@@ -184,7 +126,7 @@ PAGES = [
      'Toyota Rush — компактный 7-местный внедорожник с высокой посадкой, увереннее на разбитых дорогах к водопадам. Mitsubishi Xpander и Toyota Veloz — семейные минивэны, где третий ряд вмещает взрослых, а багажник — чемоданы. Цены — от 1 000 000 ₫ в сутки.',
     ]),
     ('Kia Carnival для больших групп', [
-     'Kia Carnival — большой минивэн на 7–11 мест со сдвижными дверями. Подходит для трансфера большой семьи из аэропорта Камрань и поездок в Далат всей компанией. 2 100 000 ₫ в сутки.',
+     'Kia Carnival — большой минивэн на 7–11 мест со сдвижными дверями. Подходит для большой семьи и поездок в Далат всей компанией. 2 100 000 ₫ в сутки.',
     ]),
     ('Детские кресла и багаж', [
      'Если нужно детское кресло или место под крупный багаж (коляска, доски для сёрфинга), напишите об этом в заявке — подберём подходящую машину.',
@@ -209,7 +151,7 @@ PAGES = [
      'The Toyota Rush is a compact 7-seat SUV with high clearance, more confident on rough roads to the waterfalls. The Mitsubishi Xpander and Toyota Veloz are family minivans whose third row fits adults and whose boot takes suitcases. From 1,000,000 ₫ a day.',
     ]),
     ('Kia Carnival for big groups', [
-     'The Kia Carnival is a large 7–11-seat minivan with sliding doors — ideal for a big family transfer from Cam Ranh airport or a group trip to Da Lat. 2,100,000 ₫ a day.',
+     'The Kia Carnival is a large 7–11-seat minivan with sliding doors — ideal for a big family or a group trip to Da Lat. 2,100,000 ₫ a day.',
     ]),
     ('Child seats and luggage', [
      'If you need a child seat or room for bulky luggage (strollers, surfboards), mention it in your request and we will match the right car.',
@@ -447,7 +389,7 @@ PAGES = [
    'slug': 'arenda-sedana-nyachang',
    'link': 'Аренда седана в Нячанге',
    'title': 'Аренда седана в Нячанге — Kia Soluto, Mazda3, VinFast Lux A2.0 | VietAvto',
-   'desc': 'Аренда седана в Нячанге без водителя: экономичный Kia Soluto и Mazda3 от 900 000 ₫ в сутки, бизнес-седан VinFast Lux A2.0 за 1 200 000 ₫. Для пары, города и трансфера.',
+   'desc': 'Аренда седана в Нячанге без водителя: экономичный Kia Soluto и Mazda3 от 900 000 ₫ в сутки, бизнес-седан VinFast Lux A2.0 за 1 200 000 ₫. Для пары, города и поездок к морю.',
    'kw': 'аренда седана Нячанг, аренда легкового авто Нячанг, аренда Kia Soluto Нячанг, аренда Mazda3 Нячанг, аренда бизнес седана Нячанг, аренда VinFast Lux A2.0',
    'h1': 'Аренда седана в Нячанге',
    'lead': 'Седан — удобный и экономичный вариант для пары или небольшой семьи: мягко едет по трассе вдоль побережья, легко паркуется у пляжей и расходует мало топлива.',
@@ -456,7 +398,7 @@ PAGES = [
      'Kia Soluto — простой и экономичный седан 1.4 л, самый доступный бензиновый автомобиль в парке. Mazda3 — компактный седан с плотной подвеской и точным рулём, в котором поездка вдоль моря превращается в удовольствие. VinFast Lux A2.0 — флагманский бизнес-седан на платформе BMW 5-й серии с двигателем 2.0 турбо.',
     ]),
     ('Кому подходит седан', [
-     'Паре или семье из трёх человек, которые ездят по Нячангу, к пляжам Зоклет и Бай Дай и в аэропорт Камрань. Для трансфера, деловой встречи или особого случая — VinFast Lux A2.0.',
+     'Паре или семье из трёх человек, которые ездят по Нячангу, к пляжам Зоклет и Бай Дай. Для деловой встречи или особого случая — VinFast Lux A2.0.',
     ]),
     ('Цены', [
      'Kia Soluto и Mazda3 — 900 000 ₫ в сутки, VinFast Lux A2.0 — 1 200 000 ₫. На месяц и дольше — отдельная, более выгодная ставка.',
@@ -472,7 +414,7 @@ PAGES = [
    'slug': 'sedan-rental-nha-trang',
    'link': 'Sedan rental in Nha Trang',
    'title': 'Sedan Rental in Nha Trang — Kia Soluto, Mazda3, VinFast Lux A2.0 | VietAvto',
-   'desc': 'Self-drive sedan rental in Nha Trang: economical Kia Soluto and Mazda3 from 900,000 ₫ a day, VinFast Lux A2.0 executive sedan at 1,200,000 ₫. For couples, city driving and airport transfers.',
+   'desc': 'Self-drive sedan rental in Nha Trang: economical Kia Soluto and Mazda3 from 900,000 ₫ a day, VinFast Lux A2.0 executive sedan at 1,200,000 ₫. For couples, city driving and beach trips.',
    'kw': 'sedan rental Nha Trang, car hire Nha Trang sedan, Kia Soluto rental, Mazda3 rental Nha Trang, executive car rental Nha Trang, VinFast Lux A2.0 rental',
    'h1': 'Sedan Rental in Nha Trang',
    'lead': 'A sedan is a comfortable, economical choice for a couple or small family: smooth on the coastal highway, easy to park at the beach and light on fuel.',
@@ -481,7 +423,7 @@ PAGES = [
      'The Kia Soluto is a simple, economical 1.4 L sedan — the most affordable petrol car in the fleet. The Mazda3 is a compact sedan with firm suspension and precise steering that makes the coastal road a pleasure. The VinFast Lux A2.0 is a flagship executive sedan on the BMW 5 Series platform with a 2.0 turbo engine.',
     ]),
     ('Who a sedan suits', [
-     'Couples or a family of three driving around Nha Trang, to Doc Let and Bai Dai beaches and to Cam Ranh airport. For a transfer, a business meeting or a special occasion — the VinFast Lux A2.0.',
+     'Couples or a family of three driving around Nha Trang, to Doc Let and Bai Dai beaches. For a business meeting or a special occasion — the VinFast Lux A2.0.',
     ]),
     ('Prices', [
      'Kia Soluto and Mazda3 — 900,000 ₫ a day, VinFast Lux A2.0 — 1,200,000 ₫. A month or longer gets a separate, better rate.',
@@ -501,7 +443,7 @@ PAGES = [
    'slug': 'gde-snyat-avtomobil-v-nyachange',
    'link': 'Где снять автомобиль в Нячанге',
    'title': 'Где снять автомобиль в Нячанге: авто в аренду напрямую, без посредников | VietAvto',
-   'desc': 'Где снять автомобиль в аренду в Нячанге: агрегаторы, прокатные конторы или владелец парка — плюсы и минусы. Авто в аренду напрямую от 700 000 ₫ в сутки с доставкой в отель и аэропорт Камрань.',
+   'desc': 'Где снять автомобиль в аренду в Нячанге: агрегаторы, прокатные конторы или владелец парка — плюсы и минусы. Авто в аренду напрямую от 700 000 ₫ в сутки, выдача в Нячанге.',
    'kw': 'где снять автомобиль в Нячанге, авто в аренду Нячанг, автомобиль в аренду Нячанг, снять машину Нячанг, взять машину в аренду Нячанг, где арендовать авто в Нячанге, машина напрокат Нячанг',
    'h1': 'Где снять автомобиль в Нячанге',
    'lead': 'Снять машину в Нячанге можно тремя способами: через агрегатор, в прокатной конторе или напрямую у владельца автопарка. Разберём, чем они отличаются, и как взять авто в аренду без переплат.',
@@ -514,20 +456,20 @@ PAGES = [
     ]),
     ('Напрямую у владельца — VietAvto', [
      'Мы сдаём автомобили в аренду из собственного парка: VinFast, Toyota, Mitsubishi, Hyundai, Kia. Без посредников и комиссий, с реальными фото каждой машины и понятными условиями — депозит $200 или $400, 250 км в сутки с суммированием, возврат «бак в бак». Цена авто в аренду — от 700 000 ₫ в сутки.',
-     'Машину передаём в отеле, по адресу в Нячанге или в аэропорту Камрань. Заявку можно оставить на сайте или сразу написать в WhatsApp или Telegram.',
+     'Машину забираете у нас в Нячанге — адрес пришлём при бронировании. Заявку можно оставить на сайте или сразу написать в WhatsApp или Telegram.',
     ]),
    ],
    'faq': [
     ('Где лучше снять автомобиль в Нячанге?', 'Выгоднее всего — напрямую у владельца парка: без комиссии агрегатора и с понятными условиями заранее.'),
     ('Сколько стоит авто в аренду в Нячанге?', 'От 700 000 ₫ в сутки за VinFast VF3; седаны — от 900 000 ₫, 7-местные — от 1 000 000 ₫.'),
-    ('Можно снять машину с доставкой?', 'Да, передадим авто в отеле, по адресу в Нячанге или в аэропорту Камрань.'),
+    ('Где забрать машину?', 'У нас в Нячанге — адрес пришлём при бронировании.'),
    ],
   },
   'en': {
    'slug': 'where-to-rent-a-car-in-nha-trang',
    'link': 'Where to rent a car in Nha Trang',
    'title': 'Where to Rent a Car in Nha Trang: Direct Car Hire, No Middlemen | VietAvto',
-   'desc': 'Where to rent a car in Nha Trang: aggregators, local rental shops or a fleet owner — pros and cons. Cars for rent directly from 700,000 ₫ a day with delivery to your hotel or Cam Ranh airport.',
+   'desc': 'Where to rent a car in Nha Trang: aggregators, local rental shops or a fleet owner — pros and cons. Cars for rent directly from 700,000 ₫ a day, pick-up in Nha Trang.',
    'kw': 'where to rent a car in Nha Trang, car for rent Nha Trang, rent car Nha Trang, Nha Trang car hire, hire a car Nha Trang, rental cars Nha Trang, best car rental Nha Trang',
    'h1': 'Where to Rent a Car in Nha Trang',
    'lead': 'There are three ways to rent a car in Nha Trang: an online aggregator, a local rental shop, or directly from a fleet owner. Here is how they differ and how to hire a car without overpaying.',
@@ -540,13 +482,13 @@ PAGES = [
     ]),
     ('Directly from the owner — VietAvto', [
      'We rent cars from our own fleet: VinFast, Toyota, Mitsubishi, Hyundai and Kia. No middlemen and no commission, real photos of every car and clear terms — a $200 or $400 deposit, 250 km per day added up over the rental, same-fuel-level return. Cars for rent from 700,000 ₫ a day.',
-     'We hand over the car at your hotel, an address in Nha Trang or Cam Ranh airport. Send a request on the site or message us on WhatsApp or Telegram.',
+     'You pick the car up from us in Nha Trang — we send the address when you book. Send a request on the site or message us on WhatsApp or Telegram.',
     ]),
    ],
    'faq': [
     ('What is the best way to rent a car in Nha Trang?', 'Renting directly from a fleet owner is usually cheapest: no aggregator fee and clear terms upfront.'),
     ('How much does a rental car cost in Nha Trang?', 'From 700,000 ₫ a day for the VinFast VF3; sedans from 900,000 ₫, 7-seaters from 1,000,000 ₫.'),
-    ('Can the car be delivered?', 'Yes, to your hotel, an address in Nha Trang or Cam Ranh airport.'),
+    ('Where do I pick up the car?', 'From us in Nha Trang — we send the address when you book.'),
    ],
   },
  },

@@ -124,3 +124,17 @@ CARS = {
  'luxa': ('Sedan hạng sang', 'Sedan cao cấp của VinFast trên nền tảng BMW 5 Series — động cơ 2.0 turbo, nội thất hạng thương gia. Lựa chọn tốt nhất để đón tiễn sân bay Cam Ranh.'),
  'carnival': ('MPV, 7–11 chỗ', 'MPV gia đình cỡ lớn cho nhóm đến 11 người: khoang rộng, cửa trượt và nhiều chỗ để vali. Tiện cho đưa đón sân bay Cam Ranh và du lịch cả gia đình.'),
 }
+
+
+# --- no delivery (2026-09-29) ---
+S['meta_kw'] = ', '.join(k for k in S['meta_kw'].split(', ') if 'sân bay' not in k)
+S.update({
+ 'meta_desc': 'Cho thuê xe tự lái tại Nha Trang: VinFast, Toyota, Mitsubishi, Hyundai, Kia. Giá từ 700.000 ₫/ngày, giảm giá từ 5 ngày và theo tháng, cọc từ $200. Đặt xe online, trả lời qua WhatsApp và Telegram.',
+ 'about_p2': 'Giá thuê xe tự lái tại Nha Trang từ 700.000 ₫/ngày, thuê từ 5 ngày rẻ hơn, có giá riêng theo tháng. Tiền cọc $200 trong tỉnh và $400 khi đi khắp Việt Nam. Bạn nhận xe tại chỗ chúng tôi ở Nha Trang. Cần hộ chiếu, giấy phép lái xe quốc tế và bằng lái quốc gia.',
+ 'about_p4': 'Thuê xe ô tô ở Nha Trang ở đâu? Bạn có thể đặt qua các trang tổng hợp, cửa hàng cho thuê gần biển hoặc thuê trực tiếp từ chủ xe. VietAvto cho thuê xe trực tiếp tại Nha Trang: không phí trung gian, ảnh thật của từng xe, trả lời qua WhatsApp hoặc Telegram. Bạn nhận xe tại chỗ chúng tôi ở Nha Trang.',
+ 'a9': 'Ngay tại đây: chọn xe và ngày ở mẫu phía trên — bạn thuê trực tiếp từ chủ xe, không qua trung gian. Bạn nhận xe tại chỗ chúng tôi ở Nha Trang, địa chỉ sẽ gửi khi đặt xe.',
+ 'ft3_h': 'Nhận xe tại Nha Trang', 'ft3_p': 'Bạn nhận xe tại chỗ chúng tôi — địa chỉ sẽ gửi khi đặt xe.',
+ 'a4': 'Bạn nhận xe tại chỗ chúng tôi ở Nha Trang, địa chỉ cụ thể sẽ gửi sau khi đặt xe.',
+ 'f_place': 'Ghi chú (không bắt buộc)', 'f_place_ph': 'Ví dụ: cần ghế trẻ em',
+})
+JS.update({'m_place': 'Ghi chú: '})

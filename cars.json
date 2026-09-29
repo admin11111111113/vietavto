@@ -264,9 +264,9 @@
     "seats": 5,
     "gearbox": "auto",
     "fuel": "petrol",
-    "desc": "Флагманский седан VinFast на платформе BMW 5-й серии — 2.0 турбо, салон бизнес-класса. Лучший вариант для трансфера из Кам Ранг.",
-    "desc_en": "VinFast’s flagship sedan on the BMW 5 Series platform — 2.0 turbo, executive-class cabin. The best pick for a Cam Ranh airport transfer.",
-    "desc_vi": "Sedan cao cấp của VinFast trên nền tảng BMW 5 Series — động cơ 2.0 turbo, nội thất hạng thương gia. Lựa chọn tốt nhất để đón tiễn sân bay Cam Ranh.",
+    "desc": "Флагманский седан VinFast на платформе BMW 5-й серии — 2.0 турбо, салон бизнес-класса. Лучший выбор для деловых встреч и особых случаев.",
+    "desc_en": "VinFast’s flagship sedan on the BMW 5 Series platform — 2.0 turbo, executive-class cabin. The best pick for business meetings and special occasions.",
+    "desc_vi": "Sedan cao cấp của VinFast trên nền tảng BMW 5 Series — động cơ 2.0 turbo, nội thất hạng thương gia. Lựa chọn tốt nhất cho gặp gỡ công việc và dịp đặc biệt.",
     "photos": [
       "images/xforce.jpg"
     ],
@@ -285,10 +285,12 @@
     "seats": 0,
     "gearbox": "auto",
     "fuel": "",
-    "desc": "Большой семейный минивэн для компании до 11 человек: просторный салон, сдвижные двери и место под чемоданы. Удобен для трансфера из аэропорта Камрань и поездок всей семьёй.",
-    "desc_en": "A large family minivan for groups of up to 11: a roomy cabin, sliding doors and space for suitcases. Great for Cam Ranh airport transfers and family trips.",
-    "desc_vi": "MPV gia đình cỡ lớn cho nhóm đến 11 người: khoang rộng, cửa trượt và nhiều chỗ để vali. Tiện cho đưa đón sân bay Cam Ranh và du lịch cả gia đình.",
-    "photos": [],
+    "desc": "Большой семейный минивэн для компании до 11 человек: просторный салон, сдвижные двери и место под чемоданы. Удобен для поездок всей семьёй и большой компанией.",
+    "desc_en": "A large family minivan for groups of up to 11: a roomy cabin, sliding doors and space for suitcases. Great for family trips and big groups.",
+    "desc_vi": "MPV gia đình cỡ lớn cho nhóm đến 11 người: khoang rộng, cửa trượt và nhiều chỗ để vali. Tiện cho du lịch cả gia đình và nhóm đông.",
+    "photos": [
+      "images/carnival.jpg"
+    ],
     "price_month": 40000000,
     "price_3m": 38000000
   }
