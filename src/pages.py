@@ -183,7 +183,7 @@ PAGES = [
      'Просторнее VF3, 5 мест, запас хода около 300 км. Электромотор даёт хорошую тягу с места — удобно и в городе, и на трассе до пляжей Зоклет или залива Камрань. 800 000 ₫ в сутки.',
     ]),
     ('Как заряжать', [
-     'В Нячанге и по трассам Вьетнама работает сеть зарядных станций VinFast — на парковках торговых центров, отелей и заправок. При передаче машины покажем, как пользоваться зарядкой.',
+     'В Нячанге и по трассам Вьетнама работает сеть зарядных станций VinFast — на парковках торговых центров, отелей и заправок. Зарядка для наших клиентов бесплатная — вы платите только за аренду.',
     ]),
    ],
    'faq': [
@@ -208,7 +208,7 @@ PAGES = [
      'Roomier than the VF3, 5 seats and about 300 km of range. Instant electric torque makes it easy in town and on the road to Doc Let beach or Cam Ranh Bay. 800,000 ₫ a day.',
     ]),
     ('Charging', [
-     'VinFast runs a charging network in Nha Trang and along Vietnam’s highways — at malls, hotels and petrol stations. We show you how to use the chargers at hand-over.',
+     'VinFast runs a charging network in Nha Trang and along Vietnam’s highways — at malls, hotels and petrol stations. Charging is free for our customers — you only pay for the rental.',
     ]),
    ],
    'faq': [
@@ -512,12 +512,13 @@ PAGES = [
      'Для большинства бензиновых машин подходит RON95 (A95) — точный тип обычно указан на крышке бака. Не забудьте: машину возвращаете с тем же уровнем топлива, что при получении.',
     ]),
     ('Как зарядить электромобиль VinFast', [
-     'У VinFast своя сеть зарядных станций — на парковках торговых центров, отелей и у заправок, в Нячанге и вдоль трасс. Зарядка оплачивается через приложение VinFast. VF3 проходит около 210 км на одной зарядке, VF5 — около 300 км.',
+     'У VinFast своя сеть зарядных станций — на парковках торговых центров, отелей и у заправок, в Нячанге и вдоль трасс. Зарядка бесплатная — вы платите только за аренду машины. VF3 проходит около 210 км на одной зарядке, VF5 — около 300 км.',
     ]),
    ],
    'faq': [
     ('Какой бензин заливать?', 'Обычно RON95 (A95) — точный тип указан на крышке бензобака.'),
     ('Где зарядить VinFast VF3 или VF5?', 'На зарядных станциях VinFast — они отмечены на карте выше.'),
+    ('Нужно ли платить за зарядку?', 'Нет, зарядка бесплатная — вы платите только за аренду машины.'),
     ('Можно ли расплатиться картой на заправке?', 'На многих станциях — да, но лучше иметь с собой наличные донги.'),
    ],
   },
@@ -537,12 +538,13 @@ PAGES = [
      'Most petrol cars take RON95 (A95) — the exact type is usually marked on the fuel cap. Remember to return the car with the same fuel level you received.',
     ]),
     ('How to charge a VinFast EV', [
-     'VinFast runs its own charging network — at malls, hotels and petrol stations in Nha Trang and along the highways. Charging is paid through the VinFast app. The VF3 covers about 210 km per charge, the VF5 about 300 km.',
+     'VinFast runs its own charging network — at malls, hotels and petrol stations in Nha Trang and along the highways. Charging is free — you only pay for the rental. The VF3 covers about 210 km per charge, the VF5 about 300 km.',
     ]),
    ],
    'faq': [
     ('Which fuel should I use?', 'Usually RON95 (A95) — the exact type is marked on the fuel cap.'),
     ('Where can I charge a VinFast VF3 or VF5?', 'At VinFast charging stations — they are shown on the map above.'),
+    ('Do I pay for charging?', 'No, charging is free — you only pay for the rental.'),
     ('Can I pay by card at gas stations?', 'At many stations yes, but it is best to carry some cash in dong.'),
    ],
   },

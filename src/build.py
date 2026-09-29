@@ -388,7 +388,7 @@ def car_page(c, all_cars):
         ('Сколько стоит аренда %s в Нячанге?' % name, '%s ₫ в сутки, от 5 суток — %s ₫ в сутки, неделя — %s ₫. На месяц — отдельная ставка.' % (fp(p, 'ru'), fp(p - 50000, 'ru'), fp(7 * (p - 50000), 'ru'))),
         ('Можно поехать на %s в Далат?' % name, 'Да, с депозитом $400 для поездок по всему Вьетнаму.' + (' Электромобиль лучше подзарядить в дороге.' if ev else '')),
         ('Какие документы нужны для аренды?', 'Паспорт, международное водительское удостоверение (МВУ) и национальные права.'),
-      ],
+      ] + ([('Нужно ли платить за зарядку?', 'Нет, зарядка на станциях VinFast бесплатная — вы платите только за аренду.')] if ev else []),
     }
     en = {
       'slug': 'rent-%s-nha-trang' % s,
@@ -413,7 +413,7 @@ def car_page(c, all_cars):
         ('How much is a %s rental in Nha Trang?' % name, '%s ₫ per day, %s ₫ per day from 5 days, %s ₫ for a week. Monthly rentals get a separate rate.' % (fp(p, 'en'), fp(p - 50000, 'en'), fp(7 * (p - 50000), 'en'))),
         ('Can I drive the %s to Da Lat?' % name, 'Yes, with the $400 deposit for trips across Vietnam.' + (' Plan a charging stop for the EV.' if ev else '')),
         ('What documents do I need?', 'Your passport, an International Driving Permit (1968 Convention) and your national licence.'),
-      ],
+      ] + ([('Do I pay for charging?', 'No, charging at VinFast stations is free — you only pay for the rental.')] if ev else []),
     }
     return {'id': 'car-' + c['id'], 'cars': [c['id']] + related, 'ru': ru, 'en': en}
 
