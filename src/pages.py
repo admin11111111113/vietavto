@@ -117,16 +117,16 @@ PAGES = [
    'slug': 'arenda-miniven-7-mest-nyachang',
    'link': 'Аренда минивэна и 7-местного авто',
    'title': 'Аренда минивэна и 7-местного авто в Нячанге — для семьи и компании | VietAvto',
-   'desc': 'Аренда 7-местных авто и минивэнов в Нячанге без водителя: Toyota Rush, Veloz, Mitsubishi Xpander от 1 000 000 ₫, Kia Carnival на 7–11 мест. Для семьи, детей и больших компаний.',
+   'desc': 'Аренда 7-местных авто и минивэнов в Нячанге без водителя: Toyota Rush, Veloz, Mitsubishi Xpander от 1 000 000 ₫, Kia Carnival на 7 мест. Для семьи, детей и больших компаний.',
    'kw': 'аренда минивэна Нячанг, аренда 7 местного авто Нячанг, аренда авто для семьи Нячанг, аренда Kia Carnival Нячанг, аренда Xpander Нячанг, аренда большой машины Нячанг',
    'h1': 'Аренда минивэна и 7-местного авто в Нячанге',
-   'lead': 'Путешествуете семьёй или компанией? Вместо двух такси — одна просторная машина: 7-местные Toyota и Mitsubishi или Kia Carnival на 7–11 мест.',
+   'lead': 'Путешествуете семьёй или компанией? Вместо двух такси — одна просторная машина: 7-местные Toyota и Mitsubishi или просторный Kia Carnival на 7 мест.',
    'sections': [
     ('7-местные авто', [
      'Toyota Rush — компактный 7-местный внедорожник с высокой посадкой, увереннее на разбитых дорогах к водопадам. Mitsubishi Xpander и Toyota Veloz — семейные минивэны, где третий ряд вмещает взрослых, а багажник — чемоданы. Цены — от 1 000 000 ₫ в сутки.',
     ]),
     ('Kia Carnival для больших групп', [
-     'Kia Carnival — большой минивэн на 7–11 мест со сдвижными дверями. Подходит для большой семьи и поездок в Далат всей компанией. 2 100 000 ₫ в сутки.',
+     'Kia Carnival — большой 7-местный минивэн со сдвижными дверями и самым просторным салоном в парке. Подходит для большой семьи и поездок в Далат всей компанией. 2 100 000 ₫ в сутки.',
     ]),
     ('Детские кресла и багаж', [
      'Если нужно детское кресло или место под крупный багаж (коляска, доски для сёрфинга), напишите об этом в заявке — подберём подходящую машину.',
@@ -134,7 +134,7 @@ PAGES = [
    ],
    'faq': [
     ('Сколько человек помещается в Xpander?', '7 человек, третий ряд подходит и для взрослых.'),
-    ('Какая машина самая вместительная?', 'Kia Carnival — до 11 мест в зависимости от версии.'),
+    ('Какая машина самая просторная?', 'Kia Carnival — 7 мест, большой салон и багажник.'),
     ('Можно ехать на 7-местной машине в Далат?', 'Да, с депозитом $400 для поездок по всему Вьетнаму.'),
    ],
   },
@@ -142,16 +142,16 @@ PAGES = [
    'slug': '7-seater-minivan-rental-nha-trang',
    'link': '7-seater & minivan rental',
    'title': '7-Seater & Minivan Rental in Nha Trang — Family and Group Cars | VietAvto',
-   'desc': 'Self-drive 7-seater and minivan rental in Nha Trang: Toyota Rush, Veloz, Mitsubishi Xpander from 1,000,000 ₫ a day, Kia Carnival with 7–11 seats. For families, kids and groups.',
+   'desc': 'Self-drive 7-seater and minivan rental in Nha Trang: Toyota Rush, Veloz, Mitsubishi Xpander from 1,000,000 ₫ a day, Kia Carnival with 7 seats. For families, kids and groups.',
    'kw': '7 seater car rental Nha Trang, minivan rental Nha Trang, family car rental Nha Trang, Kia Carnival rental Nha Trang, Xpander rental Nha Trang, large car rental Vietnam',
    'h1': '7-Seater & Minivan Rental in Nha Trang',
-   'lead': 'Travelling as a family or group? One roomy car instead of two taxis: 7-seat Toyotas and Mitsubishis or the 7–11-seat Kia Carnival.',
+   'lead': 'Travelling as a family or group? One roomy car instead of two taxis: 7-seat Toyotas and Mitsubishis or the roomy 7-seat Kia Carnival.',
    'sections': [
     ('7-seat cars', [
      'The Toyota Rush is a compact 7-seat SUV with high clearance, more confident on rough roads to the waterfalls. The Mitsubishi Xpander and Toyota Veloz are family minivans whose third row fits adults and whose boot takes suitcases. From 1,000,000 ₫ a day.',
     ]),
     ('Kia Carnival for big groups', [
-     'The Kia Carnival is a large 7–11-seat minivan with sliding doors — ideal for a big family or a group trip to Da Lat. 2,100,000 ₫ a day.',
+     'The Kia Carnival is a large 7-seat minivan with sliding doors and the roomiest cabin in the fleet — ideal for a big family or a group trip to Da Lat. 2,100,000 ₫ a day.',
     ]),
     ('Child seats and luggage', [
      'If you need a child seat or room for bulky luggage (strollers, surfboards), mention it in your request and we will match the right car.',
@@ -159,7 +159,7 @@ PAGES = [
    ],
    'faq': [
     ('How many people fit in the Xpander?', '7 people; the third row fits adults too.'),
-    ('Which car is the largest?', 'The Kia Carnival — up to 11 seats depending on the version.'),
+    ('Which car is the roomiest?', 'The Kia Carnival — 7 seats with a large cabin and boot.'),
     ('Can I take a 7-seater to Da Lat?', 'Yes, with the $400 deposit for trips across Vietnam.'),
    ],
   },

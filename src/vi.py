@@ -6,7 +6,7 @@ S = {
  'a9': 'Ngay tại đây: chọn xe và ngày ở mẫu phía trên — bạn thuê trực tiếp từ chủ xe, không qua trung gian. Giao xe tại khách sạn, địa chỉ ở Nha Trang hoặc sân bay Cam Ranh.',
  'q10': 'Có thể thuê xe không cần cọc không?',
  'a10': 'Cần đặt cọc: $200 cho chuyến đi trong tỉnh Khánh Hòa và $400 cho toàn Việt Nam. Tiền cọc được hoàn lại nếu xe không hư hại và không có phạt.',
- 'about_p3': 'Tìm nơi thuê xe tự lái giá rẻ ở Nha Trang? Lựa chọn tiết kiệm nhất là xe điện VinFast VF3 giá 700.000 ₫/ngày và sedan Kia Soluto giá 900.000 ₫. Thuê từ một tháng trở lên có giá riêng, ưu đãi hơn. Gia đình và nhóm bạn có thể chọn Toyota Rush, Veloz, Mitsubishi Xpander 7 chỗ, nhóm đông hơn chọn Kia Carnival 7–11 chỗ.',
+ 'about_p3': 'Tìm nơi thuê xe tự lái giá rẻ ở Nha Trang? Lựa chọn tiết kiệm nhất là xe điện VinFast VF3 giá 700.000 ₫/ngày và sedan Kia Soluto giá 900.000 ₫. Thuê từ một tháng trở lên có giá riêng, ưu đãi hơn. Gia đình và nhóm bạn có thể chọn Toyota Rush, Veloz, Mitsubishi Xpander 7 chỗ, rộng rãi nhất là MPV Kia Carnival 7 chỗ.',
  'q7': 'Giá thuê xe tự lái ở Nha Trang bao nhiêu?',
  'a7': 'Từ 700.000 ₫/ngày với VinFast VF3 đến 2.100.000 ₫ với Kia Carnival. Sedan từ 900.000 ₫, xe 7 chỗ từ 1.000.000 ₫. Giá ghi trên từng xe ở trên.',
  'q8': 'Thuê xe theo tháng có rẻ hơn không?',
@@ -122,7 +122,7 @@ CARS = {
  'creta': ('SUV', 'SUV nhỏ gọn với các tính năng hỗ trợ lái hiện đại và tư thế ngồi cao — thoải mái cho những chuyến đi Đà Lạt.'),
  'xforce': ('SUV, 2024', 'Một trong những mẫu SUV mới nhất trong đội xe — đèn sắc nét, nền tảng mới, thực dụng như Creta.'),
  'luxa': ('Sedan hạng sang', 'Sedan cao cấp của VinFast trên nền tảng BMW 5 Series — động cơ 2.0 turbo, nội thất hạng thương gia. Lựa chọn tốt nhất để đón tiễn sân bay Cam Ranh.'),
- 'carnival': ('MPV, 7–11 chỗ', 'MPV gia đình cỡ lớn cho nhóm đến 11 người: khoang rộng, cửa trượt và nhiều chỗ để vali. Tiện cho đưa đón sân bay Cam Ranh và du lịch cả gia đình.'),
+ 'carnival': ('MPV 7 chỗ', 'MPV gia đình cỡ lớn 7 chỗ: khoang rộng, cửa trượt và nhiều chỗ để vali. Tiện cho đưa đón sân bay Cam Ranh và du lịch cả gia đình.'),
 }
 
 
