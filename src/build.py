@@ -326,6 +326,11 @@ def build_landing(page, lang):
         'guides': guides_html(lang, exclude=page['id']),
         'jsonld': json.dumps(ld, ensure_ascii=False).replace('</', '<\\/'),
         'style': style, 'header': header, 'footer': footer,
+        'maps': ('<section class="block"><div class="wrap">%s</div></section>' % ''.join(
+            '<div class="map-embed"><h2>%s</h2><iframe src="https://www.google.com/maps/embed?origin=mfe&amp;pb=%s!3m1!1s%s!5m1!1s%s" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="%s" allowfullscreen></iframe>'
+            '<a href="https://www.google.com/maps/search/%s" target="_blank" rel="noopener">%s →</a></div>'
+            % (esc(d['map_titles'][key]), pb, lang, lang, esc(d['map_titles'][key]), q, esc(d['open_map']))
+            for key, pb, q in page['maps'])) if page.get('maps') else '',
     })
     out = rd('src/landing.html')
     for _ in range(2):  # header/footer carry their own placeholders

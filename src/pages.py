@@ -492,4 +492,59 @@ PAGES = [
    ],
   },
  },
+ {
+  'id': 'fuel',
+  'cars': ['vf3', 'vf5', 'soluto', 'xpander'],
+  'maps': [('gas', '!1m2!2m1!1zY8OieSB4xINuZyBOaGEgVHJhbmc', 'c%C3%A2y+x%C4%83ng+Nha+Trang'), ('ev', '!1m2!2m1!1zdHLhuqFtIHPhuqFjIFZpbkZhc3QgTmhhIFRyYW5n', 'tr%E1%BA%A1m+s%E1%BA%A1c+VinFast+Nha+Trang')],
+  'ru': {
+   'slug': 'zapravki-i-elektrozaryadki-nyachang',
+   'link': 'Карта заправок и электрозарядок',
+   'title': 'Заправки и зарядки для электромобилей в Нячанге — карта АЗС и VinFast | VietAvto',
+   'desc': 'Карта всех заправок (АЗС) и зарядных станций VinFast в Нячанге. Какой бензин заливать, как заправляют во Вьетнаме и как зарядить электромобиль VF3 или VF5.',
+   'kw': 'заправки Нячанг, АЗС Нячанг карта, зарядка электромобиля Нячанг, зарядные станции VinFast Нячанг, где заправиться в Нячанге, бензин во Вьетнаме',
+   'h1': 'Заправки и электрозарядки в Нячанге',
+   'lead': 'Карты всех АЗС и зарядных станций VinFast в Нячанге и окрестностях — чтобы быстро заправить машину или зарядить электромобиль.',
+   'map_titles': {'gas': 'Заправки (АЗС) в Нячанге', 'ev': 'Зарядные станции VinFast в Нячанге'},
+   'open_map': 'Открыть в Google Картах',
+   'sections': [
+    ('Как заправляться во Вьетнаме', [
+     'На заправках во Вьетнаме обычно работает заправщик: назовите тип топлива и сумму или скажите «full» — полный бак. Самые распространённые сети — Petrolimex и PVOIL. Оплата наличными, на многих станциях — картой или по QR-коду.',
+     'Для большинства бензиновых машин подходит RON95 (A95) — точный тип обычно указан на крышке бака. Не забудьте: машину возвращаете с тем же уровнем топлива, что при получении.',
+    ]),
+    ('Как зарядить электромобиль VinFast', [
+     'У VinFast своя сеть зарядных станций — на парковках торговых центров, отелей и у заправок, в Нячанге и вдоль трасс. Зарядка оплачивается через приложение VinFast. VF3 проходит около 210 км на одной зарядке, VF5 — около 300 км.',
+    ]),
+   ],
+   'faq': [
+    ('Какой бензин заливать?', 'Обычно RON95 (A95) — точный тип указан на крышке бензобака.'),
+    ('Где зарядить VinFast VF3 или VF5?', 'На зарядных станциях VinFast — они отмечены на карте выше.'),
+    ('Можно ли расплатиться картой на заправке?', 'На многих станциях — да, но лучше иметь с собой наличные донги.'),
+   ],
+  },
+  'en': {
+   'slug': 'gas-stations-ev-charging-nha-trang',
+   'link': 'Gas stations & EV chargers map',
+   'title': 'Gas Stations & EV Charging in Nha Trang — Map of Fuel and VinFast Chargers | VietAvto',
+   'desc': 'Map of all gas stations and VinFast charging stations in Nha Trang. Which fuel to use, how refuelling works in Vietnam and how to charge a VF3 or VF5.',
+   'kw': 'gas station Nha Trang, petrol station Nha Trang map, EV charging Nha Trang, VinFast charging station Nha Trang, refuel in Vietnam',
+   'h1': 'Gas Stations & EV Charging in Nha Trang',
+   'lead': 'Maps of every gas station and VinFast charging station in and around Nha Trang — to refuel quickly or charge your EV.',
+   'map_titles': {'gas': 'Gas stations in Nha Trang', 'ev': 'VinFast charging stations in Nha Trang'},
+   'open_map': 'Open in Google Maps',
+   'sections': [
+    ('How refuelling works in Vietnam', [
+     'Most gas stations in Vietnam have an attendant: tell them the fuel type and the amount, or say “full”. The main chains are Petrolimex and PVOIL. You pay in cash, and many stations also take cards or QR payments.',
+     'Most petrol cars take RON95 (A95) — the exact type is usually marked on the fuel cap. Remember to return the car with the same fuel level you received.',
+    ]),
+    ('How to charge a VinFast EV', [
+     'VinFast runs its own charging network — at malls, hotels and petrol stations in Nha Trang and along the highways. Charging is paid through the VinFast app. The VF3 covers about 210 km per charge, the VF5 about 300 km.',
+    ]),
+   ],
+   'faq': [
+    ('Which fuel should I use?', 'Usually RON95 (A95) — the exact type is marked on the fuel cap.'),
+    ('Where can I charge a VinFast VF3 or VF5?', 'At VinFast charging stations — they are shown on the map above.'),
+    ('Can I pay by card at gas stations?', 'At many stations yes, but it is best to carry some cash in dong.'),
+   ],
+  },
+ },
 ]
