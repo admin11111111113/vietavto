@@ -138,3 +138,13 @@ S.update({
  'f_place': 'Ghi chú (không bắt buộc)', 'f_place_ph': 'Ví dụ: cần ghế trẻ em',
 })
 JS.update({'m_place': 'Ghi chú: '})
+
+# --- pick-up location will be added later: say nothing about it for now ---
+S.update({
+ 'about_p2': 'Giá thuê xe tự lái tại Nha Trang từ 700.000 ₫/ngày, thuê từ 5 ngày rẻ hơn, có giá riêng theo tháng. Tiền cọc $200 trong tỉnh và $400 khi đi khắp Việt Nam. Cần hộ chiếu, giấy phép lái xe quốc tế và bằng lái quốc gia.',
+ 'about_p4': 'Thuê xe ô tô ở Nha Trang ở đâu? Bạn có thể đặt qua các trang tổng hợp, cửa hàng cho thuê gần biển hoặc thuê trực tiếp từ chủ xe. VietAvto cho thuê xe trực tiếp tại Nha Trang: không phí trung gian, ảnh thật của từng xe, trả lời qua WhatsApp hoặc Telegram.',
+ 'a9': 'Ngay tại đây: chọn xe và ngày ở mẫu phía trên — bạn thuê trực tiếp từ chủ xe, không qua trung gian.',
+ 'ft3_h': 'Giảm giá thuê dài ngày', 'ft3_p': 'Từ 5 ngày rẻ hơn, có giá riêng theo tháng và từ 3 tháng.',
+ 'q4': 'Có thể gia hạn thuê không?', 'a4': 'Được, bạn chỉ cần nhắn cho chúng tôi trước khi hết hạn thuê.',
+ 'cta_p': 'Gửi mẫu xe và ngày — chúng tôi chọn xe còn sẵn cho bạn.',
+})
