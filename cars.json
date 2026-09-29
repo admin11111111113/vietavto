@@ -59,8 +59,8 @@
     "photos": [
       "images/soluto.jpg"
     ],
-    "price_month": 16000000,
-    "price_3m": 15000000
+    "price_month": 17000000,
+    "price_3m": 16000000
   },
   {
     "id": "mazda3",
@@ -144,8 +144,8 @@
     "photos": [
       "images/rush.jpg"
     ],
-    "price_month": 18000000,
-    "price_3m": 17000000
+    "price_month": 19000000,
+    "price_3m": 18000000
   },
   {
     "id": "xpander",
@@ -228,8 +228,8 @@
     "photos": [
       "images/creta.jpg"
     ],
-    "price_month": 21000000,
-    "price_3m": 20000000
+    "price_month": 22000000,
+    "price_3m": 21000000
   },
   {
     "id": "xforce",
@@ -249,8 +249,8 @@
     "photos": [
       "images/veloz.jpg"
     ],
-    "price_month": 21000000,
-    "price_3m": 20000000
+    "price_month": 22000000,
+    "price_3m": 21000000
   },
   {
     "id": "luxa",
@@ -270,8 +270,8 @@
     "photos": [
       "images/xforce.jpg"
     ],
-    "price_month": 21000000,
-    "price_3m": 20000000
+    "price_month": 23000000,
+    "price_3m": 22000000
   },
   {
     "id": "carnival",
@@ -291,7 +291,7 @@
     "photos": [
       "images/carnival.jpg"
     ],
-    "price_month": 40000000,
-    "price_3m": 38000000
+    "price_month": 42000000,
+    "price_3m": 40000000
   }
 ]
