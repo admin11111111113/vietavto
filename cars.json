@@ -82,11 +82,53 @@
       "images/mazda3-2.jpg"
     ],
     "price_month": 18000000,
-    "price_3m": 0
+    "price_3m": 17000000
+  },
+  {
+    "id": "cerato",
+    "name": "Kia Cerato",
+    "price": 900000,
+    "price_month": 18000000,
+    "price_3m": 17000000,
+    "seats": 5,
+    "fuel": "petrol",
+    "gearbox": "",
+    "photos": [
+      "images/cerato.jpg"
+    ],
+    "hidden": false,
+    "cls": "Хэтчбек",
+    "cls_en": "Hatchback",
+    "cls_vi": "Hatchback",
+    "desc": "Стильный хэтчбек Kia с просторным салоном и вместительным багажником. Экономичный и динамичный — хороший выбор для пары или небольшой семьи.",
+    "desc_en": "A stylish Kia hatchback with a roomy cabin and a practical boot — economical yet lively, a good choice for a couple or a small family.",
+    "desc_vi": "Hatchback Kia phong cách, khoang rộng và cốp tiện dụng — tiết kiệm mà vẫn linh hoạt, phù hợp cho cặp đôi hoặc gia đình nhỏ.",
+    "order": 5
+  },
+  {
+    "id": "kona",
+    "name": "Hyundai Kona",
+    "price": 900000,
+    "price_month": 18000000,
+    "price_3m": 17000000,
+    "seats": 5,
+    "fuel": "petrol",
+    "gearbox": "auto",
+    "photos": [
+      "images/kona.jpg"
+    ],
+    "hidden": false,
+    "cls": "Кроссовер",
+    "cls_en": "Crossover",
+    "cls_vi": "SUV",
+    "desc": "Компактный городской кроссовер с яркой внешностью и высокой посадкой. Удобно маневрировать в Нячанге и уверенно ехать по загородным дорогам к пляжам и водопадам.",
+    "desc_en": "A compact city crossover with bold styling and a high seating position — easy to manoeuvre in Nha Trang and confident on the roads to beaches and waterfalls.",
+    "desc_vi": "SUV đô thị nhỏ gọn, kiểu dáng nổi bật và tư thế ngồi cao — dễ xoay xở trong Nha Trang và vững vàng trên đường ra biển, thác nước.",
+    "order": 6
   },
   {
     "id": "rush",
-    "order": 5,
+    "order": 7,
     "hidden": false,
     "name": "Toyota Rush",
     "cls": "7-местный SUV",
@@ -107,7 +149,7 @@
   },
   {
     "id": "xpander",
-    "order": 6,
+    "order": 8,
     "hidden": false,
     "name": "Mitsubishi Xpander",
     "cls": "7-местный минивэн",
@@ -124,11 +166,11 @@
       "images/xpander.jpg"
     ],
     "price_month": 21000000,
-    "price_3m": 0
+    "price_3m": 20500000
   },
   {
     "id": "veloz",
-    "order": 7,
+    "order": 9,
     "hidden": false,
     "name": "Toyota Veloz",
     "cls": "7-местный минивэн",
@@ -145,11 +187,32 @@
       "images/luxa.jpg"
     ],
     "price_month": 21000000,
-    "price_3m": 0
+    "price_3m": 20500000
+  },
+  {
+    "id": "carens",
+    "name": "Kia Carens",
+    "price": 1100000,
+    "price_month": 21000000,
+    "price_3m": 20500000,
+    "seats": 7,
+    "fuel": "petrol",
+    "gearbox": "",
+    "photos": [
+      "images/carens.jpg"
+    ],
+    "hidden": false,
+    "cls": "7-местный минивэн",
+    "cls_en": "7-seat minivan",
+    "cls_vi": "MPV 7 chỗ",
+    "desc": "Современный 7-местный минивэн Kia: три ряда сидений, высокая посадка и место для багажа. Для семьи с детьми и поездок компанией.",
+    "desc_en": "A modern 7-seat Kia minivan with three rows, a high seating position and room for luggage — for families with kids and group trips.",
+    "desc_vi": "MPV 7 chỗ hiện đại của Kia: ba hàng ghế, tư thế ngồi cao và chỗ để hành lý — cho gia đình có trẻ nhỏ và đi nhóm.",
+    "order": 10
   },
   {
     "id": "creta",
-    "order": 8,
+    "order": 11,
     "hidden": false,
     "name": "Hyundai Creta",
     "cls": "Кроссовер",
@@ -170,7 +233,7 @@
   },
   {
     "id": "xforce",
-    "order": 9,
+    "order": 12,
     "hidden": false,
     "name": "Mitsubishi Xforce",
     "cls": "Кроссовер, 2024",
@@ -191,7 +254,7 @@
   },
   {
     "id": "luxa",
-    "order": 10,
+    "order": 13,
     "hidden": false,
     "name": "VinFast Lux A2.0",
     "cls": "Бизнес-седан",
@@ -212,7 +275,7 @@
   },
   {
     "id": "carnival",
-    "order": 11,
+    "order": 14,
     "hidden": false,
     "name": "Kia Carnival",
     "cls": "Минивэн, 7–11 мест",
@@ -226,7 +289,7 @@
     "desc_en": "A large family minivan for groups of up to 11: a roomy cabin, sliding doors and space for suitcases. Great for Cam Ranh airport transfers and family trips.",
     "desc_vi": "MPV gia đình cỡ lớn cho nhóm đến 11 người: khoang rộng, cửa trượt và nhiều chỗ để vali. Tiện cho đưa đón sân bay Cam Ranh và du lịch cả gia đình.",
     "photos": [],
-    "price_month": 0,
-    "price_3m": 0
+    "price_month": 40000000,
+    "price_3m": 38000000
   }
 ]
