@@ -86,6 +86,10 @@ h1,h2,h3{margin:0;letter-spacing:-.02em;text-wrap:balance;}
   transition:background .15s,border-color .15s,transform .15s;
 }
 .btn:hover{border-color:#44474e;}
+.contract-dl{margin-top:16px;padding:18px;border:1px solid var(--line);border-radius:14px;}
+.contract-dl .k{font-weight:700;font-size:17px;}
+.contract-dl .v{color:var(--muted);margin:4px 0 12px;font-size:14px;}
+.contract-dl .btns{display:flex;gap:10px;flex-wrap:wrap;}
 .btn-accent{background:var(--accent);border-color:var(--accent);color:#fff;}
 .btn-accent:hover{background:var(--accent-2);border-color:var(--accent-2);}
 .btn-outline-accent{border-color:var(--accent);color:var(--accent);}
@@ -405,6 +409,7 @@ footer .logo svg{width:24px;height:24px;}
 {{terms_html}}
     </div>
     <div class="term road"><div class="k">{{road_k}}</div><div class="v">{{road_v}}</div></div>
+    <div class="contract-dl"><div class="k">{{ctr_k}}</div><div class="v">{{ctr_v}}</div><div class="btns"><a class="btn btn-outline-accent" href="/docs/dogovor-arendy-vietavto-ru-vi.pdf" target="_blank" rel="noopener" download>📄 {{ctr_ruvi}}</a> <a class="btn btn-outline-accent" href="/docs/dogovor-arendy-vietavto-ru-en.pdf" target="_blank" rel="noopener" download>📄 {{ctr_ruen}}</a></div></div>
   </div>
 </section>
 
