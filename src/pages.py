@@ -237,13 +237,13 @@ PAGES = [
      'Для горной дороги удобнее кроссовер с высокой посадкой: Hyundai Creta или Mitsubishi Xforce. Если едете семьёй — 7-местные Toyota Rush или Veloz. Электромобилю лучше подзарядиться в дороге.',
     ]),
     ('Условия для поездки', [
-     'Поездки за пределы провинции Кхань Хоа — с депозитом $400: $200 возвращаем сразу при сдаче, остальные $200 — через месяц. Лимит 250 км в сутки суммируется за весь срок: поездка туда и обратно (около 270 км) за двое суток укладывается в лимит.',
+     'Поездки за пределы провинции Кхань Хоа — с депозитом $400: $200 возвращаем сразу при сдаче машины, остальные $200 — через месяц: штрафы с камер из других провинций приходят с задержкой. Если вы к тому времени уедете — ничего страшного, переведём деньги рублями. Лимит 250 км в сутки суммируется за весь срок: поездка туда и обратно (около 270 км) за двое суток укладывается в лимит.',
     ]),
    ],
    'faq': [
     ('Сколько километров от Нячанга до Далата?', 'Около 135 км по перевалу Кхань Ле.'),
     ('Сколько ехать?', '3–3,5 часа с учётом серпантина, с остановками — больше.'),
-    ('Какой депозит для поездки в Далат?', '$400 — для поездок за пределы провинции Кхань Хоа.'),
+    ('Какой депозит для поездки в Далат?', '$400 — для поездок за пределы провинции Кхань Хоа: $200 возвращаем сразу при сдаче машины, остальные $200 — через месяц: штрафы с камер из других провинций приходят с задержкой. Если вы к тому времени уедете — ничего страшного, переведём деньги рублями.'),
    ],
   },
   'en': {
@@ -262,13 +262,13 @@ PAGES = [
      'A crossover with good clearance is most comfortable on the mountain road: the Hyundai Creta or Mitsubishi Xforce. Families can take the 7-seat Toyota Rush or Veloz. With an EV, plan a charging stop.',
     ]),
     ('Rental terms for the trip', [
-     'Trips outside Khanh Hoa province need the $400 deposit: $200 back on return, the other $200 after a month. The 250 km per day limit adds up over the rental, so a round trip (about 270 km) over two days fits within it.',
+     'Trips outside Khanh Hoa province need the $400 deposit: $200 back when you return the car, the other $200 after a month — camera fines from other provinces arrive late. If you have already left by then, no problem: we will transfer it in rubles. The 250 km per day limit adds up over the rental, so a round trip (about 270 km) over two days fits within it.',
     ]),
    ],
    'faq': [
     ('How far is Da Lat from Nha Trang?', 'About 135 km via the Khanh Le Pass.'),
     ('How long is the drive?', '3–3.5 hours including the switchbacks, longer with stops.'),
-    ('What deposit do I need for Da Lat?', '$400 — for trips outside Khanh Hoa province.'),
+    ('What deposit do I need for Da Lat?', '$400 — for trips outside Khanh Hoa province: $200 back when you return the car, the other $200 after a month — camera fines from other provinces arrive late. If you have already left by then, no problem: we will transfer it in rubles.'),
    ],
   },
  },
