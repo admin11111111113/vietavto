@@ -74,8 +74,8 @@ S = {
  'a2': ('$200 для поездок по провинции Кхань Хоа и $400 — по всему Вьетнаму. Депозит возвращается, если на машине нет повреждений и нет штрафов; иначе удерживается соразмерно. При депозите $400: $200 возвращаем сразу при сдаче машины, остальные $200 — через месяц: штрафы с камер из других провинций приходят с задержкой. Если вы к тому времени уедете — ничего страшного, переведём деньги рублями.',
         '$200 for trips within Khanh Hoa province and $400 for all of Vietnam. It is refunded if the car has no damage and there are no fines; otherwise the matching amount is withheld. With the $400 deposit: $200 back when you return the car, the other $200 after a month — camera fines from other provinces arrive late. If you have already left by then, no problem: we will transfer it in rubles.'),
  'q3': ('Можно поехать в Далат или дальше?', 'Can I drive to Da Lat or further?'),
- 'a3': ('Да, с депозитом $400 ($200 возвращаем сразу при сдаче машины, остальные $200 — через месяц). Лимит — 250 км в сутки и суммируется за весь срок: за 3 суток — 750 км. Каждый км сверх лимита — 5 000 ₫.',
-        'Yes, with the $400 deposit ($200 back when you return the car, the other $200 after a month). The limit is 250 km per day, added up over the whole rental: 3 days = 750 km. Each km over the limit is 5,000 ₫.'),
+ 'a3': ('Да, с депозитом $400: $200 возвращаем сразу при сдаче машины, остальные $200 — через месяц: штрафы с камер из других провинций приходят с задержкой. Если вы к тому времени уедете — ничего страшного, переведём деньги рублями. Лимит — 250 км в сутки и суммируется за весь срок: за 3 суток — 750 км. Каждый км сверх лимита — 5 000 ₫.',
+        'Yes, with the $400 deposit: $200 back when you return the car, the other $200 after a month — camera fines from other provinces arrive late. If you have already left by then, no problem: we will transfer it in rubles. The limit is 250 km per day, added up over the whole rental: 3 days = 750 km. Each km over the limit is 5,000 ₫.'),
  'q4': ('Где забрать машину?', 'Where do I pick up the car?'),
  'a4': ('Место передачи согласуем при бронировании: отель, адрес в Нячанге или аэропорт Камрань.',
         'We agree on the hand-over spot when you book: your hotel, an address in Nha Trang or Cam Ranh airport.'),
@@ -386,7 +386,7 @@ def car_page(c, all_cars):
                                          % (fp(c['price_month'], 'ru'), (', от 3 месяцев — %s ₫ в месяц' % fp(c['price_3m'], 'ru')) if c.get('price_3m') else '',
                                             fp(round(c['price_month'] / 30 / 1000) * 1000, 'ru')))
                                         if c.get('price_month') else 'Цену на месяц и дольше назовём по вашим датам — напишите нам в WhatsApp или Telegram.']),
-        ('Условия аренды', ['Депозит $200 для поездок по провинции Кхань Хоа или $400 — по всему Вьетнаму ($200 возвращаем сразу при сдаче машины, остальные $200 — через месяц). Документы: паспорт, международное водительское удостоверение (МВУ) и национальные права. Оплата — после осмотра машины, возврат — с тем же уровнем топлива. На 1 день машину можно взять с 7:00 до 19:00.']),
+        ('Условия аренды', ['Депозит $200 для поездок по провинции Кхань Хоа или $400 — по всему Вьетнаму: $200 возвращаем сразу при сдаче машины, остальные $200 — через месяц: штрафы с камер из других провинций приходят с задержкой. Если вы к тому времени уедете — ничего страшного, переведём деньги рублями. Документы: паспорт, международное водительское удостоверение (МВУ) и национальные права. Оплата — после осмотра машины, возврат — с тем же уровнем топлива. На 1 день машину можно взять с 7:00 до 19:00.']),
       ],
       'faq': [
         ('Сколько стоит аренда %s в Нячанге?' % name, '%s ₫ в сутки, от 5 суток — %s ₫ в сутки, неделя — %s ₫. На месяц — отдельная ставка.' % (fp(p, 'ru'), fp(p - 50000, 'ru'), fp(7 * (p - 50000), 'ru'))),
@@ -411,7 +411,7 @@ def car_page(c, all_cars):
                                         % (fp(c['price_month'], 'en'), (', from 3 months — %s ₫ a month' % fp(c['price_3m'], 'en')) if c.get('price_3m') else '',
                                            fp(round(c['price_month'] / 30 / 1000) * 1000, 'en')))
                                        if c.get('price_month') else 'For a month or longer we quote a price for your dates — message us on WhatsApp or Telegram.']),
-        ('Rental terms', ['Deposit $200 for trips within Khanh Hoa province or $400 across Vietnam ($200 back when you return the car, the other $200 after a month). Documents: passport, International Driving Permit (1968 Convention) and national licence. You pay after inspecting the car and return it with the same fuel level. One-day rentals run from 7:00 to 19:00.']),
+        ('Rental terms', ['Deposit $200 for trips within Khanh Hoa province or $400 across Vietnam: $200 back when you return the car, the other $200 after a month — camera fines from other provinces arrive late. If you have already left by then, no problem: we will transfer it in rubles. Documents: passport, International Driving Permit (1968 Convention) and national licence. You pay after inspecting the car and return it with the same fuel level. One-day rentals run from 7:00 to 19:00.']),
       ],
       'faq': [
         ('How much is a %s rental in Nha Trang?' % name, '%s ₫ per day, %s ₫ per day from 5 days, %s ₫ for a week. Monthly rentals get a separate rate.' % (fp(p, 'en'), fp(p - 50000, 'en'), fp(7 * (p - 50000), 'en'))),
