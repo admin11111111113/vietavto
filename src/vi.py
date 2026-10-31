@@ -1,6 +1,12 @@
 # Vietnamese strings for /vi/ — same keys as S / JS / TERMS in build.py.
 
 S = {
+ 'q11': 'Có ghế trẻ em không?',
+ 'a11': 'Có, chúng tôi cung cấp ghế ô tô cho trẻ em. Hãy ghi trong yêu cầu đặt xe — chúng tôi sẽ lắp sẵn trong xe.',
+ 'q12': 'Có được đi đường cao tốc thu phí không?',
+ 'a12': 'Được, xe của chúng tôi có thể đi đường thu phí. Khi kết thúc thuê, chúng tôi trừ vào tiền cọc đúng số phí đường đã bị trừ. Trên cao tốc giới hạn 90–120 km/h — hãy theo biển báo.',
+ 'q13': 'Giới hạn tốc độ là bao nhiêu?',
+ 'a13': 'Trên cao tốc thu phí 90–120 km/h, trong thành phố 40–60 km/h. Hãy xem biển báo: có nhiều camera, tiền phạt sẽ trừ vào tiền cọc.',
  'about_p4': 'Thuê xe ô tô ở Nha Trang ở đâu? Bạn có thể đặt qua các trang tổng hợp, cửa hàng cho thuê gần biển hoặc thuê trực tiếp từ chủ xe. VietAvto cho thuê xe trực tiếp tại Nha Trang: không phí trung gian, ảnh thật của từng xe, trả lời qua WhatsApp hoặc Telegram. Giao xe tại khách sạn hoặc sân bay Cam Ranh.',
  'q9': 'Thuê xe tự lái ở Nha Trang ở đâu?',
  'a9': 'Ngay tại đây: chọn xe và ngày ở mẫu phía trên — bạn thuê trực tiếp từ chủ xe, không qua trung gian. Giao xe tại khách sạn, địa chỉ ở Nha Trang hoặc sân bay Cam Ranh.',
@@ -49,7 +55,7 @@ S = {
  'ctr_ruvi': 'Tải hợp đồng Nga + Việt (PDF)',
  'ctr_ruen': 'Tải hợp đồng Nga + Anh (PDF)',
  'road_k': 'Khi lái xe',
- 'road_v': 'Tuân thủ luật giao thông<small>Chỉ đỗ xe ở nơi được phép, không vượt đèn đỏ, không chạy quá tốc độ và không lái xe khi đã uống rượu bia. Phạt nguội từ camera gửi về chủ xe và được trừ vào tiền cọc.</small>',
+ 'road_v': 'Tuân thủ luật giao thông<small>Chỉ đỗ xe ở nơi được phép, không vượt đèn đỏ và không lái xe khi đã uống rượu bia. Tốc độ: cao tốc thu phí 90–120 km/h, nội thành 40–60 km/h — theo biển báo. Được đi đường thu phí: phí đường trừ vào tiền cọc khi trả xe. Phạt nguội từ camera gửi về chủ xe và được trừ vào tiền cọc.</small>',
  'faq_h': 'Hỏi đáp',
  'q1': 'Có cần bằng lái quốc tế không?',
  'a1': 'Có. Để ký hợp đồng cần hộ chiếu, giấy phép lái xe quốc tế (IDP) và bằng lái xe quốc gia của bạn.',
@@ -111,6 +117,9 @@ TERMS = [
  ('Thanh toán', 'Sau khi kiểm tra xe<small>Bạn thanh toán sau khi ký hợp đồng và kiểm tra thân xe, nội thất.</small>'),
  ('Xăng', 'Cùng mức xăng<small>Trả xe với mức xăng như lúc nhận. Nếu ít hơn — bạn trả phần chênh lệch.</small>'),
  ('Hư hại và phạt', 'Trừ vào tiền cọc<small>Khi xe bị hư hại hoặc có phạt vi phạm giao thông, tiền cọc sẽ bị trừ tương ứng.</small>'),
+ ('Ghế trẻ em', 'Có cung cấp<small>Ghế ô tô cho trẻ em — ghi trong yêu cầu đặt xe, chúng tôi lắp sẵn trong xe.</small>'),
+ ('Đường thu phí', 'Được đi<small>Xe của chúng tôi được đi đường thu phí. Khi kết thúc thuê, trừ vào tiền cọc đúng số phí đường đã bị trừ.</small>'),
+ ('Tốc độ', 'Cao tốc 90–120, nội thành 40–60 km/h<small>Trên cao tốc thu phí giới hạn 90–120 km/h, trong thành phố 40–60 km/h. Hãy theo biển báo. Phạt nguội từ camera trừ vào tiền cọc.</small>'),
  ('Thuê theo tháng', 'Từ 15.000.000 ₫ mỗi tháng<small>Giá tháng ghi trên từng xe, từ 3 tháng còn rẻ hơn. Mẫu đặt xe tự tính giá.</small>'),
 ]
 

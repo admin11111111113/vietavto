@@ -129,7 +129,7 @@ PAGES = [
      'Kia Carnival — большой 7-местный минивэн со сдвижными дверями и самым просторным салоном в парке. Подходит для большой семьи и поездок в Далат всей компанией. 2 100 000 ₫ в сутки.',
     ]),
     ('Детские кресла и багаж', [
-     'Если нужно детское кресло или место под крупный багаж (коляска, доски для сёрфинга), напишите об этом в заявке — подберём подходящую машину.',
+     'Детское автомобильное кресло предоставляем — напишите в заявке, что оно нужно. Если нужно место под крупный багаж (коляска, доски для сёрфинга), тоже напишите — подберём подходящую машину. При необходимости доставим машину в любое место.',
     ]),
    ],
    'faq': [
@@ -154,7 +154,7 @@ PAGES = [
      'The Kia Carnival is a large 7-seat minivan with sliding doors and the roomiest cabin in the fleet — ideal for a big family or a group trip to Da Lat. 2,100,000 ₫ a day.',
     ]),
     ('Child seats and luggage', [
-     'If you need a child seat or room for bulky luggage (strollers, surfboards), mention it in your request and we will match the right car.',
+     'We provide a child car seat — just mention it in your request. If you need room for bulky luggage (strollers, surfboards), say so too and we will match the right car. If needed, we deliver the car anywhere.',
     ]),
    ],
    'faq': [
@@ -236,6 +236,9 @@ PAGES = [
     ('Какую машину взять', [
      'Для горной дороги удобнее кроссовер с высокой посадкой: Hyundai Creta или Mitsubishi Xforce. Если едете семьёй — 7-местные Toyota Rush или Veloz. Электромобилю лучше подзарядиться в дороге.',
     ]),
+    ('Платные дороги и скорость', [
+     'По платным дорогам на наших машинах ездить можно — по итогу аренды из депозита вычитаем столько, сколько списали за проезд. На платных трассах ограничение 90–120 км/ч, в городах и посёлках — 40–60 км/ч: смотрите на знаки, камер на трассах много.',
+    ]),
     ('Условия для поездки', [
      'Поездки за пределы провинции Кхань Хоа — с депозитом $400: $200 возвращаем сразу при сдаче машины, остальные $200 — через месяц: штрафы с камер из других провинций приходят с задержкой. Если вы к тому времени уедете — ничего страшного, переведём деньги рублями. Лимит 250 км в сутки суммируется за весь срок: поездка туда и обратно (около 270 км) за двое суток укладывается в лимит.',
     ]),
@@ -260,6 +263,9 @@ PAGES = [
     ]),
     ('Which car to choose', [
      'A crossover with good clearance is most comfortable on the mountain road: the Hyundai Creta or Mitsubishi Xforce. Families can take the 7-seat Toyota Rush or Veloz. With an EV, plan a charging stop.',
+    ]),
+    ('Toll roads and speed', [
+     'You can take our cars on toll roads — at the end of the rental we deduct from the deposit exactly what was charged for the tolls. The limit on toll expressways is 90–120 km/h, in towns and villages 40–60 km/h: follow the signs, there are many cameras on the highways.',
     ]),
     ('Rental terms for the trip', [
      'Trips outside Khanh Hoa province need the $400 deposit: $200 back when you return the car, the other $200 after a month — camera fines from other provinces arrive late. If you have already left by then, no problem: we will transfer it in rubles. The 250 km per day limit adds up over the rental, so a round trip (about 270 km) over two days fits within it.',
@@ -292,7 +298,7 @@ PAGES = [
      'Паспорт, национальное водительское удостоверение и МВУ. Оплата аренды — после подписания договора и осмотра машины, депозит — $200 или $400 в зависимости от маршрута.',
     ]),
     ('Правила на дороге', [
-     'Движение правостороннее. Соблюдайте скоростной режим и сигналы светофора, паркуйтесь только в разрешённых местах и не садитесь за руль после алкоголя — во Вьетнаме к этому очень строгое отношение. Штрафы с камер приходят владельцу машины и удерживаются из депозита.',
+     'Движение правостороннее. Соблюдайте скоростной режим и сигналы светофора, паркуйтесь только в разрешённых местах и не садитесь за руль после алкоголя — во Вьетнаме к этому очень строгое отношение. Ограничения скорости: на платных трассах 90–120 км/ч, в городе 40–60 км/ч — смотрите на знаки. По платным дорогам на наших машинах ездить можно: по итогу аренды из депозита вычитаем столько, сколько списали за проезд. Штрафы с камер приходят владельцу машины и удерживаются из депозита.',
     ]),
    ],
    'faq': [
@@ -318,7 +324,7 @@ PAGES = [
      'Your passport, national driving licence and a valid IDP. You pay after signing the agreement and inspecting the car; the deposit is $200 or $400 depending on your route.',
     ]),
     ('On the road', [
-     'Traffic drives on the right. Keep to speed limits and traffic lights, park only where allowed and never drink and drive — Vietnam is very strict about it. Camera fines reach the car owner and are taken from the deposit.',
+     'Traffic drives on the right. Keep to speed limits and traffic lights, park only where allowed and never drink and drive — Vietnam is very strict about it. Speed limits: 90–120 km/h on toll expressways, 40–60 km/h in town — follow the signs. Toll roads are allowed in our cars: at the end of the rental we deduct from the deposit exactly what was charged for the tolls. Camera fines reach the car owner and are taken from the deposit.',
     ]),
    ],
    'faq': [
