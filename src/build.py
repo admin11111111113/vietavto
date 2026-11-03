@@ -83,8 +83,8 @@ S = {
  'a5': ('Выберите машину и даты в форме вверху и нажмите «Оставить заявку» — мы напишем вам сами. Или сразу напишите нам в WhatsApp или Telegram.',
         'Pick a car and dates in the form above and press “Send request” — we’ll message you. Or write to us directly on WhatsApp or Telegram.'),
  'q6': ('Во сколько забрать и вернуть машину?', 'What are the pick-up and return times?'),
- 'a6': ('На 1 день — с 7:00 до 20:00 того же дня. На 2 дня и больше — возврат до 20:00 последнего дня аренды.',
-        'For 1 day — from 7:00 to 20:00 the same day. For 2 days or more — return by 20:00 on the last day.'),
+ 'a6': ('Машину выдаём с 7:00. Каждый день аренды заканчивается в 20:00: на 1 день — вернуть до 20:00 того же дня, на 2 дня — до 20:00 следующего дня, на 3 дня — до 20:00 через день и так далее. Пример: взяли в понедельник в 9:00 на 2 дня — вернуть во вторник до 20:00.',
+        'Pick-up from 7:00. Each rental day ends at 20:00: 1 day — return by 20:00 the same day, 2 days — by 20:00 the next day, 3 days — by 20:00 the day after, and so on. Example: pick up Monday 9:00 for 2 days — return Tuesday by 20:00.'),
  'q11': ('Есть ли детское кресло?', 'Do you have a child seat?'),
  'a11': ('Да, детское автомобильное кресло предоставляем. Напишите в заявке, что оно нужно, — поставим его в машину.',
         'Yes, we provide a child car seat. Mention it in your request and we will fit it in the car.'),
@@ -140,8 +140,8 @@ TERMS = [
   ('250 км в сутки<small>Лимит суммируется за весь срок: 3 суток — 750 км. Каждый км сверх лимита — 5 000 ₫.</small>',
    '250 km per day<small>The limit adds up over the rental: 3 days = 750 km. Each km over the limit is 5,000 ₫.</small>')),
  (('Время получения и сдачи', 'Pick-up & return'),
-  ('1 день: 7:00 — 20:00<small>На 2 дня и больше — вернуть до 20:00 последнего дня аренды.</small>',
-   '1 day: 7:00 — 20:00<small>For 2 days or more — return by 20:00 on the last day.</small>')),
+  ('Выдача с 7:00, возврат до 20:00<small>1 день — до 20:00 того же дня, 2 дня — до 20:00 следующего дня и так далее.</small>',
+   'Pick-up from 7:00, return by 20:00<small>1 day — by 20:00 the same day, 2 days — by 20:00 the next day, and so on.</small>')),
  (('Депозит по Кхань Хоа', 'Deposit — Khanh Hoa'),
   ('$200<small>Нячанг и окрестности. Возвращается при сдаче машины без повреждений.</small>',
    '$200<small>Nha Trang and around. Refunded when the car is returned undamaged.</small>')),
@@ -407,7 +407,7 @@ def car_page(c, all_cars):
                                          % (fp(c['price_month'], 'ru'), (', от 3 месяцев — %s ₫ в месяц' % fp(c['price_3m'], 'ru')) if c.get('price_3m') else '',
                                             fp(round(c['price_month'] / 30 / 1000) * 1000, 'ru')))
                                         if c.get('price_month') else 'Цену на месяц и дольше назовём по вашим датам — напишите нам в WhatsApp или Telegram.']),
-        ('Условия аренды', ['Депозит $200 для поездок по провинции Кхань Хоа или $400 — по всему Вьетнаму: $200 возвращаем сразу при сдаче машины, остальные $200 — через месяц: штрафы с камер из других провинций приходят с задержкой. Если вы к тому времени уедете — ничего страшного, переведём деньги рублями. Документы: паспорт, международное водительское удостоверение (МВУ) и национальные права. Оплата — после осмотра машины, возврат — с тем же уровнем топлива. На 1 день машину можно взять с 7:00 до 20:00.']),
+        ('Условия аренды', ['Депозит $200 для поездок по провинции Кхань Хоа или $400 — по всему Вьетнаму: $200 возвращаем сразу при сдаче машины, остальные $200 — через месяц: штрафы с камер из других провинций приходят с задержкой. Если вы к тому времени уедете — ничего страшного, переведём деньги рублями. Документы: паспорт, международное водительское удостоверение (МВУ) и национальные права. Оплата — после осмотра машины, возврат — с тем же уровнем топлива. На Выдача с 7:00, каждый день аренды — до 20:00: на 1 день вернуть до 20:00 того же дня, на 2 дня — до 20:00 следующего.']),
       ],
       'faq': [
         ('Сколько стоит аренда %s в Нячанге?' % name, '%s ₫ в сутки, от 5 суток — %s ₫ в сутки, неделя — %s ₫. На месяц — отдельная ставка.' % (fp(p, 'ru'), fp(p - 50000, 'ru'), fp(7 * (p - 50000), 'ru'))),
@@ -432,7 +432,7 @@ def car_page(c, all_cars):
                                         % (fp(c['price_month'], 'en'), (', from 3 months — %s ₫ a month' % fp(c['price_3m'], 'en')) if c.get('price_3m') else '',
                                            fp(round(c['price_month'] / 30 / 1000) * 1000, 'en')))
                                        if c.get('price_month') else 'For a month or longer we quote a price for your dates — message us on WhatsApp or Telegram.']),
-        ('Rental terms', ['Deposit $200 for trips within Khanh Hoa province or $400 across Vietnam: $200 back when you return the car, the other $200 after a month — camera fines from other provinces arrive late. If you have already left by then, no problem: we will transfer it in rubles. Documents: passport, International Driving Permit (1968 Convention) and national licence. You pay after inspecting the car and return it with the same fuel level. One-day rentals run from 7:00 to 20:00.']),
+        ('Rental terms', ['Deposit $200 for trips within Khanh Hoa province or $400 across Vietnam: $200 back when you return the car, the other $200 after a month — camera fines from other provinces arrive late. If you have already left by then, no problem: we will transfer it in rubles. Documents: passport, International Driving Permit (1968 Convention) and national licence. You pay after inspecting the car and return it with the same fuel level. Pick-up from 7:00; each rental day ends at 20:00: 1 day — return by 20:00 the same day, 2 days — by 20:00 the next day.']),
       ],
       'faq': [
         ('How much is a %s rental in Nha Trang?' % name, '%s ₫ per day, %s ₫ per day from 5 days, %s ₫ for a week. Monthly rentals get a separate rate.' % (fp(p, 'en'), fp(p - 50000, 'en'), fp(7 * (p - 50000), 'en'))),

@@ -68,7 +68,7 @@ S = {
  'q5': 'Đặt xe như thế nào?',
  'a5': 'Chọn xe và ngày ở mẫu phía trên rồi bấm «Gửi yêu cầu» — chúng tôi sẽ nhắn cho bạn. Hoặc nhắn trực tiếp qua WhatsApp hay Telegram.',
  'q6': 'Nhận và trả xe lúc mấy giờ?',
- 'a6': 'Thuê 1 ngày — từ 7:00 đến 20:00 cùng ngày. Thuê từ 2 ngày — trả xe trước 20:00 ngày cuối cùng.',
+ 'a6': 'Nhận xe từ 7:00. Mỗi ngày thuê kết thúc lúc 20:00: thuê 1 ngày — trả trước 20:00 cùng ngày, 2 ngày — trước 20:00 ngày hôm sau, 3 ngày — trước 20:00 ngày kế tiếp, v.v. Ví dụ: nhận thứ Hai lúc 9:00, thuê 2 ngày — trả thứ Ba trước 20:00.',
  'cta_h': 'Sẵn sàng lên đường?',
  'cta_p': 'Gửi mẫu xe và ngày — chúng tôi chọn xe còn sẵn và hẹn gặp tại Nha Trang.',
  'cta_book': 'Gửi yêu cầu', 'cta_wa': 'Nhắn qua WhatsApp', 'cta_tg': 'Nhắn qua Telegram',
@@ -110,7 +110,7 @@ JS = {
 TERMS = [
  ('Giảm giá từ 5 ngày', '−50.000 ₫ mỗi ngày<small>Thuê từ 5 ngày trở lên, mỗi ngày rẻ hơn 50.000 ₫: ví dụ 900.000 ₫ → 850.000 ₫.</small>'),
  ('Số km', '250 km mỗi ngày<small>Giới hạn được cộng dồn cho cả thời gian thuê: 3 ngày = 750 km. Mỗi km vượt giới hạn là 5.000 ₫.</small>'),
- ('Giờ nhận và trả xe', '1 ngày: 7:00 — 20:00<small>Thuê từ 2 ngày — trả xe trước 20:00 ngày cuối cùng.</small>'),
+ ('Giờ nhận và trả xe', 'Nhận từ 7:00, trả trước 20:00<small>1 ngày — trước 20:00 cùng ngày, 2 ngày — trước 20:00 ngày hôm sau, v.v.</small>'),
  ('Tiền cọc — Khánh Hòa', '$200<small>Nha Trang và khu vực lân cận. Hoàn lại khi trả xe không hư hại.</small>'),
  ('Tiền cọc — toàn Việt Nam', '$400<small>Hoàn $200 khi trả xe, $200 còn lại sau một tháng — phạt nguội từ camera có thể đến muộn.</small>'),
  ('Giấy tờ', 'Hộ chiếu + IDP + bằng lái quốc gia<small>Cần để ký hợp đồng thuê xe.</small>'),
