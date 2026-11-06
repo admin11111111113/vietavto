@@ -12,12 +12,12 @@ LOGO = ('<svg viewBox="0 0 32 32" fill="none" stroke="#E8622C" stroke-width="2.4
         '<circle cx="9" cy="22" r="2.2"/><circle cx="23" cy="22" r="2.2"/></svg>')
 
 S = {
- 'about_p4': ('Где снять автомобиль в Нячанге? Авто в аренду можно взять у агрегаторов, в прокатных конторах у пляжа или напрямую у владельца парка. VietAvto — это прямая аренда автомобиля в Нячанге: без комиссии посредника, с реальными фото каждой машины и ответом в WhatsApp или Telegram. Машину напрокат передаём в отеле или в аэропорту Камрань.', 'Where to rent a car in Nha Trang? You can book through aggregators, walk into a rental shop near the beach, or rent directly from a fleet owner. VietAvto is a direct car hire in Nha Trang: no middleman commission, real photos of every car and replies on WhatsApp or Telegram. We deliver your rental car to your hotel or Cam Ranh airport.'),
+ 'about_p4': ('Где снять автомобиль в Нячанге? Авто в аренду можно взять у агрегаторов, в прокатных конторах у пляжа или напрямую у владельца парка. ВьетАвто (VietAvto) — это прямая аренда автомобиля в Нячанге: без комиссии посредника, с реальными фото каждой машины и ответом в WhatsApp или Telegram. Машину напрокат передаём в отеле или в аэропорту Камрань.', 'Where to rent a car in Nha Trang? You can book through aggregators, walk into a rental shop near the beach, or rent directly from a fleet owner. VietAvto is a direct car hire in Nha Trang: no middleman commission, real photos of every car and replies on WhatsApp or Telegram. We deliver your rental car to your hotel or Cam Ranh airport.'),
  'q9': ('Где снять автомобиль в аренду в Нячанге?', 'Where can I rent a car in Nha Trang?'),
  'a9': ('Прямо здесь: выберите машину и даты в форме вверху — это аренда напрямую у владельца, без посредников. Передадим авто в отеле, по адресу в Нячанге или в аэропорту Камрань.', 'Right here: pick a car and dates in the form above — you rent directly from the owner, no middlemen. We hand over the car at your hotel, an address in Nha Trang or Cam Ranh airport.'),
  'q10': ('Можно взять авто в аренду без депозита?', 'Can I rent a car without a deposit?'),
  'a10': ('Депозит обязателен: $200 для поездок по провинции Кхань Хоа и $400 по всему Вьетнаму. Он возвращается, если на машине нет повреждений и нет штрафов.', 'A deposit is required: $200 for trips within Khanh Hoa province and $400 across Vietnam. It is refunded if the car has no damage and there are no fines.'),
- 'title': ('Аренда авто в Нячанге недорого — без водителя от 700 000 ₫/сутки | VietAvto', 'Cheap Car Rental in Nha Trang — Self-Drive from 700,000 ₫/day | VietAvto'),
+ 'title': ('Аренда авто в Нячанге 2026 — без водителя от 700 000 ₫/сутки | ВьетАвто (VietAvto)', 'Cheap Car Rental in Nha Trang — Self-Drive from 700,000 ₫/day | VietAvto'),
  'meta_desc': ('Аренда авто в Нячанге недорого и без водителя: VinFast, Toyota, Mitsubishi, Hyundai, Kia. От 700 000 ₫ в сутки, скидка на месяц, депозит от $200, доставка в отель или аэропорт Камрань. Заявка онлайн, ответ в WhatsApp и Telegram.', 'Cheap self-drive car rental in Nha Trang: VinFast, Toyota, Mitsubishi, Hyundai, Kia. From 700,000 ₫ per day, monthly discounts, deposit from $200, delivery to your hotel or Cam Ranh airport. Book online, reply on WhatsApp or Telegram.'),
  'meta_kw': ('аренда авто Нячанг, аренда машины Нячанг, прокат авто Нячанг, аренда авто Нячанг недорого, прокат машин Нячанг дешево, аренда авто Нячанг цены, аренда авто без водителя Нячанг, аренда авто посуточно Нячанг, аренда авто на месяц Нячанг, долгосрочная аренда авто Вьетнам, аренда авто аэропорт Камрань, аренда машины Камрань, аренда авто Вьетнам, прокат машин Вьетнам, аренда авто Кхань Хоа, аренда электромобиля VinFast Нячанг, аренда минивэна Нячанг, аренда 7-местного авто Нячанг, аренда авто для поездки в Далат, взять машину напрокат Нячанг, авто в аренду Нячанг, автомобиль в аренду Нячанг, где снять автомобиль в Нячанге, снять машину в Нячанге, взять авто в аренду Нячанг, арендовать машину в Нячанге, машина напрокат Нячанг, прокат автомобилей Нячанг, аренда автомобиля Нячанг, авто напрокат Вьетнам',
              'car rental Nha Trang, cheap car rental Nha Trang, rent a car Nha Trang, self-drive car hire Nha Trang, Nha Trang car hire prices, car rental Nha Trang without driver, Cam Ranh airport car rental, CXR airport car hire, monthly car rental Nha Trang, long-term car rental Vietnam, rent a car in Vietnam, Vietnam self-drive car rental, VinFast rental Nha Trang, electric car rental Nha Trang, 7-seater rental Nha Trang, minivan rental Nha Trang, SUV rental Nha Trang, car rental Nha Trang to Da Lat, Khanh Hoa car rental, car for rent Nha Trang, rent car Nha Trang, where to rent a car in Nha Trang, Nha Trang car hire, hire a car Nha Trang, rental cars Nha Trang, auto rental Nha Trang, car rental in Vietnam Nha Trang, rent a vehicle Nha Trang'),
@@ -212,13 +212,13 @@ def jsonld(lang, cars, vals):
     offers = [{'@type': 'Offer', 'name': c['name'], 'price': c['price'], 'priceCurrency': 'VND',
                'unitText': 'DAY'} for c in cars if not c.get('hidden') and c.get('price')]
     data = [
-      {'@context': 'https://schema.org', '@type': 'AutoRental', 'name': 'VietAvto', 'url': home,
+      {'@context': 'https://schema.org', '@type': 'AutoRental', 'name': 'VietAvto', 'alternateName': ['ВьетАвто', 'Вьет Авто', 'VietAvto Nha Trang'], 'url': home,
        'image': ORIGIN + '/images/luxa.jpg', 'logo': ORIGIN + '/apple-touch-icon.png',
        'description': vals['meta_desc'], 'telephone': '+79041188897',
        'address': {'@type': 'PostalAddress', 'addressLocality': 'Nha Trang', 'addressRegion': 'Khanh Hoa', 'addressCountry': 'VN'},
        'areaServed': ['Nha Trang', 'Khanh Hoa', 'Cam Ranh'],
        'openingHours': 'Mo-Su 07:00-20:00', 'priceRange': '700000-2100000 VND',
-       'sameAs': ['https://t.me/workminer', 'https://wa.me/79041188897'],
+       'sameAs': ['https://t.me/vietavto', 'https://t.me/workminer', 'https://wa.me/79041188897'],
        'makesOffer': offers},
       {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faq},
     ]
@@ -341,7 +341,7 @@ def build_landing(page, lang):
     vals.update({k: v[i] for k, v in LSTR.items()})
     vals.update({
         'lang': lang, 'origin': ORIGIN, 'home': HOME[lang], 'logo_svg': LOGO, 'lang_switch': switch,
-        'title': esc(d['title']), 'desc': esc(d['desc']), 'kw': esc(d['kw']), 'h1': esc(d['h1']), 'lead': esc(d['lead']),
+        'title': esc(d['title'].replace('| VietAvto', '| ВьетАвто') if lang == 'ru' else d['title']), 'desc': esc(d['desc']), 'kw': esc(d['kw']), 'h1': esc(d['h1']), 'lead': esc(d['lead']),
         'url': url,
         'alternates': '\n'.join('<link rel="alternate" hreflang="%s" href="%s">' % (l, landing_url(page, l)) for l in ('ru', 'en'))
                       + '\n<link rel="alternate" hreflang="x-default" href="%s">' % landing_url(page, 'ru'),
